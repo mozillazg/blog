@@ -1,0 +1,6 @@
+*.pyc
+/sanbox
+/themes
+/source
+/output
+*.swp
