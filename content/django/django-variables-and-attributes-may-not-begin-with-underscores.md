@@ -73,6 +73,6 @@ models 文件节选：
 
 ## 参考
 
-* <http://stackoverflow.com/questions/4279905/access-django-model-fields-label-and-help-text>
-* <http://stackoverflow.com/questions/6571649/model-name-of-objects-in-django-templates>
-* <https://docs.djangoproject.com/en/dev/howto/custom-template-tags/>
+* [access django model fields label and help_text - Stack Overflow](http://stackoverflow.com/questions/4279905/access-django-model-fields-label-and-help-text)
+* [Model name of objects in django templates - Stack Overflow](http://stackoverflow.com/questions/6571649/model-name-of-objects-in-django-templates)
+* [Custom template tags and filters | Django documentation | Django](https://docs.djangoproject.com/en/dev/howto/custom-template-tags/)

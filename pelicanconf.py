@@ -2,7 +2,7 @@
 
 AUTHOR = 'mozillazg'
 SITENAME = u"Mozillazg's Blog"
-SITEURL = 'http://mozillazg.github.com'
+SITEURL = 'http://mozillazg.com'
 SITEDESCRIPTION = u'Just another Pelican blog'
 
 
@@ -56,6 +56,7 @@ LINKS = (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
          )
 
 SOCIAL = (('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
+          ('About Me', 'http://about.me/mozillazg'),
           ('Fork me on GitHub', 'https://github.com/mozillazg'),
           )
 
