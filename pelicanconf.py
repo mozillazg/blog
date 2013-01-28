@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """Settings for pelican."""
 
 AUTHOR = 'mozillazg'
@@ -5,12 +8,23 @@ SITENAME = u"Mozillazg's Blog"
 SITEURL = 'http://mozillazg.com'
 SITEDESCRIPTION = u'Just another Pelican blog'
 
-
 # This can also be the absolute path to a theme that you downloaded
 # i.e. './themes/anothertheme/'
-# THEME = 'notmyidea'
-#THEME = './themes/bootstrap/'
-THEME = './themes/relapse/'
+THEME = 'notmyidea'
+# THEME = './themes/bootstrap/'
+# THEME = './themes/bootstrap2/'
+# THEME = './themes/tuxlite_tbs/'
+# THEME = './themes/relapse/'
+# THEME = './themes/syte/'
+PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.gravatar',]
+WEBASSETS = True
+ABOUT = u'宅（伪）&& Geek（伪）'
+SITE_DESCRIPTION = u'Just another Pelican blog'
+SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
+GITHUB_INTEGRATION_ENABLED = True
+GITHUB_USERNAME = 'mozillazg'
+GRAVATAR = u'https://en.gravatar.com/userimage/7906007/7f8709a4ab3a1398b46c628bb193900b.jpg'
+
 
 # The folder ``images`` should be copied into the folder ``static`` when
 # generating the output.
@@ -43,7 +57,7 @@ REVERSE_ARCHIVE_ORDER = True
 # Uncomment what ever you want to use
 #GOOGLE_ANALYTICS = 'XX-XXXXXXX-XX'
 DISQUS_SITENAME = 'my-github-blog'
-GITHUB_URL = 'http://github.com/mozillazg'
+GITHUB_URL = 'https://github.com/mozillazg'
 #TWITTER_USERNAME = 'username'
 GITHUB_POSITION = True
 

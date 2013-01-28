@@ -35,6 +35,7 @@ Slug: django-pagination-by-use-paginator
       <p>{{ topic.title }}</p>
     {% endfor %}
 
+    <!-- 第一种分页显示方式 -->
     <p>
       {# topics.paginator.page_range 这个函数返回包含一个所有页码数的 range 对象 #}
       {# 即 range(1, topics.paginator.num_pages + 1) #}
@@ -48,6 +49,7 @@ Slug: django-pagination-by-use-paginator
     </p>
 
 
+    <!-- 另一种分页显示方式 -->
     <p>
     {% if topics.has_previous %}
       <a href="?page={{ topics.previous_page_number }}">Previous</a>
