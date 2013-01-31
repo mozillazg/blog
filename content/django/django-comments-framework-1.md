@@ -155,7 +155,7 @@ comments form 包含如下字段：
 
 ![django-comments-form-02](/static/images/2013-1-28-django-comments-form-02.png)
 
-### 发表评论后的跳转回当前页面
+### 评论发表成功后跳转回当前页面
 只需在 form 中包含字段 "next" 即可：
 
     <input type="hidden" name="next" value="/topic/{{ topic.id }}"/>

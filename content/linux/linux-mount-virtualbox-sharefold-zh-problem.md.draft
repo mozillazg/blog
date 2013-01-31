@@ -1,0 +1,19 @@
+Title: [linux]解决挂载 virtualbox 共享文件夹时出现的中文乱码问题
+Date: 2013-01-31
+Tags: linux, virtualbox
+Slug: linux-mount-virtualbox-sharefold-zh-problem
+
+当在 linux 中挂载 windows 下的 virtualbox 共享文夹时，会出现中文文件夹显示乱码的情况：
+
+    $ sudo mount -t vboxsf -o iocharset=utf8 myblog blog
+    $ ls blog/content/
+    ??辫??
+
+这是因为 windows 下的文件名是按 gbk/gb2312 编码的，而 linux 下挂载时默认使用 utf8 编码。只需指定挂载时使用的编码即可：
+
+    mzg@mzg ~ $ sudo mount -t vboxsf myblog -o iocharset=gb2312 blog
+    mzg@mzg ~ $ ls blog/content/
+    ls: cannot access blog/content/英语: Invalid argument
+    英语
+
+    Mount FAT分区出现中文乱码和普通用户读写权限的解决办法 - 银河其霖 - 51CTO技术博客 http://kpjack.blog.51cto.com/627289/126573

@@ -45,7 +45,8 @@ DEFAULT_CATEGORY = 'Uncategorized'
 
 # I like to have ``Archives`` in the main menu.
 MENUITEMS = (
-    ('Archives', '{0}/archives.html'.format(SITEURL)),
+    ('Home', '/index.html'),
+    ('Archives', '/archives.html'),
 )
 
 DISPLAY_PAGES_ON_MENU = True
@@ -66,10 +67,11 @@ DEFAULT_LANG = u'zh'
 LINKS = (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
          ('Python.org', 'http://python.org'),
          ('Jinja2', 'http://jinja.pocoo.org'),
-         ('GitHub', 'https://github.com'),
+         # ('GitHub', 'https://github.com'),
          )
 
-SOCIAL = (('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
+SOCIAL = (
+          # ('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
           ('About Me', 'http://about.me/mozillazg'),
           ('Fork me on GitHub', 'https://github.com/mozillazg'),
           )
