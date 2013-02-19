@@ -32,7 +32,7 @@ windows + pelican 3.1 + python 2.6
 
 下面我们来修复这个错误。
 
-编辑文件 generators.py 进行一下两步操作即可：
+编辑文件 `C:\Python26\lib\site-packages\pelican\generators.py` 进行以下两步操作即可：
 
 1. 首先导入 sys 模块：`import sys`
 2. 然后编辑第 338 行左右的
@@ -42,10 +42,12 @@ windows + pelican 3.1 + python 2.6
    为
 
         category = os.path.basename(os.path.dirname(f))\
-            .decode(sys.stdin.encoding)
+                   .decode(sys.stdin.encoding)
    此处的修改是为了让程序使用系统默认的输入编码（简体中文版 Windows 下默认是 gbk）进行解码。
 
-进行相关修改后，再次执行 `pelican content -o output -s pelicanconf.py -D` 生成 html 文件，执行过程一切顺利。但也有一个不完美的地方：
+进行相关修改后，再次执行 `pelican content -o output -s pelicanconf.py -D` 生成 html 文件，执行过程一切顺利。
+
+但也有一个不完美的地方：
 
 ![](/static/images/2013-1-pelican-issue-01.png)
 
@@ -57,7 +59,7 @@ windows + pelican 3.1 + python 2.6
 继续编辑 generators.py 文件：
 
 1. 导入相关模块：`from pelican.utils import slugify` 。
-   这个模块的作用是将非 ASCII 字符转换为 ASCII 字符，比如将 `中国` 转换为 `zhong-guo`。
+   这个模块的作用是将非 ASCII 字符转换为 ASCII 字符，比如，将 `中国` 转换为 `zhong-guo` 。
 2. 将 199 行左右的
 
         for cat, arts in self.categories:

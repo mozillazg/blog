@@ -16,7 +16,13 @@ THEME = 'notmyidea'
 # THEME = './themes/tuxlite_tbs/'
 # THEME = './themes/relapse/'
 # THEME = './themes/syte/'
-PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.gravatar',]
+PLUGINS = ['pelican.plugins.assets',
+           'pelican.plugins.gravatar',
+           'pelican.plugins.github_activity',
+           'pelican.plugins.sitemap',
+           'pelican.plugins.related_posts',
+           ]
+
 WEBASSETS = True
 ABOUT = u'宅（伪）&& Geek（伪）'
 SITE_DESCRIPTION = u'Just another Pelican blog'
@@ -25,6 +31,7 @@ GITHUB_INTEGRATION_ENABLED = True
 GITHUB_USERNAME = 'mozillazg'
 GRAVATAR = u'https://en.gravatar.com/userimage/7906007/7f8709a4ab3a1398b46c628bb193900b.jpg'
 
+GITHUB_ACTIVITY_FEED = 'https://github.com/mozillazg.atom'
 
 # The folder ``images`` should be copied into the folder ``static`` when
 # generating the output.
@@ -56,7 +63,7 @@ DEFAULT_PAGINATION = 3
 REVERSE_ARCHIVE_ORDER = True
 
 # Uncomment what ever you want to use
-#GOOGLE_ANALYTICS = 'XX-XXXXXXX-XX'
+# GOOGLE_ANALYTICS = 'RbRRsoKca_Yxb_Zy0IRrXLtjKZlefx2qdKbP6Et9NeE'
 DISQUS_SITENAME = 'my-github-blog'
 GITHUB_URL = 'https://github.com/mozillazg'
 #TWITTER_USERNAME = 'username'
@@ -81,3 +88,5 @@ FILES_TO_COPY = (('extra/CNAME', 'CNAME'),
                  )
 
 USE_FOLDER_AS_CATEGORY = True
+
+SITEMAP = {'format': 'xml', }

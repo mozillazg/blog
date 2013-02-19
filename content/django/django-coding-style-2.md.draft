@@ -1,0 +1,49 @@
+
+
+
+## 可读性
+
+增强代码具有可读性：
+
+* 变量名避免使用缩写/简写
+* 写清调用函数的参数名称
+* 文档化类及方法
+* 可能的话，将重复的代码封装到函数或方法中
+
+关于代码可读性，可以参考 [编写可读代码的艺术](http://book.douban.com/subject/10797189/) 。
+
+## PEP 8
+
+代码遵循 Python 官方的 [PEP 8 风格指南](http://www.python.org/dev/peps/pep-0008/)（[中文版](http://wiki.woodpecker.org.cn/moin/PythonCodingRule)）
+
+如果是一个已经存在的项目的话，没必要将代码风格转换为 PEP 8 ，
+只需保持现有风格即可，重要的是统一风格（代码可读性）。
+
+
+## 导入模块
+
+模块导入顺序：
+
+* 标准库
+* 第三方模块
+* 自己的模块
+
+    import sys
+
+    from django import forms
+
+    import yourmodel
+
+导入当前包内的其他模块：
+
+    # cones/views.py
+
+    # Bad:
+    from cones.models import WaffleCone
+
+    # Good:
+    form .models import WaffleCone
+
+## Django 官方编码规范
+
+
