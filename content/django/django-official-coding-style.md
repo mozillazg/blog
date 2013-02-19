@@ -122,3 +122,30 @@ Slug: django-offical-coding-style
 
 模块不常用的设置项被储存在 `django.conf.settings` 中
 
+Modules should not in general use settings stored in `django.conf.settings` at the top level (i.e. evaluated when the module is imported). The explanation for this is as follows:
+
+Manual configuration of settings (i.e. not relying on the `DJANGO_SETTINGS_MODULE` environment variable) is allowed and possible as follows:
+
+    from django.conf import settings
+
+    settings.configure({}, SOME_SETTING='foo')
+
+However, if any setting is accessed before the settings.configure line, this will not work. (Internally, `settings` is a `LazyObject` which configures itself automatically when the settings are accessed if it has not already been configured).
+
+So, if there is a module containing some code as follows:
+
+    from django.conf import settings
+    from django.core.urlresolvers import get_callable
+
+    default_foo_view = get_callable(settings.FOO_VIEW)
+
+...then importing this module will cause the settings object to be configured. That means that the ability for third parties to import the module at the top level is incompatible with the ability to configure the settings object manually, or makes it very difficult in some circumstances.
+
+Instead of the above code, a level of laziness or indirection must be used, such as `django.utils.functional.LazyObject`, `django.utils.functional.lazy()` or `lambda`.
+
+### Miscellaneous
+
+* Mark all strings for internationalization; see the i18n documentation for details.
+* Remove import statements that are no longer used when you change code. The most common tools for this task are pyflakes and pylint.
+* Systematically remove all trailing whitespaces from your code as those add unnecessary bytes, add visual clutter to the patches and can also occasionally cause unnecessary merge conflicts. Some IDE’s can be configured to automatically remove them and most VCS tools can be set to highlight them in diff outputs. Note, however, that patches which only remove whitespace (or only make changes for nominal PEP 8 conformance) are likely to be rejected, since they only introduce noise rather than code improvement. Tidy up when you’re next changing code in the area.
+* Please don’t put your name in the code you contribute. Our policy is to keep contributors’ names in the AUTHORS file distributed with Django – not scattered throughout the codebase itself. Feel free to include a change to the AUTHORS file in your patch if you make more than a single trivial change.
