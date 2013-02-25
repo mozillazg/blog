@@ -85,6 +85,7 @@ SOCIAL = (
 
 FILES_TO_COPY = (('extra/CNAME', 'CNAME'),
                  ('extra/favicon.ico', 'favicon.ico'),
+                 ('extra/google37c30fbcbbc5f169.html', 'google37c30fbcbbc5f169.html'),
                  )
 
 USE_FOLDER_AS_CATEGORY = True

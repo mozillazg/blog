@@ -1,0 +1,37 @@
+Title: [database]MongoDB 初步接触
+Date: 2013-02-25
+Tags: MongoDB, 数据库
+Slug: geting-started-with-mongodb
+
+
+初步使用 MongoDB，记录一些常用操作。
+
+## 连接数据库
+
+使用 `mongo` 命令进入数据库终端，可以使用可选参数 `--port` 和 `--host` 指定主机及端口，默认连接 localhost 上监听 27017 端口的 MongoDB 数据库服务器。
+
+    mongo
+
+    mongo --host 192.168.200.3 --port 27018
+
+后面的命令都是 mongo 数据库终端命令。
+
+查看当前使用的数据库：
+
+    > db
+    test
+
+显示所有数据库：
+
+    > show dbs
+    local   (empty)
+    test    0.0625GB
+
+切换数据库：
+
+    > use local
+    switched to db local
+    > db
+    local
+
+使用 `help` 获取帮助。

@@ -22,12 +22,6 @@ Slug: django-deploying-with-apache-mode-wsgi
     |-- bb  # 应用
     |-- bbs  # settings.py wsgi.py
     |-- static  # 静态文件
-    |   |-- admin
-    |   |   |-- css
-    |   |   |-- img
-    |   |   |   `-- gis
-    |   |   `-- js
-    |   |       `-- admin
     |   `-- css
     `-- templates  # TEMPLATE_DIRS
 
@@ -37,6 +31,14 @@ Slug: django-deploying-with-apache-mode-wsgi
         '/var/www/bbs/templates',  # 这里要是绝对路径
     )
 
+配置 wsgi.py:
+
+    import os
+    import sys
+
+    sys.path.append('/var/www/bbs/')  # 项目目录的绝对路径
+
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bbs.settings")
 
 本例中使用 /var/www/bbs/static/ 保存静态文件，使用命令
 `python manage.py collectstatic` 收集静态文件，然后将输出的静态文件保存到

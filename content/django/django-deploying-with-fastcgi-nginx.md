@@ -24,12 +24,6 @@ $ sudo apt-get install nginx
     |-- bb  # 应用
     |-- bbs  # settings.py wsgi.py
     |-- static  # 静态文件
-    |   |-- admin
-    |   |   |-- css
-    |   |   |-- img
-    |   |   |   `-- gis
-    |   |   `-- js
-    |   |       `-- admin
     |   `-- css
     `-- templates  # TEMPLATE_DIRS
 
@@ -38,6 +32,15 @@ $ sudo apt-get install nginx
     TEMPLATE_DIRS = (
         '/var/www/bbs/templates',  # 这里要是绝对路径
     )
+
+配置 wsgi.py:
+
+    import os
+    import sys
+
+    sys.path.append('/var/www/bbs/')  # 项目目录的绝对路径
+
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bbs.settings")
 
 
 本例中使用 /var/www/bbs/static/ 保存静态文件，使用命令
