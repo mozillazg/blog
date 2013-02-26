@@ -33,6 +33,8 @@ $ sudo apt-get install nginx
         '/var/www/bbs/templates',  # 这里要是绝对路径
     )
 
+    STATIC_ROOT = '/var/www/bbs/static'
+
 配置 wsgi.py:
 
     import os
@@ -44,8 +46,8 @@ $ sudo apt-get install nginx
 
 
 本例中使用 /var/www/bbs/static/ 保存静态文件，使用命令
-`python manage.py collectstatic` 收集静态文件，然后将输出的静态文件保存到
- /var/www/bbs/static/ 目录下。
+`python manage.py collectstatic` 收集静态文件 <del>，然后将输出的静态文件保存到
+ /var/www/bbs/static/ 目录下</del>。
 
 最终 /var/www/bbs/static/ 目录结构应该类似（admin 目录及其目录下文件一定要有）：
 
@@ -100,7 +102,7 @@ $ sudo apt-get install nginx
 
 以 fastcgi 的形式运行 django 项目（注意：这里的 host 及 port 要与上面配置的一样）：
 
-$ python manage.py runfcgi host=127.0.0.1 port=8081
+    $ python manage.py runfcgi host=127.0.0.1 port=8081
 
 终止 fastcgi 话，查看相关进程然后结束掉即可：
 
@@ -120,8 +122,13 @@ $ python manage.py runfcgi host=127.0.0.1 port=8081
     $ tail /etc/hosts
     127.0.0.1   bbs.com
 
+更改目录权限：
+
+    $ sudo chown www-data:www-data /var/www/bbs -R
+
 启动 nginx 服务
-$ service nginx restart
+
+    $ service nginx restart
 
 结果：
 
@@ -131,7 +138,7 @@ $ service nginx restart
 
 后续 linux 相关的工作暂且不表：
 
-* 配置项目目录访问权限
+* <del>配置项目目录访问权限</del>
 * 配置 iptables ，开放 80 端口
 
 测试项目及配置文件可以从 [这个代码仓库](https://github.com/mozillazg/django-simple-projects/tree/master/projects/bbs) 中获取。

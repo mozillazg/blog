@@ -31,6 +31,8 @@ Slug: django-deploying-with-apache-mode-wsgi
         '/var/www/bbs/templates',  # 这里要是绝对路径
     )
 
+    STATIC_ROOT = '/var/www/bbs/static'
+
 配置 wsgi.py:
 
     import os
@@ -41,8 +43,8 @@ Slug: django-deploying-with-apache-mode-wsgi
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bbs.settings")
 
 本例中使用 /var/www/bbs/static/ 保存静态文件，使用命令
-`python manage.py collectstatic` 收集静态文件，然后将输出的静态文件保存到
- /var/www/bbs/static/ 目录下。
+`python manage.py collectstatic` 收集静态文件 <del>，然后将输出的静态文件保存到
+ /var/www/bbs/static/ 目录下</del>。
 
 最终 /var/www/bbs/static/ 目录结构应该类似（admin 目录及其目录下文件一定要有）：
 
@@ -81,6 +83,10 @@ Slug: django-deploying-with-apache-mode-wsgi
         </Directory>
     </VirtualHost>
 
+更改目录权限：
+
+    $ sudo chown www-data:www-data /var/www/bbs -R
+
 启动 apache 服务
 
     $ service apache2 restart
@@ -94,7 +100,7 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 后续 linux 相关的工作暂且不表：
 
-* 配置项目目录访问权限
+* <del>配置项目目录访问权限<del>
 * 配置 iptables ，开放 80 端口
 
 测试项目及配置文件可以从 [这个代码仓库](https://github.com/mozillazg/django-simple-projects/tree/master/projects/bbs) 中获取。
