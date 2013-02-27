@@ -43,8 +43,7 @@ Slug: django-deploying-with-apache-mode-wsgi
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bbs.settings")
 
 本例中使用 /var/www/bbs/static/ 保存静态文件，使用命令
-`python manage.py collectstatic` 收集静态文件 <del>，然后将输出的静态文件保存到
- /var/www/bbs/static/ 目录下</del>。
+`python manage.py collectstatic` 收集静态文件。
 
 最终 /var/www/bbs/static/ 目录结构应该类似（admin 目录及其目录下文件一定要有）：
 

@@ -16,12 +16,12 @@ THEME = 'notmyidea'
 # THEME = './themes/tuxlite_tbs/'
 # THEME = './themes/relapse/'
 # THEME = './themes/syte/'
-PLUGINS = ['pelican.plugins.assets',
-           'pelican.plugins.gravatar',
-           'pelican.plugins.github_activity',
-           'pelican.plugins.sitemap',
-           'pelican.plugins.related_posts',
-           ]
+# PLUGINS = ['pelican.plugins.assets',
+           # 'pelican.plugins.gravatar',
+           # 'pelican.plugins.github_activity',
+           # # 'pelican.plugins.sitemap',
+           # 'pelican.plugins.related_posts',
+           # ]
 
 WEBASSETS = True
 ABOUT = u'宅（伪）&& Geek（伪）'
@@ -29,7 +29,7 @@ SITE_DESCRIPTION = u'Just another Pelican blog'
 SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
 GITHUB_INTEGRATION_ENABLED = True
 GITHUB_USERNAME = 'mozillazg'
-GRAVATAR = u'https://en.gravatar.com/userimage/7906007/7f8709a4ab3a1398b46c628bb193900b.jpg'
+# GRAVATAR = u'https://en.gravatar.com/userimage/7906007/7f8709a4ab3a1398b46c628bb193900b.jpg'
 
 GITHUB_ACTIVITY_FEED = 'https://github.com/mozillazg.atom'
 
