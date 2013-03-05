@@ -6,6 +6,7 @@ Slug: django-typeerror-decod-argument-1-must-be-string-not-none
 
 错误信息如下：
 
+    :::console
     You just installed Django's auth system, which means you don't have any superusers defined.
     Would you like to create one now? (yes/no): yes
     Traceback (most recent call last):
@@ -29,6 +30,7 @@ Slug: django-typeerror-decod-argument-1-must-be-string-not-none
 
 设置正确的系统编码即可。
 
+    :::console
     $ export LC_ALL=en_US.UTF-8
     $ python manage.py createsuperuser
     Username (leave blank to use 'hello'): admin

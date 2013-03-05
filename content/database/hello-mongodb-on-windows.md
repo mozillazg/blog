@@ -17,16 +17,19 @@ Slug: hello-mongodb-on-windows
 
 命令行下执行：
 
-mongod --dbpath c:\mongodb\data
+    :::console
+    mongod --dbpath c:\mongodb\data
 
 ### hello world
 
 命令行下执行：
 
-mongo
+    :::console
+    mongo
 
 进入数据库终端（默认是连接到 test 数据库）：
 
+    :::console
     > var x = "hello world"
     > x
     hello world

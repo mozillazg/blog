@@ -6,6 +6,7 @@ Slug: use-pelican-to-generate-static-blog
 
 ## 安装 Pelican
 
+    :::console
     sudo pip install pelican
     sudo pip install webassets
 

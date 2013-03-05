@@ -11,6 +11,7 @@ windows + pelican 3.1 + python 2.6
 
 默认情况下，pelican 不支持中文文件夹作为分类目录：
 
+    :::console
     d:\myblog>pelican content -o output -s pelicanconf.py -D
     ...
 
@@ -37,10 +38,12 @@ windows + pelican 3.1 + python 2.6
 1. 首先导入 sys 模块：`import sys`
 2. 然后编辑第 338 行左右的
 
+        :::python
         category = os.path.basename(os.path.dirname(f))\
                    .decode('utf-8')
    为
 
+        :::python
         category = os.path.basename(os.path.dirname(f))\
                    .decode(sys.stdin.encoding)
    此处的修改是为了让程序使用系统默认的输入编码（简体中文版 Windows 下默认是 gbk）进行解码。
@@ -62,10 +65,12 @@ windows + pelican 3.1 + python 2.6
    这个模块的作用是将非 ASCII 字符转换为 ASCII 字符，比如，将 `中国` 转换为 `zhong-guo` 。
 2. 将 199 行左右的
 
+        :::python
         for cat, arts in self.categories:
             arts.sort(key=attrgetter('date'), reverse=True)
    改为
 
+        :::python
         for cat, arts in self.categories:
             cat = slugify(cat)
             arts.sort(key=attrgetter('date'), reverse=True)

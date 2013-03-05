@@ -12,6 +12,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
 <!--* 视图函数只有一个 request 参数-->
 
 
+    :::python
     def object_does_not_exist(func):
         def returned_wrapper(request, *args, **kwargs):
             try:
@@ -22,6 +23,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
 
 用法：
 
+    :::python
     @object_does_not_exist
     def detail(request):
         pass
@@ -30,6 +32,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
 
 * 第一种写法：
 
+        :::python
         def object_does_not_exist(redirect=None):
             def decorator(func):
                 def returned_wrapper(request, *args, **kwargs):
@@ -44,6 +47,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
             return decorator
   用法：
 
+        :::python
         @object_does_not_exist(redirect='/')
         def detail(request):
             pass
@@ -57,6 +61,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
 
 * 第二种写法：
 
+        :::python
         def object_does_not_exist(func=None, redirect=None):
             def decorator(func):
                 def returned_wrapper(request, *args, **kwargs):
@@ -78,6 +83,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
                 return decorator(func)
   用法：
 
+        :::python
         @object_does_not_exist(redirect='/')
         def detail(request):
             pass

@@ -24,6 +24,7 @@ Slug: django-offical-coding-style
 
 * 文档字符串中，使用动词（action words）。比如：
 
+        :::python
         def foo():
             """
             Calculates something and returns the result.
@@ -31,6 +32,7 @@ Slug: django-offical-coding-style
             pass
   反例：
 
+        :::python
         def foo():
             """
             Calculate something and return the result.
@@ -42,9 +44,11 @@ Slug: django-offical-coding-style
 * 在模板中，大括号及标签内容之间使用一个（只需一个）空格。      
   应该这样：
 
+        :::django
         {{ foo }}
   别这样：
 
+        :::django
         {{foo}}
 
 ### 视图风格
@@ -52,10 +56,12 @@ Slug: django-offical-coding-style
 * 在视图中，视图函数的第一个参数应该被命名为 request。       
   应该这样：
 
+        :::python
         def my_view(request, foo):
             # ...
   别这样：
 
+        :::python
         def my_view(req, foo):
             # ...
 
@@ -64,11 +70,13 @@ Slug: django-offical-coding-style
 * 字段名应该全部小写，使用下划线代替小驼峰法。
   应该这样：
 
+        :::python
         class Person(models.Model):
             first_name = models.CharField(max_length=20)
             last_name = models.CharField(max_length=40)
   别这样：
 
+        :::python
         class Person(models.Model):
             FirstName = models.CharField(max_length=20)
             Last_Name = models.CharField(max_length=40)
@@ -76,6 +84,7 @@ Slug: django-offical-coding-style
 * `class Meta` 应该在字段被定义*后*才出现，使用一个空行分隔。
   应该这样：
 
+        :::python
         class Person(models.Model):
             first_name = models.CharField(max_length=20)
             last_name = models.CharField(max_length=40)
@@ -84,6 +93,7 @@ Slug: django-offical-coding-style
                 verbose_name_plural = 'people'
   别这样：
 
+        :::python
         class Person(models.Model):
             first_name = models.CharField(max_length=20)
             last_name = models.CharField(max_length=40)
@@ -91,6 +101,7 @@ Slug: django-offical-coding-style
                 verbose_name_plural = 'people'
   也别这样：
 
+        :::python
         class Person(models.Model):
             class Meta:
                 verbose_name_plural = 'people'
@@ -99,17 +110,18 @@ Slug: django-offical-coding-style
             last_name = models.CharField(max_length=40)
 
 * model 内的类和方法的定义顺序应该遵循如下顺序（不是所有项都是必需的）：       
-  1\. 所有的数据库字段          
-  2\. 自定义[管理器属性（manager attributes）](https://docs.djangoproject.com/en/dev/topics/db/managers/)         
-  3\. `class Meta`          
-  4\. `def __unicode__()`       
-  5\. `def __str__()`       
-  6\. `def save()`          
-  7\. `def get_absolute_url()`          
-  8\. 其他自定义方法        
+    1. 所有的数据库字段          
+    2. 自定义[管理器属性（manager attributes）](https://docs.djangoproject.com/en/dev/topics/db/managers/)         
+    3. `class Meta`          
+    4. `def __unicode__()`       
+    5. `def __str__()`       
+    6. `def save()`          
+    7. `def get_absolute_url()`          
+    8. 其他自定义方法        
 
 * 如果一个 model 字段定义了 `choices`，那么定义的多元元组的名称应该全部大写。例如：      
 
+        :::python
         class MyModel(models.Model):
             DIRECTION_UP = 'U'
             DIRECTION_DOWN = 'D'
@@ -126,6 +138,7 @@ Modules should not in general use settings stored in `django.conf.settings` at t
 
 Manual configuration of settings (i.e. not relying on the `DJANGO_SETTINGS_MODULE` environment variable) is allowed and possible as follows:
 
+    :::python
     from django.conf import settings
 
     settings.configure({}, SOME_SETTING='foo')
@@ -134,6 +147,7 @@ However, if any setting is accessed before the settings.configure line, this wil
 
 So, if there is a module containing some code as follows:
 
+    :::python
     from django.conf import settings
     from django.core.urlresolvers import get_callable
 

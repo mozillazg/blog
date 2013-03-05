@@ -7,15 +7,22 @@ Slug: django-deploying-with-fastcgi-nginx
 
 ## 安装依赖
 
+安装 flup:
+
+    :::console
+    $ sudo pip install flup
+
 安装 nginx
 
-$ sudo apt-get install nginx
+    :::console
+    $ sudo apt-get install nginx
 
 
 ## 设置 django
 
 本例中项目名为 bbs:
 
+    :::console
     $ pwd
     /var/www/bbs
 
@@ -29,6 +36,7 @@ $ sudo apt-get install nginx
 
 配置 settings：
 
+    :::python
     TEMPLATE_DIRS = (
         '/var/www/bbs/templates',  # 这里要是绝对路径
     )
@@ -37,6 +45,7 @@ $ sudo apt-get install nginx
 
 配置 wsgi.py:
 
+    :::python
     import os
     import sys
 
@@ -50,6 +59,7 @@ $ sudo apt-get install nginx
 
 最终 /var/www/bbs/static/ 目录结构应该类似（admin 目录及其目录下文件一定要有）：
 
+    :::console
     $ tree static -d
     static
     |-- admin
@@ -62,6 +72,7 @@ $ sudo apt-get install nginx
 
 ## 配置 nginx
 
+    :::console
     $ vim /etc/nginx/conf.d/bbs.conf
 
     server {
@@ -101,11 +112,13 @@ $ sudo apt-get install nginx
 
 以 fastcgi 的形式运行 django 项目（注意：这里的 host 及 port 要与上面配置的一样）：
 
+    :::console
     $ python manage.py runfcgi host=127.0.0.1 port=8081
 
 终止 fastcgi 话，查看相关进程然后结束掉即可：
 
 
+    :::console
     $ ps aux | grep cgi
     mzg       2500  0.0  5.0  34860 12480 ?        S    15:43   0:00 python manage.py runfcgi host=127.0.0.1 port=8081
     mzg       2501  0.0  4.7  34860 11784 ?        S    15:43   0:00 python manage.py runfcgi host=127.0.0.1 port=8081
@@ -117,16 +130,19 @@ $ sudo apt-get install nginx
 
 测试环境的话，由于域名是虚构的，所以要配置 /etc/hosts 添加 `127.0.0.1  bbs.com `：
 
+    :::console
     $ sudo vim /etc/hosts
     $ tail /etc/hosts
     127.0.0.1   bbs.com
 
 更改目录权限：
 
+    :::console
     $ sudo chown www-data:www-data /var/www/bbs -R
 
 启动 nginx 服务
 
+    :::console
     $ service nginx restart
 
 结果：

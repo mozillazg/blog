@@ -7,6 +7,7 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 ## 安装依赖
 
+    :::console
     $ sudo apt-get install apache2
     $ sudo apt-get install libapache2-mod-wsgi
 
@@ -14,6 +15,7 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 本例中项目名为 bbs:
 
+    :::console
     $ pwd
     /var/www/bbs
 
@@ -27,6 +29,7 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 配置 settings：
 
+    :::python
     TEMPLATE_DIRS = (
         '/var/www/bbs/templates',  # 这里要是绝对路径
     )
@@ -35,6 +38,7 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 配置 wsgi.py:
 
+    :::python
     import os
     import sys
 
@@ -47,6 +51,7 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 最终 /var/www/bbs/static/ 目录结构应该类似（admin 目录及其目录下文件一定要有）：
 
+    :::console
     $ tree static -d
     static
     |-- admin
@@ -59,6 +64,7 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 ## 配置 apache
 
+    :::console
     $ sudo vim /etc/apache2/conf.d/bbs.conf
 
 
@@ -84,10 +90,12 @@ Slug: django-deploying-with-apache-mode-wsgi
 
 更改目录权限：
 
+    :::console
     $ sudo chown www-data:www-data /var/www/bbs -R
 
 启动 apache 服务
 
+    :::console
     $ service apache2 restart
 
 

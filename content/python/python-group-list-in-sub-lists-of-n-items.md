@@ -9,6 +9,7 @@ Slug: python-group-list-in-sub-lists-of-n-items
 
 ## 第一种方法
 
+    :::python
     def group_iter(iterator, n=2):
         """ Given an iterator, it returns sub-lists made of n items
         (except the last that can have len < n)
@@ -25,6 +26,7 @@ Slug: python-group-list-in-sub-lists-of-n-items
 
 效果：
 
+    :::python
     >>> group_iter([1, 2, 3, 4, 5, 6], 3)
     <generator object group_iter at 0x02A43418>
     >>> list(group_iter([1, 2, 3, 4, 5, 6], 3))
@@ -34,6 +36,7 @@ Slug: python-group-list-in-sub-lists-of-n-items
 
 ## 第二种方法：
 
+    :::python
     >>> original_list = [1, 2, 3, 4, 5, 6]
     >>> list_size = 5
     >>> [original_list[i:i+list_size] for i in xrange(0, len(original_list), list_size)]
@@ -42,6 +45,7 @@ Slug: python-group-list-in-sub-lists-of-n-items
 
 ## 第三种方法：
 
+    :::python
     def splitarray(array, gsize):
         arraylen = len(array)
         for i in range(arraylen / gsize):
@@ -51,6 +55,7 @@ Slug: python-group-list-in-sub-lists-of-n-items
 
 效果：
 
+    :::python
     >>> original_list = [1, 2, 3, 4, 5, 6]
     >>> list_size = 5
     >>> [original_list[i:i+list_size] for i in xrange(0, len(original_list), list_size)]

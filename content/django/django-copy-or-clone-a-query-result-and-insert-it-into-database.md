@@ -7,6 +7,7 @@ Slug: django-copy-or-clone-a-query-result-and-insert-it-into-database
 
 将 pk 值设为 None 即可：
 
+    :::python
     blog = Blog(name='My blog', tagline='Blogging is easy')
     blog.save() # post.pk == 1
 
@@ -15,6 +16,7 @@ Slug: django-copy-or-clone-a-query-result-and-insert-it-into-database
 
 如果该 model 继承于另一个 model 的话，必须将 `pk` 和 `id` 的值都设为 None:
 
+    :::python
     class ThemeBlog(Blog):
         theme = models.CharField(max_length=200)
 
@@ -28,6 +30,7 @@ Slug: django-copy-or-clone-a-query-result-and-insert-it-into-database
 
 需要注意都是：这种方法不会复制相关对象。如果想复制相关（类似多对对的）对象的话，需要先将相关对象取出来然后在保存到新的对象中。例如，`Entry` 与 `Author` 是多对多关系：
 
+    :::python
     entry = Entry.objects.all()[0] # some previous entry
     old_authors = entry.authors.all()
     entry.pk = None

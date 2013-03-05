@@ -8,6 +8,7 @@ Slug: django-pagination-by-use-paginator
 
 ## 在 view 中使用 Paginator
 
+    :::python
     from django.core.paginator import Paginator
     from django.core.paginator import EmptyPage
     from django.core.paginator import PageNotAnInteger
@@ -31,6 +32,7 @@ Slug: django-pagination-by-use-paginator
 
 ## 模板中的相关操作
 
+    :::html+django
     {% for topic in topics.object_list %}
       <p>{{ topic.title }}</p>
     {% endfor %}

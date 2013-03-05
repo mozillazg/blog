@@ -6,6 +6,7 @@ Slug: linux-fix-sendmail-configuration-error-feature-should-be-before-mailer
 
 错误详情：
 
+    :::console
     # m4 /etc/mail/sendmail.mc > /etc/mail/sendmail.cf
     *** ERROR: FEATURE() should be before MAILER()
     *** MAILER(`local') must appear after FEATURE(`always_add_domain')*** ERROR: FEATURE() should be before MAILER()
@@ -17,6 +18,7 @@ Slug: linux-fix-sendmail-configuration-error-feature-should-be-before-mailer
 
 更改
 
+    :::text
     dnl #
     dnl # Default Mailer setup
     MAILER_DEFINITIONS
@@ -31,6 +33,7 @@ Slug: linux-fix-sendmail-configuration-error-feature-should-be-before-mailer
 
 为
 
+    :::text
     dnl #
 
     dnl # Masquerading options

@@ -3,6 +3,7 @@ Date: 2013-01-31
 Tags: linux, ssh
 Slug: linux-ssh-change-passphrase
 
+    :::console
     $ cd ~/.ssh
     $ ssh-keygen -f id_rsa -p
 

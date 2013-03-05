@@ -8,7 +8,37 @@ Slug: django-add-extra-error-messages
 
 第一种方法，使用 form 自定义校验（更详细的请查看 [django 官方文档](https://docs.djangoproject.com/en/dev/ref/forms/validation/)）：
 
+定义 `clean` 方法：
 
+    :::python
+    class RegisterForm(forms.Form):
+        # ...
+
+        def clean(self):
+            cleaned_data = super(RegisterForm, self).clean()
+            email = cleaned_data.get('email', '')
+            username = cleaned_data.get('username', '')
+
+            re_username = r'^[a-zA-Z\d][-a-zA-Z\d]*$'
+
+            if User.objects.filter(email=email).exists():
+                msg = 'This email address already exists!'
+                self._errors['email'] = self.error_class([msg])
+                del cleaned_data['email']
+
+            elif not re.match(re_username, username):
+                msg = ('Username may only contain alphanumeric characters or'
+                       'dashes and cannot begin with a dash')
+                self._errors['username'] = self.error_class([msg])
+                del cleaned_data['username']
+
+            # ...
+
+            return cleaned_data
+
+定义 `clean_` 方法：
+
+    :::python
     class SendForm(forms.Form):
         # ...
 
@@ -43,6 +73,7 @@ Slug: django-add-extra-error-messages
 
 第二种方法，更新 form.errors 字典：
 
+    :::python
     from django.forms.util import ErrorList
 
 

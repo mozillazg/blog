@@ -6,10 +6,12 @@ Slug: django-variable-subtraction-in-django-templates
 
 我们知道可以使用内置过滤器 `add` 对变量做加法操作：
 
+    :::django
     {{ 3|add:"1" }}   # 4
 
 其实，`add` 也可以做减法操作：
 
+    :::django
     {{ 3|add:"-1" }}  # 2
 
 

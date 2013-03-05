@@ -12,10 +12,12 @@ Slug: linux-vps-first-things-need-to-do
 
 使用 root 登录 ssh 后，
 
+    :::console
     Xshell:\> ssh root@192.168.1.2
 
 首先要做的事情就是更改 root 密码，密码记得要复杂点：
 
+    :::console
     # passwd
     Enter new UNIX password: 
     Retype new UNIX password: 
@@ -27,6 +29,7 @@ Slug: linux-vps-first-things-need-to-do
 
 为了安全，平时我们应该以普通用户的身份操作 VPS。所以需要创建一个普通用户。
 
+    :::console
     # useradd -m hello
     # passwd hello
     Enter new UNIX password: 
@@ -35,6 +38,7 @@ Slug: linux-vps-first-things-need-to-do
 
 给用户添加 sudo 命令的使用权限：
 
+    :::console
     # echo -e "\nhello ALL=(ALL) ALL\n" >> /etc/sudoers
     # tail -3 /etc/sudoers
 
@@ -43,6 +47,7 @@ Slug: linux-vps-first-things-need-to-do
 
 如果不想每次使用 `sudo` 都输入 root 密码，上面的命令修改为：
 
+    :::console
     # echo -e "\nhello ALL=(ALL) NOPASSWD:ALL\n" >> /etc/sudoers
     # tail -3 /etc/sudoers
 
@@ -54,17 +59,20 @@ Slug: linux-vps-first-things-need-to-do
 
 首先切换到普通用户下，
 
+    :::console
     # sudo su -l hello
 
 如果出现 sudo: unable to resolve host xxx 错误:
 
 1. 查看 hostname:
 
+        :::console
         # head /etc/hostname
         ubuntu
 
 2. 修改文件 /etc/hosts，增加一行内容 `127.0.0.1 hostname`:
 
+        :::console
         # echo -e "\n127.0.0.1 ubuntu\n" >> /etc/hosts
         # tail -3 /etc/hosts
 
@@ -73,10 +81,12 @@ Slug: linux-vps-first-things-need-to-do
 
 生成密钥：
 
+    :::console
     $ ssh-keygen
 
 一路回车。
 
+    :::console
     $ cd ~/.ssh 
     $ cat id_rsa.pub >> authorized_keys
     $ ls 
@@ -87,6 +97,7 @@ id\_rsa 文件就是客户端用来登录的私钥了，下面我们要把他从
 
 点击 Xshell 导航栏的“new file transfer” 图标，进入一个终端界面后：
 
+    :::console
     $ cd /home/hello/.ssh
     $ get id_rsa
 
@@ -100,6 +111,7 @@ id\_rsa 文件就是客户端用来登录的私钥了，下面我们要把他从
 
 编辑 ssh 服务器端配置文件：
 
+    :::console
     $ sudo vi /etc/ssh/sshd_config
 
 将 26 行左右的 `PermitRootLogin yes` 改为 `PermitRootLogin no` ，       
@@ -107,17 +119,20 @@ id\_rsa 文件就是客户端用来登录的私钥了，下面我们要把他从
 
 重启 ssh 服务：
 
+    :::console
     $ sudo service sshd restart
 
 ## 配置防火墙
 
 下面将使用 iptables 作为服务器的防火墙，如果服务器没有安装的话需要先安装 iptables。
 
+    :::console
     $ sudo apt-get install iptables             # ubuntu
     $ yum install iptables                      # centos
 
 对于 centos/redhat：
 
+    :::console
     $ sudo vi /etc/sysconfig/iptables
 
     # Firewall configuration written by system-config-firewall
@@ -137,14 +152,23 @@ id\_rsa 文件就是客户端用来登录的私钥了，下面我们要把他从
 
 ubuntu：
 
+    :::console
     $ sudo vi /etc/iptables.up.rules  # 添加上面的规则
 
-    $ sudo vim /etc/network/interfaces #在  'iface lo inet loopback' 后增加一行 pre-up iptables-restore < /etc/iptables.up.rules
+    $ sudo vim /etc/network/interfaces 
 
-    $ sudo service networking restart  # 无法重启 iptables，只能重启网络
+在  'iface lo inet loopback' 后增加一行 pre-up iptables-restore < /etc/iptables.up.rules
+
+应用防火墙规则：
+
+    :::console
+    $ sudo service iptables restart  # centos
+
+    $ sudo iptables-restore < /etc/iptables.up.rules   # ubuntu
 
 开机启动 iptables ：
 
+    :::console
     $ sudo chkconfig iptables on  # redhat/centos
     
     $ sudo apt-get install sysv-rc-conf  # ubuntu

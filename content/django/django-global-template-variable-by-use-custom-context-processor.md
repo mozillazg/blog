@@ -11,6 +11,7 @@ Slug: django-global-template-variable-by-use-custom-context-processor
 
 可以把这个函数放在项目的任何地方，本文是放在应用目录下的 context\_processors.py 文件中：
 
+    :::python
     from hello.models import Category
 
 
@@ -28,6 +29,7 @@ Slug: django-global-template-variable-by-use-custom-context-processor
 如果没有 TEMPLATE\_CONTEXT\_PROCESSORS 这一项的话，需要把它添加到 settings 文件中。
 各版本的 django 的 TEMPLATE\_CONTEXT\_PROCESSORS 的默认值不一样，具体见 [TEMPLATE\_CONTEXT\_PROCESSORS](https://docs.djangoproject.com/en/1.4/ref/settings/#template-context-processors)。
 
+    :::python
     TEMPLATE_CONTEXT_PROCESSORS = (
         'django.contrib.auth.context_processors.auth',
         'django.core.context_processors.debug',
@@ -41,6 +43,7 @@ Slug: django-global-template-variable-by-use-custom-context-processor
 
 ## 在 views 中使用
 
+    :::python
     from django.template import RequestContext
     from django.template import loader
 
@@ -58,6 +61,7 @@ Slug: django-global-template-variable-by-use-custom-context-processor
 
 ## 模板中使用定义的变量
 
+    :::html+django
     Categories:
     <ul>
       {# 自定义的 context processor 函数的返回值是：{'categories': all_categories}，该字典的 key 可以直接在模板中作为变量使用 #}

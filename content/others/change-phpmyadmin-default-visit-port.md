@@ -9,7 +9,8 @@ Slug: change-phpmyadmin-default-visit-port
 
 编辑 apache 配置文件：
 
-`# vi /etc/apache2/sites-available/phpmyadmin`
+    :::bash
+    # vi /etc/apache2/sites-available/phpmyadmin
 
     <VirtualHost *:8081>
         ServerName 127.0.0.1
@@ -19,7 +20,8 @@ Slug: change-phpmyadmin-default-visit-port
 
 配置 apache 监听 8081 端口：
 
-`# vi /etc/apache2/ports.conf`
+    :::bash
+    # vi /etc/apache2/ports.conf
 
     # 添加
     NameVirtualHost *:8081

@@ -7,6 +7,7 @@ Slug: django-built-in-comments-framework
 
 1. 编辑 settings 文件，`INSTALLED_APPS` 项添加 `'django.contrib.comments',`：
 
+        :::python
         INSTALLED_APPS = (
             # ...
             'django.contrib.comments',
@@ -16,6 +17,7 @@ Slug: django-built-in-comments-framework
 2. 执行 `python manage.py syncdb` 创建评论表。
 3. 编辑 urls.py 文件，添加评论相关的 url：
 
+        :::python
         urlpatterns = patterns('',
             # ...
             url(r'^comments/', include('django.contrib.comments.urls')),
@@ -24,6 +26,7 @@ Slug: django-built-in-comments-framework
 
 ## 示例 views
 
+    :::python
     def display_topic(request, topic_id):
         topic = Topic.objects.get(id=topic_id)
         return render_to_response('topic.html', {'topic': topic},
@@ -33,6 +36,7 @@ Slug: django-built-in-comments-framework
 
 首先要导入 comments 模板标签：
 
+    :::django
     {% load comments %}
 
 模板标签的使用（基于上面的 views）：
@@ -40,6 +44,7 @@ Slug: django-built-in-comments-framework
 ### 获取评论数
 获取 topic 对象的评论数：
 
+    :::html+django
     {% get_comment_count for topic as comment_count %}
     <p>Comments({{ comment_count }}):</p>
 
@@ -47,6 +52,7 @@ Slug: django-built-in-comments-framework
 
 * 使用默认的显示方式：
 
+        :::html+django
         {% render_comment_list for topic %}
 
     效果：
@@ -55,6 +61,7 @@ Slug: django-built-in-comments-framework
 
 * 自定义显示：
 
+        :::html+django
         {% get_comment_list for topic as comment_list %}
         {% for comment in comment_list %}
           <p>Posted by: {{ comment.user_name }} on {{ comment.submit_date }}</p>
@@ -71,10 +78,12 @@ Slug: django-built-in-comments-framework
 
  urls.py：
 
+    :::python
     url(r'^topic/(?P<topic_id>\d+)/$', 'hello.views.display_topic',
         name="display_topic"),
  models.py：
 
+    :::python
     class Topic(models.Model):
         title = models.CharField(max_length=200)
         content = models.TextField()
@@ -85,6 +94,7 @@ Slug: django-built-in-comments-framework
 
 模板中显示评论链接：
 
+    :::html+django
     {% for comment in comment_list %}
 
       <p>
@@ -107,6 +117,7 @@ Slug: django-built-in-comments-framework
 
 #### 默认显示方式：
 
+    :::html+django
     {% get_comment_form for topic as form %}
     <form action="{% comment_form_target %}" method="post">
       {% csrf_token %}
@@ -133,7 +144,7 @@ comments form 包含如下字段：
 #### 自定义显示
 由于默认生成的表单一般让人不太满意，所以就需要通过自定义来调整一下：
 
-
+    :::html+django
     {% get_comment_form for topic as form %}
     <form action="{% comment_form_target %}" method="post">
       {% csrf_token %}
@@ -158,6 +169,7 @@ comments form 包含如下字段：
 ### 评论发表成功后跳转回当前页面
 只需在 form 中包含字段 "next" 即可：
 
+    :::html+django
     <input type="hidden" name="next" value="/topic/{{ topic.id }}"/>
     <input type="submit" value="Comment" />
 

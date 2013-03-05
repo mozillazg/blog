@@ -29,12 +29,14 @@ hello\_extras.py 中保存着我们自定义的模板过滤器。
 在 hello\_extras.py 文件的开头需要包含如下代码：
 
 
+    :::python
     from django import template
 
     register = template.Library()
 
 本例中我们将定义一个 help\_text 过滤器，用于获取 models 中字段的 help\_text 的值，所以 hello\_extras.py 的内容为：
 
+    :::python
     from django import template
 
     register = template.Library()
@@ -46,10 +48,12 @@ hello\_extras.py 中保存着我们自定义的模板过滤器。
 
 在模板中使用自定义过滤器时，要记得导入过滤器：
 
+    :::django
     {% load hello_extras %}
 
 本例的模板文件：
 
+    :::html+django
     {% load hello_extras %}
 
     {% for user in users %}
@@ -58,6 +62,7 @@ hello\_extras.py 中保存着我们自定义的模板过滤器。
 
 models 文件节选：
 
+    :::python
     class User(models.Model):
         name = models.CharField(max_length=50, help_text=u'姓名')
 
