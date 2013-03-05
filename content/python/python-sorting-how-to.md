@@ -2,7 +2,6 @@ Title: [python]排序（Sorting Mini-HOW TO）
 Date: 2013-03-03
 Tags: python, sorting, sort, sorted
 Slug: python-sorting-how-to
-status: draft
 
 本文整理自 [HowTo/Sorting - Python Wiki][1]，如有不妥之处，请翻阅英文原文。
 
@@ -250,6 +249,16 @@ Python 3 不再支持 cmp 参数，那么如果转换之前的程序呢？可以
 在 Python 2.7 中，`cmp_to_key()` 工具已经被内置到 [functools][9] 模块中。
 
 
+## 其他
+
+* 对于本地化排序，可以使用 [locale.strxfrm()][11] 作为 key 函数或使用 [locale.strcoll()][12] 作为比较函数。
+
+* `reverse` 参数依然能够保存排序的稳定性（比如，拥有相同记录的 keys 依旧保留了原来的顺序），有趣的是，就算是不使用该参数也可以通过使用两次 `reversed` 函数来实现这种效果：
+
+        :::python
+        >>> data = [('red', 1), ('blue', 1), ('red', 2), ('blue', 2)]
+        >>> assert sorted(data, reverse=True) == list(reversed(sorted(reversed(data))))
+
 * 如果想给类排序的话，只需添加相关的比较方法：
 
         :::python
@@ -287,3 +296,5 @@ Python 3 不再支持 cmp 参数，那么如果转换之前的程序呢？可以
 [8]: http://en.wikipedia.org/wiki/Schwartzian_transform
 [9]: http://docs.python.org/2/library/functools.html#functools.cmp_to_key
 [10]: http://docs.python.org/2/library/functools.html#functools.total_ordering
+[11]: http://docs.python.org/2/library/locale.html#locale.strxfrm
+[12]: http://docs.python.org/2/library/locale.html#locale.strcoll
