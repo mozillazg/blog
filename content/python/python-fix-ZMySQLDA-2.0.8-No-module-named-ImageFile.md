@@ -1,4 +1,4 @@
-Title: [python]修复 ZMySQLDA-2.0.8 出现的“ImportError: No module named ImageFile”
+Title: [python]修复 ZMySQLDA-2.0.8 出现的“ImportError: No module named ImageFile”错误
 Date: 2013-03-08
 Tags: python, zope, mysql
 Slug: python-fix-zmysqlda-2.0.8-no-module-named-imagefile
