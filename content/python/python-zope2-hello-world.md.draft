@@ -1,0 +1,71 @@
+Title: [python]Zope2 初探
+Date: 2013-03-6
+Tags: python, zope2, zope
+Slug: python-zope2-hello-world
+status: draft
+
+
+## 安装
+
+mkdir hello-Zope2
+
+virtualenv --no-site-packages .env
+
+source .env/local/bin/activate
+
+pip install Zope2
+
+
+$ mkzopeinstance
+
+(.env)mzg@mzg ~/zope $ mkzopeinstance
+Please choose a directory in which you'd like to install
+Zope "instance home" files such as database files, configuration
+files, etc.
+
+Directory: /home/mzg/zope
+
+Please choose a username and password for the initial user.
+These will be the credentials you use to initially manage
+your new Zope instance.
+
+Username: admin
+Password: 
+Verify password:
+
+
+
+$  /home/mzg/zope/bin/zopectl fg
+/home/mzg/zope/bin/runzope -X debug-mode=on
+2013-03-06 09:22:53 INFO ZServer HTTP server started at Wed Mar  6 09:22:53 2013
+	Hostname: 0.0.0.0
+	Port: 8080
+Traceback (most recent call last):
+  File "/home/mzg/zope/.env/bin/runzope", line 8, in <module>
+    load_entry_point('Zope2==2.13.19', 'console_scripts', 'runzope')()
+
+    ....
+
+    from zope.location.interfaces import IPossibleSite
+ImportError: cannot import name IPossibleSite
+
+
+$ pip install -U git+https://github.com/pypa/pip
+
+$ pip show zope.location
+---
+Name: zope.location
+Version: 4.0.1
+Location: /home/mzg/zope/.env/lib/python2.7/site-packages
+Requires: setuptools, zope.interface, zope.schema, zope.proxy
+
+pip install zope.location==3.9.0 -U
+
+
+ImportError: cannot import name _error_start
+$ pip install zope.pagetemplate==3.5.2 -U
+
+
+
+pythonbrew install 2.4.6
+
