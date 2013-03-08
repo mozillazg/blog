@@ -16,12 +16,12 @@ THEME = 'notmyidea'
 # THEME = './themes/tuxlite_tbs/'
 # THEME = './themes/relapse/'
 # THEME = './themes/syte/'
-# PLUGINS = ['pelican.plugins.assets',
+#PLUGINS = ['pelican.plugins.assets',
            # 'pelican.plugins.gravatar',
            # 'pelican.plugins.github_activity',
-           # # 'pelican.plugins.sitemap',
+           #'pelican.plugins.sitemap',
            # 'pelican.plugins.related_posts',
-           # ]
+           #]
 
 WEBASSETS = True
 ABOUT = u'宅（伪）&& Geek（伪）'
@@ -78,7 +78,7 @@ LINKS = (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
          )
 
 SOCIAL = (
-          # ('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
+           #('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
           ('About Me', 'http://about.me/mozillazg'),
           ('Fork me on GitHub', 'https://github.com/mozillazg'),
           )
