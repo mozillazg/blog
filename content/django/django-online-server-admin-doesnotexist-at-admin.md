@@ -7,7 +7,8 @@ Slug: django-online-server-admin-doesnotexist-at-admin
 将 django 项目部署到服务器后，访问 admin 时出现如下错误：
 
     :::html
-    DoesNotExist at /admin/ Site matching query does not exist.
+    DoesNotExist at /admin/
+    Site matching query does not exist.
 
 上网搜索后，参考 <http://stackoverflow.com/questions/9736975/django-admin-doesnotexist-at-admin> 修复了该问题，下面记录一下解决过程。
 
