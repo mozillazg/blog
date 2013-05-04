@@ -13,7 +13,11 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
 
 
     :::python
+    from functools import wraps
+
+
     def object_does_not_exist(func):
+        @wraps(func)
         def returned_wrapper(request, *args, **kwargs):
             try:
                 return func(request, *args, **kwargs)
@@ -35,6 +39,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
         :::python
         def object_does_not_exist(redirect=None):
             def decorator(func):
+                @wraps(func)
                 def returned_wrapper(request, *args, **kwargs):
                     try:
                         return func(request, *args, **kwargs)
@@ -64,6 +69,7 @@ Slug: django-custom-decorators-optional-keyword-arguments-for-views
         :::python
         def object_does_not_exist(func=None, redirect=None):
             def decorator(func):
+                @wraps(func)
                 def returned_wrapper(request, *args, **kwargs):
                     try:
                         return func(request, *args, **kwargs)
