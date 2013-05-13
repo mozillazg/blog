@@ -16,6 +16,7 @@ Slug: django-admin-add-user-form-include-email-field
 
 ![after](/static/images/2013-4-19-02.png)
 
+在应用目录下修改/新建 admin.py:
 
     :::python
     from django.contrib.auth.models import User
