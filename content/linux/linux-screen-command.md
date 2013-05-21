@@ -42,4 +42,8 @@ ubuntu:
 打开后台状态为 Attached 且名称为 django 的 screen shell:
 
     ::bash
+    $ screen -r django
+    There is a screen on:
+        1429.django	(Attached)
+    There is no screen to be resumed matching django.
     $ screen -x django
