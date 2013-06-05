@@ -1,5 +1,5 @@
 Title: [django]使用 South 重命名 model 字段名
-Date: 2013-06-04
+Date: 2013-06-05
 Tags: django, python, south
 Slug: django-south-rename-model-field
 
@@ -15,31 +15,32 @@ Slug: django-south-rename-model-field
 
 1. 改好 models.py
 
-    :::python
-    class Foo(models.Model):
-        bar = models.IntegerField()
+        :::python
+        class Foo(models.Model):
+            bar = models.IntegerField()
+
 2. 执行 south 命令
 
-    :::bash
-    # python manage.py schemamigration yourapp rename_field_foo_to_bar --empty
-    # 本例是
-    python manage.py schemamigration foobar rename_field_foo_to_bar --empty
+        :::bash
+        # python manage.py schemamigration yourapp rename_field_foo_to_bar --empty
+        # 本例是
+        python manage.py schemamigration foobar rename_field_foo_to_bar --empty
 
 3. 更改生成的 000x_xxx.py 文件
 
-    :::python
-    class Migration(SchemaMigration):
+        :::python
+        class Migration(SchemaMigration):
 
-        def forwards(self, orm):
-            # 更改列名
-            # db.rename_column('yourapp_foo', 'oldname', 'newname')
-            db.rename_column('foobar_foo', 'foo', 'bar')
+            def forwards(self, orm):
+                # 更改列名
+                # db.rename_column('yourapp_foo', 'oldname', 'newname')
+                db.rename_column('foobar_foo', 'foo', 'bar')
 
 
-        def backwards(self, orm):
-            # 撤销更改
-            # db.rename_column('yourapp_foo', 'newname', 'oldname')
-            db.rename_column('foobar_foo', 'bar', 'foo')
+            def backwards(self, orm):
+                # 撤销更改
+                # db.rename_column('yourapp_foo', 'newname', 'oldname')
+                db.rename_column('foobar_foo', 'bar', 'foo')
 
 
 ## 参考
