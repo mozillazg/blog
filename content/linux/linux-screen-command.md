@@ -18,10 +18,15 @@ ubuntu:
 
 ## 常用的 screen 命令
 
+新建一个名为 django 的 screen shell：
+
+    ::bash
+    screen -S django
+
 新建一个名为 django 的后台 screen shell：
 
     ::bash
-    screen -dmS django
+    screen -dS django
 
 查看所有的 screen shell:
 
