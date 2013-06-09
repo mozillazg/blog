@@ -30,8 +30,12 @@ def auto_reload():
 @task
 def push():
     """发布到 github"""
-    local('git add -A')
-    local('git commit -m "push"')
+    try:
+        local('git add -A')
+        local('git commit -m "push"')
+    except Exception as e:
+        print e
+
     with cd('output'):
         local('git add -A')
         local('git commit -m "push"')
