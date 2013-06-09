@@ -33,12 +33,12 @@ def push():
     try:
         local('git add -A')
         local('git commit -m "push"')
+        with cd('output'):
+            local('git add -A')
+            local('git commit -m "push"')
     except Exception as e:
         print e
 
-    with cd('output'):
-        local('git add -A')
-        local('git commit -m "push"')
 
 @task
 def server():
