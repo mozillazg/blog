@@ -32,9 +32,11 @@ def push():
     """发布到 github"""
     local('git add -A')
     local('git commit -m "push"')
+    local('git push')
     with lcd('output'):
         local('git add -A')
         local('git commit -m "push"')
+        local('git push')
 
 @task
 def server():
