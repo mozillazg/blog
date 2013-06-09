@@ -3,7 +3,7 @@
 
 from fabric.api import task
 from fabric.api import local
-from fabric.api import cd
+from fabric.api import lcd
 
 
 @task
@@ -30,18 +30,14 @@ def auto_reload():
 @task
 def push():
     """发布到 github"""
-    try:
+    local('git add -A')
+    local('git commit -m "push"')
+    with lcd('output'):
         local('git add -A')
         local('git commit -m "push"')
-        with cd('output'):
-            local('git add -A')
-            local('git commit -m "push"')
-    except Exception as e:
-        print e
-
 
 @task
 def server():
     """运行一个简单的 http 服务器"""
-    with cd('output'):
+    with lcd('output'):
         local('python -m SimpleHTTPServer')
