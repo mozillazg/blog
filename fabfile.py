@@ -4,6 +4,7 @@
 from fabric.api import task
 from fabric.api import local
 from fabric.api import lcd
+from fabric.api import settings
 
 
 @task
@@ -30,16 +31,14 @@ def auto_reload():
 @task
 def push():
     """发布到 github"""
-    local('git add -A')
-    try:
+    with settings(warn_only=True):
+        local('git add -A')
         local('git commit -m "push"')
         local('git push')
         with lcd('output'):
             local('git add -A')
             local('git commit -m "push"')
             local('git push')
-    except Exception as e:
-        print e
 
 @task
 def server():
