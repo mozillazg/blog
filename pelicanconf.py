@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
+
 """Settings for pelican."""
 
 AUTHOR = 'mozillazg'
@@ -16,12 +18,15 @@ THEME = 'notmyidea'
 # THEME = './themes/tuxlite_tbs/'
 # THEME = './themes/relapse/'
 # THEME = './themes/syte/'
-#PLUGINS = ['pelican.plugins.assets',
-           # 'pelican.plugins.gravatar',
+MD_EXTENSIONS = (['toc', 'codehilite', 'footnotes', 'tables'])
+PLUGIN_PATH = os.path.abspath('./pelican-plugins')
+PLUGINS = [# 'assets',
+           # 'gravatar',
            # 'pelican.plugins.github_activity',
-           #'pelican.plugins.sitemap',
-           # 'pelican.plugins.related_posts',
-           #]
+           #'sitemap',
+           'related_posts',
+           'extract_toc',
+           ]
 
 WEBASSETS = True
 ABOUT = u'宅（伪）&& Geek（伪）'

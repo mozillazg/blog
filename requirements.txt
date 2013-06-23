@@ -1,0 +1,14 @@
+feedgenerator
+jinja2
+pygments
+docutils
+pytz
+blinker
+unidecode
+six
+MarkupSafe
+markdown
+typogrify
+BeautifulSoup
+BeautifulSoup4
+lxml

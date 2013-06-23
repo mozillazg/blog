@@ -1,4 +1,4 @@
-Title: [django]使用 South 重命名 model 字段名
+Title: [django]使用 South 重命名 model 名称
 Date: 2013-06-05
 Tags: django, python, south
 Slug: django-south-rename-model-or-table

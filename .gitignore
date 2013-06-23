@@ -1,8 +1,6 @@
 *.pyc
 /sanbox
-/themes
 /source
-/output
 *.swp
 *.un~
 *.draft

@@ -9,28 +9,29 @@ from fabric.api import settings
 
 @task
 def make_html():
-    """生成 html 文件"""
-    local('pelican content -o output -s pelicanconf.py')
+    """generate the web site"""
+    with settings(warn_only=True):
+        local('pelican content -o output -s pelicanconf.py -D')
 
 
 @task
 def re_make_html():
-    """重新生成 html 文件（删除旧 html 文件）"""
-    local('pelican -d output')
-    local('pelican content -o output -s pelicanconf.py')
+    """regenerate the web site"""
+    with settings(warn_only=True):
+        local('pelican -d output')
+        local('pelican content -o output -s pelicanconf.py -D')
 
 
 @task
 def auto_reload():
-    """生成 html 文件，并监视文件变化。
-    有变化时，再次生成 html 文件
-    """
-    local('pelican content -o output -s pelicanconf.py -r')
+    """generate the web site(auto reload)"""
+    with settings(warn_only=True):
+        local('pelican content -o output -s pelicanconf.py -r -D')
 
 
 @task
 def push():
-    """发布到 github"""
+    """push to github"""
     with settings(warn_only=True):
         local('git add -A')
         local('git commit -m "push"')
@@ -42,6 +43,7 @@ def push():
 
 @task
 def server():
-    """运行一个简单的 http 服务器"""
-    with lcd('output'):
-        local('python -m SimpleHTTPServer')
+    """run http server at http://0.0.0.0:8000"""
+    with settings(warn_only=True):
+        with lcd('output'):
+            local('python -m SimpleHTTPServer')
