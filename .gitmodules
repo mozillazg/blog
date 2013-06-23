@@ -1,0 +1,9 @@
+[submodule "output"]
+	path = output
+	url = git@github.com:mozillazg/mozillazg.github.com.git
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = git://github.com/getpelican/pelican-plugins.git
+[submodule "themes"]
+	path = themes
+	url = git://github.com/getpelican/pelican-themes.git
