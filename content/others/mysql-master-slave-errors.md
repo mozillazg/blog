@@ -1,0 +1,32 @@
+
+
+[ERROR] Slave I/O: error connecting to master 'user@192.168.100.xxx:3306' - retry-time: 60  retries: 86400, Error_code: 2013
+
+1. 检查防火墙是否开放 3306 端口：
+
+
+
+slave stop;
+reset slave;
+slave start;
+show slave status;
+
+
+数据冲突：
+
+>    Last_SQL_Errno: 1062
+>
+>                 Last_SQL_Error: Error 'Duplicate entry '483' for key 'PRIMARY'' on query.
+
+slave stop;
+# 跳过多少次冲突项，使用多个数值(1~n)多试几次，直到解决冲突
+set global sql_slave_skip_counter=n;
+slave start;
+show slave status;
+
+问题解决后，
+
+slave stop;
+set global sql_slave_skip_counter=0;
+slave start;
+show slave status;

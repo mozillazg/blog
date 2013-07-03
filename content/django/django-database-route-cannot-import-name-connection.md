@@ -1,0 +1,8 @@
+
+
+ImproperlyConfigured: Error importing database router AuthRouter: "cannot import name connection"
+
+
+sharding - django 1.4 database router - "cannot import name connection" - Stack Overflow
+http://stackoverflow.com/questions/11711536/django-1-4-database-router-cannot-import-name-connection
+
