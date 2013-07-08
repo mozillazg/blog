@@ -7,17 +7,17 @@ Slug: python-send-email-set-priority
 
 设置邮件 header 中 X-Priority 的值就可以了：
 
-  X-Priority 的值  |          含义
---------           |-------------------------
-       "1"         | 最高级别（重要性高）
-       "2"         | 介于中间
-       "3"         | 普通级别（不提示重要性）
-       "4"         | 介于中间
-       "5"         | 最低级别（重要性低）
+|  X-Priority 的值  |          含义           |
+|-------------------|------------------------ |
+|       "1"         | 最高级别（重要性高）    |
+|       "2"         | 介于中间                |
+|       "3"         | 普通级别（不提示重要性）|
+|       "4"         | 介于中间                |
+|       "5"         | 最低级别（重要性低）    |
 
 ## python 使用示例
 
-> http://stackoverflow.com/a/11844141
+> <http://stackoverflow.com/a/11844141>
 >
 >     :::python
 >     import smtplib
@@ -34,7 +34,7 @@ Slug: python-send-email-set-priority
 
 ## django 使用示例
 
-    :::django
+    :::python
     from django.core.mail import EmailMessage
 
     subject = 'hello'
