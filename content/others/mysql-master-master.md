@@ -43,6 +43,9 @@ master1-slave(master2) && master2-slave(master1)
         binlog-ignore-db=mysql #不记录日志的数据库：不需要备份的数据库，多个写多行
         binlog-ignore-db=test
         binlog-ignore-db=information_schema
+        # 自增字段奇数递增，防止冲突（1, 3, 5, ...,）
+        auto-increment-increment = 2  # 每次递增的步长
+        auto-increment-offset = 1  # 初始值
 
     重启 mysql: `serivce mysqld restart`
 
@@ -105,6 +108,10 @@ master1-slave(master2) && master2-slave(master1)
         #log-slave-updates = ON
         #5.1
         #log-slave-updates = 1
+
+        # 自增字段奇数递增，防止冲突（1, 3, 5, ...,）
+        auto-increment-increment = 2  # 每次递增的步长
+        auto-increment-offset = 1  # 初始值
 
 2. 导入 master 导出的数据库：
 
@@ -176,7 +183,7 @@ master1-slave(master2) && master2-slave(master1)
 
         mysql> show master status\G;
         *************************** 1. row ***************************
-                    File: mysql-bin.000002  # 这样这里
+                    File: mysql-bin.000002  # 注意这里
                 Position: 276    # 注意这里
             Binlog_Do_DB: hello
         Binlog_Ignore_DB: mysql,test,information_schema
@@ -256,6 +263,10 @@ vim /etc/my.cnf:
     binlog-ignore-db=mysql #不记录日志的数据库：不需要备份的数据库，多个写多行
     binlog-ignore-db=test
     binlog-ignore-db=information_schema
+
+    # 自增字段偶数递增，防止冲突（2, 4, 6, ...,）
+    auto-increment-increment = 2  # 每次递增的步长
+    auto-increment-offset = 2  # 初始值
 
 service mysqld restart
 
@@ -385,6 +396,10 @@ master1:
     relay-log=mysqld-relay-bin  # 开启日志中继
     log-slave-updates  # slave将复制事件写进自己的二进制日志
 
+    # 自增字段奇数递增，防止冲突（1, 3, 5, ...,）
+    auto-increment-increment = 2  # 每次递增的步长
+    auto-increment-offset = 1  # 初始值
+
 master2:
 
     :::bash
@@ -416,6 +431,10 @@ master2:
     binlog-ignore-db=test
     binlog-ignore-db=information_schema
 
+    # 自增字段偶数递增，防止冲突（2, 4, 6, ...,）
+    auto-increment-increment = 2  # 每次递增的步长
+    auto-increment-offset = 2  # 初始值
+
 
 
 ## 参考
@@ -429,3 +448,7 @@ master2:
 * [MySQL master slave 安装部署及常见问题-桥-搜狐博客](http://mvbridge.blog.sohu.com/172644721.html)
 <!--* [)-->
 <!--https://groups.google.com/forum/#!topic/django-users/0RiRw6jlnAs-->
+* [三台Mysql实现数据同步及主从模式 - 情感个人博客站 - Powered by Sablog-X](http://blog.phpok.com/archives/29/)
+* [MYSQL中的auto_increment_increment和auto_increment_offset - 朝着梦想 渐行前进 - 博客频道 - CSDN.NET](http://blog.csdn.net/wh62592855/article/details/6726724)
+* [auto increment - How is the MySQL auto_increment step size determined - Stack Overflow](http://stackoverflow.com/questions/8262863/how-is-the-mysql-auto-increment-step-size-determined)
+* [MySQL :: MySQL 5.1 Reference Manual :: 16.1.3.2 Replication Master Options and Variables](http://dev.mysql.com/doc/refman/5.1/en/replication-options-master.html#sysvar_auto_increment_increment)
