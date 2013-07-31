@@ -102,5 +102,6 @@ FILES_TO_COPY = (('extra/CNAME', 'CNAME'),
                  )
 
 USE_FOLDER_AS_CATEGORY = True
+DISPLAY_CATEGORIES_ON_MENU = False
 
 SITEMAP = {'format': 'xml', }

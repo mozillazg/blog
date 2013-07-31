@@ -43,6 +43,8 @@ master1-slave(master2) && master2-slave(master1)
         binlog-ignore-db=mysql #不记录日志的数据库：不需要备份的数据库，多个写多行
         binlog-ignore-db=test
         binlog-ignore-db=information_schema
+
+
         # 自增字段奇数递增，防止冲突（1, 3, 5, ...,）
         auto-increment-increment = 2  # 每次递增的步长
         auto-increment-offset = 1  # 初始值
@@ -109,9 +111,6 @@ master1-slave(master2) && master2-slave(master1)
         #5.1
         #log-slave-updates = 1
 
-        # 自增字段奇数递增，防止冲突（1, 3, 5, ...,）
-        auto-increment-increment = 2  # 每次递增的步长
-        auto-increment-offset = 1  # 初始值
 
 2. 导入 master 导出的数据库：
 
@@ -264,6 +263,7 @@ vim /etc/my.cnf:
     binlog-ignore-db=test
     binlog-ignore-db=information_schema
 
+
     # 自增字段偶数递增，防止冲突（2, 4, 6, ...,）
     auto-increment-increment = 2  # 每次递增的步长
     auto-increment-offset = 2  # 初始值
@@ -396,6 +396,7 @@ master1:
     relay-log=mysqld-relay-bin  # 开启日志中继
     log-slave-updates  # slave将复制事件写进自己的二进制日志
 
+
     # 自增字段奇数递增，防止冲突（1, 3, 5, ...,）
     auto-increment-increment = 2  # 每次递增的步长
     auto-increment-offset = 1  # 初始值
@@ -430,6 +431,7 @@ master2:
     binlog-ignore-db=mysql #不记录日志的数据库：不需要备份的数据库，多个写多行
     binlog-ignore-db=test
     binlog-ignore-db=information_schema
+
 
     # 自增字段偶数递增，防止冲突（2, 4, 6, ...,）
     auto-increment-increment = 2  # 每次递增的步长
