@@ -39,10 +39,6 @@ status: draft
 | 36       |  青色/蓝绿 |
 | 37       |  白色  |
 | 38       |  xterm-256 色  |
-https://github.com/robertknight/konsole/blob/master/tests/color-spaces.pl
-Quoting <https://github.com/robertknight/konsole/blob/master/user-doc/README.moreColors>:
-   ESC[ … 38;2;<r>;<g>;<b> … m Select RGB foreground color
-   ESC[ … 48;2;<r>;<g>;<b> … m Select RGB background color
 | 39       |  默认色 |
 |
 |    背景色         |
@@ -57,8 +53,19 @@ Quoting <https://github.com/robertknight/konsole/blob/master/user-doc/README.mor
 | 48       |  xterm-256 色  |
 | 49       |  默认色 |
 
+<!--
+https://github.com/robertknight/konsole/blob/master/tests/color-spaces.pl
+Quoting <https://github.com/robertknight/konsole/blob/master/user-doc/README.moreColors>:
+   ESC[ … 38;2;<r>;<g>;<b> … m Select RGB foreground color
+   ESC[ … 48;2;<r>;<g>;<b> … m Select RGB background color
+
+## 示例
+
+print('\033[31m \033[44m' + 'some red text' + '\033[0;39m' + 'ab')
+-->
 
 ## 参考
 
 * [ANSI Escape Sequences](http://www.isthe.com/chongo/tech/comp/ansi_escapes.html)
 * [ANSI escape code - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/ANSI_escape_code)
+* [Terminal colour highlights](http://www.pixelbeat.org/docs/terminal_colours/)
