@@ -1,11 +1,7 @@
 Title: 给终端文字加点颜色和特效
-Date: 
-Author: mozillazg
-Category: 
-Tags: 
-Slug: 
-lang: 
-status: draft
+Date: 2013-08-25
+Tags: ansi, color, terminal
+Slug: ansi-escape-sequences
 
 这个叫做：ANSI Escape Sequences/Code 。
 
