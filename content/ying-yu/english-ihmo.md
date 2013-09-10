@@ -1,7 +1,7 @@
 Title: [英语]IHMO 是什么意思？
 Date: 2013-09-05
 Tags: 英语
-Slug: <`5english-ihmo`>
+Slug: english-ihmo
 
 有个哥们总是不自觉的[跟我说 IHMO](https://github.com/makinacorpus/django-screamshot/pull/18#issuecomment-23845044)，害我看得一头雾水，只好上网找一下解释了：
 
