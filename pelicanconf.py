@@ -12,7 +12,7 @@ SITEDESCRIPTION = u'Just another Pelican blog'
 
 # This can also be the absolute path to a theme that you downloaded
 # i.e. './themes/anothertheme/'
-THEME = 'notmyidea'
+THEME = './pelican-octopress-theme'  # 'notmyidea'
 # THEME = './themes/bootstrap/'
 # THEME = './themes/bootstrap2/'
 # THEME = './themes/tuxlite_tbs/'
