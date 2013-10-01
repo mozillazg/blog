@@ -35,6 +35,10 @@ SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
 GITHUB_INTEGRATION_ENABLED = True
 GITHUB_USERNAME = 'mozillazg'
 # GRAVATAR = u'https://en.gravatar.com/userimage/7906007/7f8709a4ab3a1398b46c628bb193900b.jpg'
+GITHUB_USER = 'mozillazg'
+GITHUB_REPO_COUNT = 10
+GITHUB_SKIP_FORK = True
+GITHUB_SHOW_USER_LINK = False
 
 GITHUB_ACTIVITY_FEED = 'https://github.com/mozillazg.atom'
 
@@ -89,7 +93,7 @@ LINKS = (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
          ('Jinja2', 'http://jinja.pocoo.org'),
          # ('GitHub', 'https://github.com'),
          )
-
+FEED_ATOM = 'feeds/all.atom.xml'
 SOCIAL = (
            #('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
           ('About Me', 'http://about.me/mozillazg'),
