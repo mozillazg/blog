@@ -2,6 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import os
+import logging
+
+logging.fatal('fatal')
+logging.info('info')
+logging.debug('debug')
+logging.warn('warnning')
+logging.error('error')
+
 
 """Settings for pelican."""
 
