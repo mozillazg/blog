@@ -29,4 +29,4 @@
 ----
 
 * `Issue 7519: ConfigParser can't read files with BOM markers - Python tracker <http://bugs.python.org/issue7519>`__
-* `13.2. ConfigParser — Configuration file parser — Python v2.7.5 documentation <http://docs.python.org/2/library/configparser.html`__
+* `13.2. ConfigParser — Configuration file parser — Python v2.7.5 documentation <http://docs.python.org/2/library/configparser.html>`__
