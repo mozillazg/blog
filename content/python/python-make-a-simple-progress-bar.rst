@@ -19,3 +19,4 @@
         f.write(s)
         time.sleep(0.3)
         f.write('\r')
+    f.write('\n')
