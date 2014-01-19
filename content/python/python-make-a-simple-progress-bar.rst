@@ -17,6 +17,7 @@
     for n in range(1, 101):
         s = ('#' * n).ljust(100, '-')
         f.write(s)
+        f.flush()
         time.sleep(0.3)
         f.write('\r')
     f.write('\n')
