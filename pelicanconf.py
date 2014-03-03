@@ -23,7 +23,7 @@ PLUGIN_PATH = os.path.abspath('./pelican-plugins')
 PLUGINS = [# 'assets',
            # 'gravatar',
            # 'pelican.plugins.github_activity',
-           #'sitemap',
+           'sitemap',
            'related_posts',
            'extract_toc',
            ]
@@ -96,8 +96,9 @@ LINKS = (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
 FEED_ATOM = 'feeds/all.atom.xml'
 SOCIAL = (
            #('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
-          ('About Me', 'http://about.me/mozillazg'),
+          (u'豆瓣', 'http://www.douban.com/people/mozillazg/'),
           ('Fork me on GitHub', 'https://github.com/mozillazg'),
+          ('About Me', 'http://about.me/mozillazg'),
           )
 
 FILES_TO_COPY = (('extra/CNAME', 'CNAME'),

@@ -26,4 +26,4 @@ python 中使用 `mbcs` 编码（Windows only）表示 ANSI:
 ## 参考
 
 * [\[CPyUG\] 请问在python中如何将utf8编码的文件转换成ansi编码](http://comments.gmane.org/gmane.org.user-groups.python.chinese/93052)
-* [7.8. codecs — Codec registry and base classes — Python v2.7.5](documentation http://docs.python.org/2/library/codecs.html#python-specific-encodings)
+* [7.8. codecs — Codec registry and base classes — Python v2.7.5 documentation ](http://docs.python.org/2/library/codecs.html#python-specific-encodings)
