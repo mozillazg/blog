@@ -13,12 +13,14 @@
 +-----------+------------+-----------------------------+------------------------+
 |Codec      |  Aliases   | Languages                   | Note                   |
 +-----------+------------+-----------------------------+------------------------+
-| utf_16    | U16, utf16 | all languages               | Unicode BOM            |
+| utf_16    | U16, utf16 | all languages               | Unicode(UTF-16 LE BOM)            |
 +-----------+------------+-----------------------------+------------------------+
-|utf_16_be  | UTF-16BE   | all languages (BMP only)    | Unicode Big Endian     |
+|utf_16_be  | UTF-16BE   | all languages (BMP only)    | Unicode(UTF-16 BE)     |
 +-----------+------------+-----------------------------+------------------------+
-|utf_16_le  | UTF-16LE   | all languages (BMP only)    | Unicode Little Endian  |
+|utf_16_le  | UTF-16LE   | all languages (BMP only)    | Unicode(UTF-16 LE)     |
 +-----------+------------+-----------------------------+------------------------+
+
+上面表格中，LE 是 Little Endian 的缩写, BE 是 Big Endian 的缩写。
 
 示例：
 
