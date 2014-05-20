@@ -95,11 +95,6 @@ master1-slave(master2) && master2-slave(master1)
         [mysqld]
         server-id=2
         log-bin=mysql-bin
-        master-host=192.168.100.191  # master1
-        master-user=backup  # 刚才在 master1 上设置的用户名密码
-        master-password=yNZE7fK9*@aMA?*ppF  # password
-        master-port=3306   # master1 mysql port
-        master-connect-retry=60 #如果从服务器发现主服务器断掉，重新连接的时间差(秒)
         replicate-do-db =hello #只复制某个库，多个写多行
         replicate-ignore-db=mysql #不复制某个库
         replicate-ignore-db=test
@@ -128,10 +123,11 @@ master1-slave(master2) && master2-slave(master1)
         -> MASTER_HOST='192.168.100.191', //主服务器的IP地址
         -> MASTER_USER='backup', //同步数据库的用户
         -> MASTER_PASSWORD='yNZE7fK9*@aMA?*ppF', //同步数据库的密码
+        -> MASTER_CONNECT_RETRY=60,  // 如果从服务器发现主服务器断掉，重新连接的时间差(秒)
         -> MASTER_LOG_FILE='mysql-bin.000001', //主服务器二进制日志的文件名(前面要求记住的 File 参数)
         -> MASTER_LOG_POS=98; //日志文件的开始位置(前面要求记住的 Position 参数)
 
-        mysql> CHANGE MASTER TO MASTER_HOST='192.168.100.191', MASTER_USER='backup', MASTER_PASSWORD='yNZE7fK9*@aMA?*ppF', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=98;
+        mysql> CHANGE MASTER TO MASTER_HOST='192.168.100.191', MASTER_USER='backup', MASTER_PASSWORD='yNZE7fK9*@aMA?*ppF', MASTER_CONNECT_RETRY=60, MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=98;
 
         mysql > slave start;
 
@@ -275,7 +271,7 @@ service mysqld restart
     :::bash
     mysql> slave stop;
 
-    mysql>  CHANGE MASTER TO MASTER_HOST='192.168.100.166', MASTER_USER='backup', MASTER_PASSWORD='yNZE7fK9*@aMA?*ppF', MASTER_LOG_FILE='mysql-bin.000002, MASTER_LOG_POS=276';
+    mysql>  CHANGE MASTER TO MASTER_HOST='192.168.100.166', MASTER_USER='backup', MASTER_PASSWORD='yNZE7fK9*@aMA?*ppF', MASTER_CONNECT_RETRY=60, MASTER_LOG_FILE='mysql-bin.000002, MASTER_LOG_POS=276';
 
     mysql> slave start;
 
@@ -283,11 +279,6 @@ vim /etc/my.cnf
 
     :::bash
     # as slave
-    master-host=192.168.100.166  # master
-    master-user=backup  # 刚才在 master1 上设置的用户名密码
-    master-password=yNZE7fK9*@aMA?*ppF  # password
-    master-port=3306   # master1 mysql port
-    master-connect-retry=60 #如果从服务器发现主服务器断掉，重新连接的时间差(秒)
     replicate-do-db =hello #只复制某个库，多个写多行
     replicate-ignore-db=mysql #不复制某个库
     replicate-ignore-db=test
@@ -384,11 +375,6 @@ master1:
     binlog-ignore-db=information_schema
 
     # as slave
-    master-host=192.168.100.166  # master
-    master-user=backup  # 刚才在 master1 上设置的用户名密码
-    master-password=yNZE7fK9*@aMA?*ppF  # password
-    master-port=3306   # master1 mysql port
-    master-connect-retry=60 #如果从服务器发现主服务器断掉，重新连接的时间差(秒)
     replicate-do-db =hello #只复制某个库，多个写多行
     replicate-ignore-db=mysql #不复制某个库
     replicate-ignore-db=test
@@ -410,11 +396,6 @@ master2:
     # as slave
     server-id=2
     log-bin=mysql-bin
-    master-host=192.168.100.191  # master1
-    master-user=backup  # 刚才在 master1 上设置的用户名密码
-    master-password=yNZE7fK9*@aMA?*ppF  # password
-    master-port=3306   # master1 mysql port
-    master-connect-retry=60 #如果从服务器发现主服务器断掉，重新连接的时间差(秒)
     replicate-do-db =hello #只复制某个库，多个写多行
     replicate-ignore-db=mysql #不复制某个库
     replicate-ignore-db=test
