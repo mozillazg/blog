@@ -32,15 +32,16 @@ WEBASSETS = True
 ABOUT = u'宅（伪）&& Geek（伪）'
 SITE_DESCRIPTION = u'Just another Pelican blog'
 SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
-GITHUB_INTEGRATION_ENABLED = True
-GITHUB_USERNAME = 'mozillazg'
+# GITHUB_INTEGRATION_ENABLED = True
+# GITHUB_INTEGRATION_ENABLED = False
+# GITHUB_USERNAME = 'mozillazg'
 # GRAVATAR = u'https://en.gravatar.com/userimage/7906007/7f8709a4ab3a1398b46c628bb193900b.jpg'
-GITHUB_USER = 'mozillazg'
-GITHUB_REPO_COUNT = 10
-GITHUB_SKIP_FORK = True
-GITHUB_SHOW_USER_LINK = False
+# GITHUB_USER = 'mozillazg'
+# GITHUB_REPO_COUNT = 0
+# GITHUB_SKIP_FORK = True
+# GITHUB_SHOW_USER_LINK = True
 
-GITHUB_ACTIVITY_FEED = 'https://github.com/mozillazg.atom'
+# GITHUB_ACTIVITY_FEED = 'https://github.com/mozillazg.atom'
 
 # The folder ``images`` should be copied into the folder ``static`` when
 # generating the output.
@@ -82,9 +83,9 @@ REVERSE_ARCHIVE_ORDER = True
 # Uncomment what ever you want to use
 # GOOGLE_ANALYTICS = 'RbRRsoKca_Yxb_Zy0IRrXLtjKZlefx2qdKbP6Et9NeE'
 DISQUS_SITENAME = 'my-github-blog'
-GITHUB_URL = 'https://github.com/mozillazg'
+# GITHUB_URL = 'https://github.com/mozillazg'
 #TWITTER_USERNAME = 'username'
-GITHUB_POSITION = True
+# GITHUB_POSITION = True
 
 DEFAULT_LANG = u'zh'
 
@@ -112,7 +113,8 @@ DISPLAY_CATEGORIES_ON_MENU = False
 SITEMAP = {'format': 'xml', }
 
 SEARCH_BOX = True
-GITHUB_SKIP_FORK = True
-GITHUB_SHOW_USER_LINK = True
-GITHUB_USER = 'mozillazg'
-GITHUB_REPO_COUNT = 0
+# GITHUB_SKIP_FORK = True
+# GITHUB_SHOW_USER_LINK = True
+# GITHUB_USER = 'mozillazg'
+# GITHUB_REPO_COUNT = 0
+QR_CODE = True

@@ -15,6 +15,9 @@
 
     # 然后再执行
     $ git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+     已删除分支 feature-xxx（曾为 328b639）。
+     已删除分支 feature-xxxx（曾为 5e77d10）。
+     已删除分支 hotfix-xx（曾为 5c13813）。
 
 
 
