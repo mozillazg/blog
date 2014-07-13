@@ -1,0 +1,14 @@
+https://bitbucket.org/mikegraham/remember/src/tip/remember/dicts.py
+
+
+
+https://github.com/JasonGross/characters/blob/master/scripts/python/frozendict.py
+
+
+https://code.google.com/p/lingospot/source/browse/trunk/frozendict/frozendict.py
+
+
+https://github.com/slezica/python-frozendict/blob/master/frozendict/__init__.py
+
+
+
