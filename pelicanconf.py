@@ -23,9 +23,11 @@ PLUGIN_PATH = os.path.abspath('./pelican-plugins')
 PLUGINS = [# 'assets',
            # 'gravatar',
            # 'pelican.plugins.github_activity',
-           'sitemap',
+           # 'sitemap',
            'related_posts',
            'extract_toc',
+           'cjk-auto-spacing',
+           'pin_to_top',
            ]
 
 WEBASSETS = True
