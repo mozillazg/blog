@@ -23,7 +23,7 @@ PLUGIN_PATH = os.path.abspath('./pelican-plugins')
 PLUGINS = [# 'assets',
            # 'gravatar',
            # 'pelican.plugins.github_activity',
-           # 'sitemap',
+           'sitemap',
            'related_posts',
            'extract_toc',
            'cjk-auto-spacing',
@@ -47,7 +47,8 @@ SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
 
 # The folder ``images`` should be copied into the folder ``static`` when
 # generating the output.
-STATIC_PATHS = ['images', 'downloads', ]
+# STATIC_PATHS = ['static/images', 'static/downloads', ]
+STATIC_PATHS = ['static', ]
 
 # See http://pelican.notmyidea.org/en/latest/settings.html#timezone
 TIMEZONE = 'UTC'
@@ -96,7 +97,9 @@ LINKS = (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
          ('Jinja2', 'http://jinja.pocoo.org'),
          # ('GitHub', 'https://github.com'),
          )
-FEED_ATOM = 'feeds/all.atom.xml'
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+FEED_ALL_RSS = 'feeds/all.rss.xml'
+FEED_ATOM = None
 SOCIAL = (
            #('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
           (u'豆瓣', 'http://www.douban.com/people/mozillazg/'),
@@ -105,6 +108,7 @@ SOCIAL = (
           )
 
 FILES_TO_COPY = (('extra/CNAME', 'CNAME'),
+                 ('extra/robots.txt', 'robots.txt'),
                  ('extra/favicon.ico', 'favicon.ico'),
                  ('extra/google37c30fbcbbc5f169.html', 'google37c30fbcbbc5f169.html'),
                  )
