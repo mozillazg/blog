@@ -1,0 +1,14 @@
+Title: [redis]清理列表
+Date: 2014-10-27
+Tags: 
+Slug: redis-clean-list
+
+LTRIM 命令可以做到：
+
+    LTRIM list_key m n       # 清理列表 list_key 保留 >=m, <=n 的条目
+
+    > LTRIM lst 100 -1        # 保留 100 以后的条目
+    > LTRIM lst 0 0              # m n 等于 0 时，等效于清空 lst
+
+
+<!-- http://stackoverflow.com/questions/9828160/delete-all-entries-in-a-redis-list -->

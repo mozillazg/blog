@@ -13,6 +13,7 @@ SITEDESCRIPTION = u'Just another Pelican blog'
 # This can also be the absolute path to a theme that you downloaded
 # i.e. './themes/anothertheme/'
 THEME = './pelican-octopress-theme'  # 'notmyidea'
+# THEME = './pelican-elegant'  # 'notmyidea'
 # THEME = './themes/bootstrap/'
 # THEME = './themes/bootstrap2/'
 # THEME = './themes/tuxlite_tbs/'
@@ -26,8 +27,8 @@ PLUGINS = [# 'assets',
            'sitemap',
            'related_posts',
            'extract_toc',
-           'cjk-auto-spacing',
-           'pin_to_top',
+           # 'cjk-auto-spacing',
+           # 'pin_to_top',
            ]
 
 WEBASSETS = True
@@ -88,6 +89,7 @@ REVERSE_ARCHIVE_ORDER = True
 DISQUS_SITENAME = 'my-github-blog'
 # GITHUB_URL = 'https://github.com/mozillazg'
 #TWITTER_USERNAME = 'username'
+TWITTER_USER = 'mozillazg'
 # GITHUB_POSITION = True
 
 DEFAULT_LANG = u'zh'
