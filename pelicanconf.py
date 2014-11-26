@@ -24,6 +24,21 @@ THEME = './themes/zurb-F5-basic/'
 THEME = './pure-single'
 THEME = './pure'
 THEME = './pelican-octopress-theme'  # 'notmyidea'
+THEME = './themes/tuxlite_tbs/'
+THEME = './themes/pelican-simplegrey/'
+THEME = './themes/blueidea/'
+THEME = './themes/pelican-bootstrap3/'
+
+SHOW_ARTICLE_CATEGORY = True
+DISPLAY_CATEGORIES_ON_SIDEBAR = True
+DISPLAY_TAGS_ON_SIDEBAR = False
+GITHUB_USER = 'mozillazg'
+DISPLAY_ARTICLE_INFO_ON_INDEX = True
+DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+RECENT_POST_COUNT = 5
+CC_LICENSE = 'CC-BY-SA'
+CC_ATTR_MARKUP = True
+
 MD_EXTENSIONS = (['toc', 'codehilite', 'footnotes', 'tables'])
 PLUGIN_PATH = os.path.abspath('./pelican-plugins')
 PLUGINS = [# 'assets',
@@ -34,6 +49,7 @@ PLUGINS = [# 'assets',
            'extract_toc',
            # 'cjk-auto-spacing',
            # 'pin_to_top',
+	   'series',
            ]
 
 WEBASSETS = True
