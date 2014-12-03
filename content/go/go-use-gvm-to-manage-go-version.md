@@ -28,3 +28,8 @@ Please restart your terminal session or to get started right away run
    ~$ gvm version
 Go Version Manager v1.0.22 installed at /home/mg/.gvm
 
+ ~$ gvm install go1.3
+Downloading Go source...
+ERROR: Couldn't download Go source. Check the logs /home/mg/.gvm/logs/go-download.log
+
+git://github.com/jnwhiteh/golang.git
