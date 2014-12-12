@@ -1,4 +1,9 @@
+Title: [go] 使用 gvm 管理 go 版本
+Date: 2014-12-06
+Slug: go-use-gvm-to-manage-go-version
 
+[gvm](https://github.com/moovweb/gvm) 是个 go 版本管理工具。
+可以让多个版本的 go 编译器在同一台机器上共存，并可以方便的切换要使用的 go 版本。
 
 ## 安装
 
