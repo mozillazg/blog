@@ -1,0 +1,8 @@
+[python]SQLAlchemy 笔记
+
+
+
+is null 和 is not null 的表示方法::
+
+    User.name.is_(None)
+    User.name.isnot(None)

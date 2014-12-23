@@ -1,0 +1,27 @@
+linux-use-tcpdump-filter-http-request-and-response.md
+
+
+
+man tcpdump | less -Ip examples
+
+过滤 GET 请求：
+
+    sudo tcpdump -s 0 -A 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
+
+过滤 POST 请求：
+
+    sudo tcpdump -s 0 -A 'tcp dst port 80 and (tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354)'
+
+
+监控所有的 HTTP 请求：
+
+    sudo tcpdump -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+    sudo tcpdump -X -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+
+
+https://sites.google.com/site/jimmyxu101/testing/use-tcpdump-to-monitor-http-traffic
+
+http://stackoverflow.com/questions/4777042/can-i-use-tcpdump-to-get-http-requests-response-header-and-response-body
+
+https://www.wireshark.org/tools/string-cf.html
+http://askubuntu.com/questions/252179/how-to-inspect-outgoing-http-requests-of-a-single-application
