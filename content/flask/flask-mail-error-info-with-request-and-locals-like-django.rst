@@ -85,7 +85,7 @@
     from flask import request
 
     mail_handler = SMTPHandler('127.0.0.1', 'foo@example.com',
-                               'dev@bar.com, 'App exception')
+                               'dev@bar.com', 'App exception')
     mail_handler.setFormatter(NewFormatter('''
     Message type:       %(levelname)s
     Location:           %(pathname)s:%(lineno)d
