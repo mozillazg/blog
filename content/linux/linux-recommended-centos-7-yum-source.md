@@ -22,17 +22,17 @@ Slug: linux-recommended-centos-5-6-7-yum-source
 ## epel
 
     # centos 5 i386
-    rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-2.noarch.rpm
+    rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
     # centos 5 x86_64
-    rpm -Uvh http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-2.noarch.rpm
+    rpm -Uvh http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
     
     # centos 6 i386
-    rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-2.noarch.rpm
+    rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
     # centos 6 x86_64
-    rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-2.noarch.rpm
+    rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
     
     # centos 7
-    rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
+    rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 
 ## remi
 
@@ -42,4 +42,7 @@ Slug: linux-recommended-centos-5-6-7-yum-source
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
     # centos 7
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-`vim /etc/yum.repos.d/remi.repo` 更改 `enable=1`
+`vim /etc/yum.repos.d/remi.repo` 更改 `enabled=1`
+
+
+<!-- yum install centos-release-SCL -->
