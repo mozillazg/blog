@@ -129,6 +129,8 @@ SOCIAL = (
           (u'豆瓣', 'http://www.douban.com/people/mozillazg/'),
           ('Fork me on GitHub', 'https://github.com/mozillazg'),
           ('About Me', 'http://about.me/mozillazg'),
+          ('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
+          ('RSS Feed', '{0}/feeds/all.rss.xml'.format(SITEURL)),
           )
 
 FILES_TO_COPY = (('extra/CNAME', 'CNAME'),
