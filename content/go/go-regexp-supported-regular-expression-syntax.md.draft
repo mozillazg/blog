@@ -1,0 +1,24 @@
+Title: [go]regexp 包所支持的正则表达式语法
+
+<!-- 
+Date: 2015-02-28
+Slug: go-regexp-supported-regular-expression-syntax
+-->
+
+本文内容整理自: [http://code.google.com/p/re2/wiki/Syntax](http://code.google.com/p/re2/wiki/Syntax)
+
+
+
+单字符：
+
+`.`                  任意字符, 可能会匹配换行符(s=true)
+`[xyz]`              character class
+[^xyz]	negated character class
+\d	Perl character class
+\D	negated Perl character class
+[[:alpha:]]	ASCII character class
+[[:^alpha:]]	negated ASCII character class
+\pN	Unicode character class (one-letter name)
+\p{Greek}	Unicode character class
+\PN	negated Unicode character class (one-letter name)
+\P{Greek}	negated Unicode character class
