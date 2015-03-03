@@ -186,49 +186,65 @@ Character class elements:
 ===================  =============================================
 
 
-``Named character classes as character class elements:
-``[\d]``    digits (≡ \d)
-``[^\d]``    not digits (≡ \D)
-``[\D]``    not digits (≡ \D)
-``[^\D]``    not not digits (≡ \d)
-``[[:name:]]``    named ASCII class inside character class (≡ [:name:])
-``[^[:name:]]``    named ASCII class inside negated character class (≡ [:^name:])
-``[\p{Name}]``    named Unicode property inside character class (≡ \p{Name})
-``[^\p{Name}]``    named Unicode property inside negated character class (≡ \P{Name})
-``Perl character classes (all ASCII-only):
-``\d``    digits (≡ [0-9])
-``\D``    not digits (≡ [^0-9])
-``\s``    whitespace (≡ [\t\n\f\r ])
-``\S``    not whitespace (≡ [^\t\n\f\r ])
-``\w``    word characters (≡ [0-9A-Za-z_])
-``\W``    not word characters (≡ [^0-9A-Za-z_])
+Named character classes as character class elements:
+
+
+==================  ============================================================================
+``[\d]``            digits (≡ ``\d`` )
+``[^\d]``           not digits (≡ ``\D`` )
+``[\D]``            not digits (≡ ``\D`` )
+``[^\D]``           not not digits (≡ ``\d`` )
+``[[:name:]]``      named ASCII class inside character class (≡ ``[:name:]`` )
+``[^[:name:]]``     named ASCII class inside negated character class (≡ ``[:^name:]`` )
+``[\p{Name}]``      named Unicode property inside character class (≡ ``\p{Name}`` )
+``[^\p{Name}]``     named Unicode property inside negated character class (≡ ``\P{Name}`` )
+=================   =============================================================================
+
+
+Perl character classes (all ASCII-only):
+
+========= ===================================================
+``\d``    digits (≡ ``[0-9]`` )
+``\D``    not digits (≡ ``[^0-9]`` )
+``\s``    whitespace (≡ ``[\t\n\f\r ]`` )
+``\S``    not whitespace (≡ ``[^\t\n\f\r ]`` )
+``\w``    word characters (≡ ``[0-9A-Za-z_]`` )
+``\W``    not word characters (≡ ``[^0-9A-Za-z_]`` )
 ``\h``    horizontal space (NOT SUPPORTED)
 ``\H``    not horizontal space (NOT SUPPORTED)
 ``\v``    vertical space (NOT SUPPORTED)
 ``\V``    not vertical space (NOT SUPPORTED)
-``ASCII character classes:
-``[[:alnum:]]``    alphanumeric (≡ [0-9A-Za-z])
-``[[:alpha:]]``    alphabetic (≡ [A-Za-z])
-``[[:ascii:]]``    ASCII (≡ [\x00-\x7F])
-``[[:blank:]]``    blank (≡ [\t ])
-``[[:cntrl:]]``    control (≡ [\x00-\x1F\x7F])
-``[[:digit:]]``    digits (≡ [0-9])
-``[[:graph:]]``    graphical (≡ [!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])
-``[[:lower:]]``    lower case (≡ [a-z])
-``[[:print:]]``    printable (≡ [ -~] == [ [:graph:]])
-``[[:punct:]]``    punctuation (≡ [!-/:-@[-`{-~])
-``[[:space:]]``    whitespace (≡ [\t\n\v\f\r ])
-``[[:upper:]]``    upper case (≡ [A-Z])
-``[[:word:]]``    word characters (≡ [0-9A-Za-z_])
-``[[:xdigit:]]``    hex digit (≡ [0-9A-Fa-f])
-``Unicode character class names--general category:
-``C``    other
+========= ===================================================
+
+ASCII character classes:
+
+================== ==============================================================================
+``[[:alnum:]]``    alphanumeric (≡ ``[0-9A-Za-z]`` )
+``[[:alpha:]]``    alphabetic (≡ ``[A-Za-z]`` )
+``[[:ascii:]]``    ASCII (≡ ``[\x00-\x7F]`` )
+``[[:blank:]]``    blank (≡ ``[\t ]`` )
+``[[:cntrl:]]``    control (≡ ``[\x00-\x1F\x7F]`` )
+``[[:digit:]]``    digits (≡ ``[0-9]`` )
+``[[:graph:]]``    graphical (≡ ``[!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]`` )
+``[[:lower:]]``    lower case (≡ ``[a-z]`` )
+``[[:print:]]``    printable (≡ ``[ -~]`` == ``[ [:graph:]]`` )
+``[[:punct:]]``    punctuation (≡ ``[!-/:-@[-`{-~]`` )
+``[[:space:]]``    whitespace (≡ ``[\t\n\v\f\r ]`` )
+``[[:upper:]]``    upper case (≡ ``[A-Z]`` )
+``[[:word:]]``     word characters (≡ ``[0-9A-Za-z_]`` )
+``[[:xdigit:]]``   hex digit (≡ ``[0-9A-Fa-f]`` )
+================== ==============================================================================
+
+Unicode character class names--general category:
+
+========= ==============================================
+``C``     other
 ``Cc``    control
 ``Cf``    format
 ``Cn``    unassigned code points (NOT SUPPORTED)
 ``Co``    private use
 ``Cs``    surrogate
-``L``    letter
+``L``     letter
 ``LC``    cased letter (NOT SUPPORTED)
 ``L&``    cased letter (NOT SUPPORTED)
 ``Ll``    lowercase letter
@@ -236,15 +252,15 @@ Character class elements:
 ``Lo``    other letter
 ``Lt``    titlecase letter
 ``Lu``    uppercase letter
-``M``    mark
+``M``     mark
 ``Mc``    spacing mark
 ``Me``    enclosing mark
 ``Mn``    non-spacing mark
-``N``    number
+``N``     number
 ``Nd``    decimal number
 ``Nl``    letter number
 ``No``    other number
-``P``    punctuation
+``P``     punctuation
 ``Pc``    connector punctuation
 ``Pd``    dash punctuation
 ``Pe``    close punctuation
@@ -252,16 +268,21 @@ Character class elements:
 ``Pi``    initial punctuation
 ``Po``    other punctuation
 ``Ps``    open punctuation
-``S``    symbol
+``S``     symbol
 ``Sc``    currency symbol
 ``Sk``    modifier symbol
 ``Sm``    math symbol
 ``So``    other symbol
-``Z``    separator
+``Z``     separator
 ``Zl``    line separator
 ``Zp``    paragraph separator
 ``Zs``    space separator
-``Unicode character class names--scripts:
+========= ==============================================
+
+
+Unicode character class names--scripts:
+
+============================
 ``Arabic``    Arabic
 ``Armenian``    Armenian
 ``Balinese``    Balinese
@@ -361,6 +382,7 @@ Character class elements:
 ``Ugaritic``    Ugaritic
 ``Vai``    Vai
 ``Yi``    Yi
+=========================
 
 Vim character classes
 
@@ -408,7 +430,7 @@ Vim flags:
 
 Magic:
 
-==========================   ==========================================================
+==========================   ================================================================
 ``(?{code})``                arbitrary Perl code (NOT SUPPORTED) PERL
 ``(??{code})``               postponed arbitrary Perl code (NOT SUPPORTED) PERL
 ``(?n)``                     recursive call to regexp capturing group n (NOT SUPPORTED)
@@ -436,4 +458,4 @@ Magic:
 ``(*LF)``                    (NOT SUPPORTED)
 ``(*BSR_ANYCRLF)``           set ``\R`` convention (NOT SUPPORTED) PCRE
 ``(*BSR_UNICODE)``           (NOT SUPPORTED) PCRE
-==========================   ============================================================
+==========================   ================================================================
