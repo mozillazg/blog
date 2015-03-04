@@ -283,53 +283,53 @@ Unicode character class names--general category:
 Unicode character class names--scripts:
 
 ============================
-``Arabic``    Arabic
-``Armenian``    Armenian
-``Balinese``    Balinese
-``Bamum``    Bamum
-``Batak``    Batak
-``Bengali``    Bengali
-``Bopomofo``    Bopomofo
-``Brahmi``    Brahmi
-``Braille``    Braille
-``Buginese``    Buginese
-``Buhid``    Buhid
-``Canadian_Aboriginal``    Canadian Aboriginal
-``Carian``    Carian
-``Chakma``    Chakma
-``Cham``    Cham
-``Cherokee``    Cherokee
-``Common``    characters not specific to one script
-``Coptic``    Coptic
-``Cuneiform``    Cuneiform
-``Cypriot``    Cypriot
-``Cyrillic``    Cyrillic
-``Deseret``    Deseret
-``Devanagari``    Devanagari
-``Egyptian_Hieroglyphs``    Egyptian Hieroglyphs
-``Ethiopic``    Ethiopic
-``Georgian``    Georgian
-``Glagolitic``    Glagolitic
-``Gothic``    Gothic
-``Greek``    Greek
-``Gujarati``    Gujarati
-``Gurmukhi``    Gurmukhi
-``Han``    Han
-``Hangul``    Hangul
-``Hanunoo``    Hanunoo
-``Hebrew``    Hebrew
-``Hiragana``    Hiragana
-``Imperial_Aramaic``    Imperial Aramaic
-``Inherited``    inherit script from previous character
+``Arabic``                   Arabic
+``Armenian``                 Armenian
+``Balinese``                 Balinese
+``Bamum``                    Bamum
+``Batak``                    Batak
+``Bengali``                  Bengali
+``Bopomofo``                 Bopomofo
+``Brahmi``                   Brahmi
+``Braille``                  Braille
+``Buginese``                 Buginese
+``Buhid``                    Buhid
+``Canadian_Aboriginal``      Canadian Aboriginal
+``Carian``                   Carian
+``Chakma``                   Chakma
+``Cham``                     Cham
+``Cherokee``                 Cherokee
+``Common``                   characters not specific to one script
+``Coptic``                   Coptic
+``Cuneiform``                Cuneiform
+``Cypriot``                  Cypriot
+``Cyrillic``                 Cyrillic
+``Deseret``                  Deseret
+``Devanagari``               Devanagari
+``Egyptian_Hieroglyphs``     Egyptian Hieroglyphs
+``Ethiopic``                 Ethiopic
+``Georgian``                 Georgian
+``Glagolitic``               Glagolitic
+``Gothic``                   Gothic
+``Greek``                    Greek
+``Gujarati``                 Gujarati
+``Gurmukhi``                 Gurmukhi
+``Han``                      Han
+``Hangul``                   Hangul
+``Hanunoo``                  Hanunoo
+``Hebrew``                   Hebrew
+``Hiragana``                 Hiragana
+``Imperial_Aramaic``         Imperial Aramaic
+``Inherited``                inherit script from previous character
 ``Inscriptional_Pahlavi``    Inscriptional Pahlavi
-``Inscriptional_Parthian``    Inscriptional Parthian
-``Javanese``    Javanese
-``Kaithi``    Kaithi
-``Kannada``    Kannada
-``Katakana``    Katakana
-``Kayah_Li``    Kayah Li
-``Kharoshthi``    Kharoshthi
-``Khmer``    Khmer
+``Inscriptional_Parthian``   Inscriptional Parthian
+``Javanese``                 Javanese
+``Kaithi``                   Kaithi
+``Kannada``                  Kannada
+``Katakana``                 Katakana
+``Kayah_Li``                 Kayah Li
+``Kharoshthi``               Kharoshthi
+``Khmer``                    Khmer
 ``Lao``    Lao
 ``Latin``    Latin
 ``Lepcha``    Lepcha
@@ -384,78 +384,81 @@ Unicode character class names--scripts:
 ``Yi``    Yi
 =========================
 
+
 Vim character classes
 
-========  ===================================================================
-``\i``    identifier character (NOT SUPPORTED) VIM
-``\I``    ``\i`` except digits (NOT SUPPORTED) VIM
-``\k``    keyword character (NOT SUPPORTED) VIM
-``\K``    ``\k`` except digits (NOT SUPPORTED) VIM
-``\f``    file name character (NOT SUPPORTED) VIM
-``\F``    ``\f`` except digits (NOT SUPPORTED) VIM
-``\p``    printable character (NOT SUPPORTED) VIM
-``\P``    ``\p`` except digits (NOT SUPPORTED) VIM
-``\s``    whitespace character ( ``≡ [ \t]`` ) (NOT SUPPORTED) VIM
-``\S``    non-white space character ( ``≡ [^ \t]`` ) (NOT SUPPORTED) VIM
-``\d``    digits ( ``≡ [0-9]`` ) VIM
-``\D``    not ``\d`` VIM
-``\x``    hex digits ( ``≡ [0-9A-Fa-f]`` ) (NOT SUPPORTED) VIM
-``\X``    not ``\x`` (NOT SUPPORTED) VIM
-``\o``    octal digits ( ``≡ [0-7]`` ) (NOT SUPPORTED) VIM
-``\O``    not ``\o`` (NOT SUPPORTED) VIM
-``\w``    word character VIM
-``\W``    not ``\w`` VIM
-``\h``    head of word character (NOT SUPPORTED) VIM
-``\H``    not ``\h`` (NOT SUPPORTED) VIM
-``\a``    alphabetic (NOT SUPPORTED) VIM
-``\A``    not ``\a`` (NOT SUPPORTED) VIM
-``\l``    lowercase (NOT SUPPORTED) VIM
-``\L``    not lowercase (NOT SUPPORTED) VIM
-``\u``    uppercase (NOT SUPPORTED) VIM
-``\U``    not uppercase (NOT SUPPORTED) VIM
-``\_x``   ``\x`` plus newline, for any ``x`` (NOT SUPPORTED) VIM
-========  ==================================================================
+======== ==================================================================
+``\i``   identifier character (NOT SUPPORTED) VIM
+``\I``   ``\i`` except digits (NOT SUPPORTED) VIM
+``\k``   keyword character (NOT SUPPORTED) VIM
+``\K``   ``\k`` except digits (NOT SUPPORTED) VIM
+``\f``   file name character (NOT SUPPORTED) VIM
+``\F``   ``\f`` except digits (NOT SUPPORTED) VIM
+``\p``   printable character (NOT SUPPORTED) VIM
+``\P``   ``\p`` except digits (NOT SUPPORTED) VIM
+``\s``   whitespace character ( ``≡ [ \t]`` ) (NOT SUPPORTED) VIM
+``\S``   non-white space character ( ``≡ [^ \t]`` ) (NOT SUPPORTED) VIM
+``\d``   digits ( ``≡ [0-9]`` ) VIM
+``\D``   not ``\d`` VIM
+``\x``   hex digits ( ``≡ [0-9A-Fa-f]`` ) (NOT SUPPORTED) VIM
+``\X``   not ``\x`` (NOT SUPPORTED) VIM
+``\o``   octal digits ( ``≡ [0-7]`` ) (NOT SUPPORTED) VIM
+``\O``   not ``\o`` (NOT SUPPORTED) VIM
+``\w``   word character VIM
+``\W``   not ``\w`` VIM
+``\h``   head of word character (NOT SUPPORTED) VIM
+``\H``   not ``\h`` (NOT SUPPORTED) VIM
+``\a``   alphabetic (NOT SUPPORTED) VIM
+``\A``   not ``\a`` (NOT SUPPORTED) VIM
+``\l``   lowercase (NOT SUPPORTED) VIM
+``\L``   not lowercase (NOT SUPPORTED) VIM
+``\u``   uppercase (NOT SUPPORTED) VIM
+``\U``   not uppercase (NOT SUPPORTED) VIM
+``\_x``  ``\x`` plus newline, for any ``x`` (NOT SUPPORTED) VIM
+======== ==================================================================
+
 
 Vim flags:
 
-========  =========================================================================
-``\c``    ignore case (NOT SUPPORTED) VIM
-``\C``    match case (NOT SUPPORTED) VIM
-``\m``    magic (NOT SUPPORTED) VIM
-``\M``    nomagic (NOT SUPPORTED) VIM
-``\v``    verymagic (NOT SUPPORTED) VIM
-``\V``    verynomagic (NOT SUPPORTED) VIM
-``\Z``    ignore differences in Unicode combining characters (NOT SUPPORTED) VIM
-========  =========================================================================
+======== =========================================================================
+``\c``   ignore case (NOT SUPPORTED) VIM
+``\C``   match case (NOT SUPPORTED) VIM
+``\m``   magic (NOT SUPPORTED) VIM
+``\M``   nomagic (NOT SUPPORTED) VIM
+``\v``   verymagic (NOT SUPPORTED) VIM
+``\V``   verynomagic (NOT SUPPORTED) VIM
+``\Z``   ignore differences in Unicode combining characters (NOT SUPPORTED) VIM
+======== =========================================================================
+
 
 Magic:
 
-==========================   ================================================================
-``(?{code})``                arbitrary Perl code (NOT SUPPORTED) PERL
-``(??{code})``               postponed arbitrary Perl code (NOT SUPPORTED) PERL
-``(?n)``                     recursive call to regexp capturing group n (NOT SUPPORTED)
-``(?+n)``                    recursive call to relative group +n (NOT SUPPORTED)
-``(?-n)``                    recursive call to relative group -n (NOT SUPPORTED)
-``(?C)``                     PCRE callout (NOT SUPPORTED) PCRE
-``(?R)``                     recursive call to entire regexp (≡ ``(?0)`` ) (NOT SUPPORTED)
-``(?&name)``                 recursive call to named group (NOT SUPPORTED)
-``(?P=name)``                named backreference (NOT SUPPORTED)
-``(?P>name)``                recursive call to named group (NOT SUPPORTED)
-``(?(cond)true|false)``      conditional branch (NOT SUPPORTED)
-``(?(cond)true)``            conditional branch (NOT SUPPORTED)
-``(*ACCEPT)``                make regexps more like Prolog (NOT SUPPORTED)
-``(*COMMIT)``                (NOT SUPPORTED)
-``(*F)``                     (NOT SUPPORTED)
-``(*FAIL)``                  (NOT SUPPORTED)
-``(*MARK)``                  (NOT SUPPORTED)
-``(*PRUNE)``                 (NOT SUPPORTED)
-``(*SKIP)``                  (NOT SUPPORTED)
-``(*THEN)``                  (NOT SUPPORTED)
-``(*ANY)``                   set newline convention (NOT SUPPORTED)
-``(*ANYCRLF)``               (NOT SUPPORTED)
-``(*CR)``                    (NOT SUPPORTED)
-``(*CRLF)``                  (NOT SUPPORTED)
-``(*LF)``                    (NOT SUPPORTED)
-``(*BSR_ANYCRLF)``           set ``\R`` convention (NOT SUPPORTED) PCRE
-``(*BSR_UNICODE)``           (NOT SUPPORTED) PCRE
-==========================   ================================================================
+========================== ================================================================
+``(?{code})``              arbitrary Perl code (NOT SUPPORTED) PERL
+``(??{code})``             postponed arbitrary Perl code (NOT SUPPORTED) PERL
+``(?n)``                   recursive call to regexp capturing group n (NOT SUPPORTED)
+``(?+n)``                  recursive call to relative group +n (NOT SUPPORTED)
+``(?-n)``                  recursive call to relative group -n (NOT SUPPORTED)
+``(?C)``                   PCRE callout (NOT SUPPORTED) PCRE
+``(?R)``                   recursive call to entire regexp (≡ ``(?0)`` ) (NOT SUPPORTED)
+``(?&name)``               recursive call to named group (NOT SUPPORTED)
+``(?P=name)``              named backreference (NOT SUPPORTED)
+``(?P>name)``              recursive call to named group (NOT SUPPORTED)
+``(?(cond)true|false)``    conditional branch (NOT SUPPORTED)
+``(?(cond)true)``          conditional branch (NOT SUPPORTED)
+``(*ACCEPT)``              make regexps more like Prolog (NOT SUPPORTED)
+``(*COMMIT)``              (NOT SUPPORTED)
+``(*F)``                   (NOT SUPPORTED)
+``(*FAIL)``                (NOT SUPPORTED)
+``(*MARK)``                (NOT SUPPORTED)
+``(*PRUNE)``               (NOT SUPPORTED)
+``(*SKIP)``                (NOT SUPPORTED)
+``(*THEN)``                (NOT SUPPORTED)
+``(*ANY)``                 set newline convention (NOT SUPPORTED)
+``(*ANYCRLF)``             (NOT SUPPORTED)
+``(*CR)``                  (NOT SUPPORTED)
+``(*CRLF)``                (NOT SUPPORTED)
+``(*LF)``                  (NOT SUPPORTED)
+``(*BSR_ANYCRLF)``         set ``\R`` convention (NOT SUPPORTED) PCRE
+``(*BSR_UNICODE)``         (NOT SUPPORTED) PCRE
+========================== ================================================================

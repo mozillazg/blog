@@ -1,4 +1,4 @@
-Title: [go]使用 goxc 方便的进行跨平台编译
+Title: [go]使用 goxc 方便的进行交叉编译
 Date: 2015-02-28
 Slug: go-use-goxc-to-cross-compile
 

@@ -49,8 +49,8 @@ Slug: linux-recommended-centos-5-6-7-yum-source
 
     # centos 5 i386
     rpm -Uvh http://dl.iuscommunity.org/pub/ius/stable/CentOS/5/i386/ius-release-1.0-13.ius.centos5.noarch.rpm
-    rpm -Uvh x86_64
-    http://dl.iuscommunity.org/pub/ius/stable/CentOS/5/x86_64/epel-release-5-4.noarch.rpm
+    # centos 5 x86_64
+    rpm -Uvh http://dl.iuscommunity.org/pub/ius/stable/CentOS/5/x86_64/epel-release-5-4.noarch.rpm
     
     # centos 6 i386
     rpm -Uvh http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/i386/ius-release-1.0-13.ius.centos6.noarch.rpm
