@@ -1,7 +1,22 @@
 
+[go]regexp 包所支持的正则表达式语法
+=======================================================
 
 
-Single characters:
+:date: 2015-03-04
+:slug: go-regexp-supported-regular-expression-syntax
+
+
+
+
+本文内容整理自: `http://code.google.com/p/re2/wiki/Syntax`__
+
+__ http://code.google.com/p/re2/wiki/Syntax
+
+
+
+Single characters
+--------------------
 
 ================= ====================================================
 ``.``             any character, possibly including newline (s=true)
@@ -19,83 +34,89 @@ Single characters:
 
 
 
-Composites:
+Composites
+---------------
 
-=========   ======================
-``xy``      x followed by y
-``x|y``     x or y (prefer x)
-=========   ======================
+========= ======================
+``xy``    x followed by y
+``x|y``   x or y (prefer x)
+========= ======================
 
 
-Repetitions:
+Repetitions
+---------------
 
-================     =========================================
-``x*``               zero or more x, prefer more
-``x+``               one or more x, prefer more
-``x?``               zero or one x, prefer one
-``x{n,m}``           n or n+1 or ... or m x, prefer more
-``x{n,}``            n or more x, prefer more
-``x{n}``             exactly n x
-``x*?``              zero or more x, prefer fewer
-``x+?``              one or more x, prefer fewer
-``x??``              zero or one x, prefer zero
-``x{n,m}?``          n or n+1 or ... or m x, prefer fewer
-``x{n,}?``           n or more x, prefer fewer
-``x{n}?``            exactly n x
-``x{}``              (≡ ``x*`` ) (NOT SUPPORTED) VIM
-``x{-}``             (≡ ``x*?`` ) (NOT SUPPORTED) VIM
-``x{-n}``            (≡ ``x{n}?`` ) (NOT SUPPORTED) VIM
-``x=``               (≡ ``x?`` ) (NOT SUPPORTED) VIM
-=================    =========================================
+================= =========================================
+``x*``            zero or more x, prefer more
+``x+``            one or more x, prefer more
+``x?``            zero or one x, prefer one
+``x{n,m}``        n or n+1 or ... or m x, prefer more
+``x{n,}``         n or more x, prefer more
+``x{n}``          exactly n x
+``x*?``           zero or more x, prefer fewer
+``x+?``           one or more x, prefer fewer
+``x??``           zero or one x, prefer zero
+``x{n,m}?``       n or n+1 or ... or m x, prefer fewer
+``x{n,}?``        n or more x, prefer fewer
+``x{n}?``         exactly n x
+``x{}``           (≡ ``x*`` ) (NOT SUPPORTED) VIM
+``x{-}``          (≡ ``x*?`` ) (NOT SUPPORTED) VIM
+``x{-n}``         (≡ ``x{n}?`` ) (NOT SUPPORTED) VIM
+``x=``            (≡ ``x?`` ) (NOT SUPPORTED) VIM
+================= =========================================
 
 Implementation restriction: The counting forms ``x{n,m}`` , ``x{n,}`` , and ``x{n}`` 
 reject forms that create a minimum or maximum repetition count above 1000.
 Unlimited repetitions are not subject to this restriction.
 
 
-Possessive repetitions:
+Possessive repetitions
+---------------------------
 
-===========  ==============================================
-``x*+``      zero or more x, possessive (NOT SUPPORTED)
-``x++``      one or more x, possessive (NOT SUPPORTED)
-``x?+``      zero or one x, possessive (NOT SUPPORTED)
-``x{n,m}+``  n or ... or m x, possessive (NOT SUPPORTED)
-``x{n,}+``   n or more x, possessive (NOT SUPPORTED)
-``x{n}+``    exactly n x, possessive (NOT SUPPORTED)
-===========  ==============================================
-
-
-Grouping:
-
-===================      =============================================================
-``(re)``                 numbered capturing group (submatch)
-``(?P<name>re)``         named & numbered capturing group (submatch)
-``(?<name>re)``          named & numbered capturing group (submatch) (NOT SUPPORTED)
-``(?'name're)``          named & numbered capturing group (submatch) (NOT SUPPORTED)
-``(?:re)``               non-capturing group
-``(?flags)``             set flags within current group; non-capturing
-``(?flags:re)``          set flags during re; non-capturing
-``(?#text)``             comment (NOT SUPPORTED)
-``(?|x|y|z)``            branch numbering reset (NOT SUPPORTED)
-``(?>re)``               possessive match of re (NOT SUPPORTED)
-``re@>``                 possessive match of re (NOT SUPPORTED) VIM
-``%(re)``                non-capturing group (NOT SUPPORTED) VIM
-===================      =============================================================
+=========== ==============================================
+``x*+``     zero or more x, possessive (NOT SUPPORTED)
+``x++``     one or more x, possessive (NOT SUPPORTED)
+``x?+``     zero or one x, possessive (NOT SUPPORTED)
+``x{n,m}+`` n or ... or m x, possessive (NOT SUPPORTED)
+``x{n,}+``  n or more x, possessive (NOT SUPPORTED)
+``x{n}+``   exactly n x, possessive (NOT SUPPORTED)
+=========== ==============================================
 
 
-Flags:
+Grouping
+--------------
 
-=============     ==============================================================================================================
-``i``             case-insensitive (default false)
-``m``             multi-line mode: ``^`` and ``$`` match begin/end line in addition to begin/end text (default false)
-``s``             let ``.`` match ``\n`` (default false)
-``U``             ungreedy: swap meaning of ``x*`` and ``x*?``, ``x+`` and ``x+?``, etc (default false)
-=============     ==============================================================================================================
+=================== =============================================================
+``(re)``            numbered capturing group (submatch)
+``(?P<name>re)``    named & numbered capturing group (submatch)
+``(?<name>re)``     named & numbered capturing group (submatch) (NOT SUPPORTED)
+``(?'name're)``     named & numbered capturing group (submatch) (NOT SUPPORTED)
+``(?:re)``          non-capturing group
+``(?flags)``        set flags within current group; non-capturing
+``(?flags:re)``     set flags during re; non-capturing
+``(?#text)``        comment (NOT SUPPORTED)
+``(?|x|y|z)``       branch numbering reset (NOT SUPPORTED)
+``(?>re)``          possessive match of re (NOT SUPPORTED)
+``re@>``            possessive match of re (NOT SUPPORTED) VIM
+``%(re)``           non-capturing group (NOT SUPPORTED) VIM
+=================== =============================================================
+
+
+Flags
+----------
+
+============= ==============================================================================================================
+``i``         case-insensitive (default false)
+``m``         multi-line mode: ``^`` and ``$`` match begin/end line in addition to begin/end text (default false)
+``s``         let ``.`` match ``\n`` (default false)
+``U``         ungreedy: swap meaning of ``x*`` and ``x*?``, ``x+`` and ``x+?``, etc (default false)
+============= ==============================================================================================================
 
 Flag syntax is ``xyz`` (set) or ``-xyz`` (clear) or ``xy-z`` (set xy, clear z).
 
 
-Empty strings:
+Empty strings
+--------------------
 
 ============ ============================================================================
 ``^``        at beginning of text or line (m=true)
@@ -129,79 +150,83 @@ Empty strings:
 ============ ============================================================================
 
 
-Escape sequences:
+Escape sequences
+---------------------
 
-================    ==========================================================================
-``\a``              bell (≡ ``\007`` )
-``\f``              form feed (≡ ``\014`` )
-``\t``              horizontal tab (≡ ``\011`` )
-``\n``              newline (≡ ``\012`` )
-``\r``              carriage return (≡ ``\015`` )
-``\v``              vertical tab character (≡ ``\013`` )
-``\*``              literal ``*`` , for any punctuation character ``*``
-``\123``            octal character code (up to three digits)
-``\x7F``            hex character code (exactly two digits)
-``\x{10FFFF}``      hex character code
-``\C``              match a single byte even in UTF-8 mode
-``\Q...\E``         literal text ... even if ... has punctuation
-``\1``              backreference (NOT SUPPORTED)
-``\b``              backspace (NOT SUPPORTED) (use ``\010`` )
-``\cK``             control char ``^K`` (NOT SUPPORTED) (use ``\001`` etc)
-``\e``              escape (NOT SUPPORTED) (use ``\033``)
-``\g1``             backreference (NOT SUPPORTED)
-``\g{1}``           backreference (NOT SUPPORTED)
-``\g{+1}``          backreference (NOT SUPPORTED)
-``\g{-1}``          backreference (NOT SUPPORTED)
-``\g{name}``        named backreference (NOT SUPPORTED)
-``\g<name>``        subroutine call (NOT SUPPORTED)
-``\g'name'``        subroutine call (NOT SUPPORTED)
-``\k<name>``        named backreference (NOT SUPPORTED)
-``\k'name'``        named backreference (NOT SUPPORTED)
-``\lX``             lowercase X (NOT SUPPORTED)
-``\ux``             uppercase x (NOT SUPPORTED)
-``\L...\E``         lowercase text ... (NOT SUPPORTED)
-``\K``              reset beginning of ``$0`` (NOT SUPPORTED)
-``\N{name}``        named Unicode character (NOT SUPPORTED)
-``\R``              line break (NOT SUPPORTED)
-``\U...\E``         upper case text ... (NOT SUPPORTED)
-``\X``              extended Unicode sequence (NOT SUPPORTED)
-``\%d123``          decimal character 123 (NOT SUPPORTED) VIM
-``\%xFF``           hex character FF (NOT SUPPORTED) VIM
-``\%o123``          octal character 123 (NOT SUPPORTED) VIM
-``\%u1234``         Unicode character ``0x1234`` (NOT SUPPORTED) VIM
-``\%U12345678``     Unicode character ``0x12345678`` (NOT SUPPORTED) VIM
-================    ==========================================================================
-
-
-Character class elements:
+================ ==========================================================================
+``\a``           bell (≡ ``\007`` )
+``\f``           form feed (≡ ``\014`` )
+``\t``           horizontal tab (≡ ``\011`` )
+``\n``           newline (≡ ``\012`` )
+``\r``           carriage return (≡ ``\015`` )
+``\v``           vertical tab character (≡ ``\013`` )
+``\*``           literal ``*`` , for any punctuation character ``*``
+``\123``         octal character code (up to three digits)
+``\x7F``         hex character code (exactly two digits)
+``\x{10FFFF}``   hex character code
+``\C``           match a single byte even in UTF-8 mode
+``\Q...\E``      literal text ... even if ... has punctuation
+``\1``           backreference (NOT SUPPORTED)
+``\b``           backspace (NOT SUPPORTED) (use ``\010`` )
+``\cK``          control char ``^K`` (NOT SUPPORTED) (use ``\001`` etc)
+``\e``           escape (NOT SUPPORTED) (use ``\033``)
+``\g1``          backreference (NOT SUPPORTED)
+``\g{1}``        backreference (NOT SUPPORTED)
+``\g{+1}``       backreference (NOT SUPPORTED)
+``\g{-1}``       backreference (NOT SUPPORTED)
+``\g{name}``     named backreference (NOT SUPPORTED)
+``\g<name>``     subroutine call (NOT SUPPORTED)
+``\g'name'``     subroutine call (NOT SUPPORTED)
+``\k<name>``     named backreference (NOT SUPPORTED)
+``\k'name'``     named backreference (NOT SUPPORTED)
+``\lX``          lowercase X (NOT SUPPORTED)
+``\ux``          uppercase x (NOT SUPPORTED)
+``\L...\E``      lowercase text ... (NOT SUPPORTED)
+``\K``           reset beginning of ``$0`` (NOT SUPPORTED)
+``\N{name}``     named Unicode character (NOT SUPPORTED)
+``\R``           line break (NOT SUPPORTED)
+``\U...\E``      upper case text ... (NOT SUPPORTED)
+``\X``           extended Unicode sequence (NOT SUPPORTED)
+``\%d123``       decimal character 123 (NOT SUPPORTED) VIM
+``\%xFF``        hex character FF (NOT SUPPORTED) VIM
+``\%o123``       octal character 123 (NOT SUPPORTED) VIM
+``\%u1234``      Unicode character ``0x1234`` (NOT SUPPORTED) VIM
+``\%U12345678``  Unicode character ``0x12345678`` (NOT SUPPORTED) VIM
+================ ==========================================================================
 
 
-===================  =============================================
-``x``                single character
-``A-Z``              character range (inclusive)
-``\d``               Perl character class
-``[:foo:]``          ASCII character class foo
-``\p{Foo}``          Unicode character class Foo
-``\pF``              Unicode character class F (one-letter name)
-===================  =============================================
+Character class elements
+---------------------------
 
 
-Named character classes as character class elements:
+=============== =============================================
+``x``           single character
+``A-Z``         character range (inclusive)
+``\d``          Perl character class
+``[:foo:]``     ASCII character class foo
+``\p{Foo}``     Unicode character class Foo
+``\pF``         Unicode character class F (one-letter name)
+=============== =============================================
 
 
-==================  ============================================================================
-``[\d]``            digits (≡ ``\d`` )
-``[^\d]``           not digits (≡ ``\D`` )
-``[\D]``            not digits (≡ ``\D`` )
-``[^\D]``           not not digits (≡ ``\d`` )
-``[[:name:]]``      named ASCII class inside character class (≡ ``[:name:]`` )
-``[^[:name:]]``     named ASCII class inside negated character class (≡ ``[:^name:]`` )
-``[\p{Name}]``      named Unicode property inside character class (≡ ``\p{Name}`` )
-``[^\p{Name}]``     named Unicode property inside negated character class (≡ ``\P{Name}`` )
-=================   =============================================================================
+Named character classes as character class elements
+-------------------------------------------------------------
 
 
-Perl character classes (all ASCII-only):
+================= ============================================================================
+``[\d]``          digits (≡ ``\d`` )
+``[^\d]``         not digits (≡ ``\D`` )
+``[\D]``          not digits (≡ ``\D`` )
+``[^\D]``         not not digits (≡ ``\d`` )
+``[[:name:]]``    named ASCII class inside character class (≡ ``[:name:]`` )
+``[^[:name:]]``   named ASCII class inside negated character class (≡ ``[:^name:]`` )
+``[\p{Name}]``    named Unicode property inside character class (≡ ``\p{Name}`` )
+``[^\p{Name}]``   named Unicode property inside negated character class (≡ ``\P{Name}`` )
+================= ============================================================================
+
+
+Perl character classes (all ASCII-only)
+------------------------------------------
 
 ========= ===================================================
 ``\d``    digits (≡ ``[0-9]`` )
@@ -216,7 +241,8 @@ Perl character classes (all ASCII-only):
 ``\V``    not vertical space (NOT SUPPORTED)
 ========= ===================================================
 
-ASCII character classes:
+ASCII character classes
+----------------------------
 
 ================== ==============================================================================
 ``[[:alnum:]]``    alphanumeric (≡ ``[0-9A-Za-z]`` )
@@ -235,7 +261,8 @@ ASCII character classes:
 ``[[:xdigit:]]``   hex digit (≡ ``[0-9A-Fa-f]`` )
 ================== ==============================================================================
 
-Unicode character class names--general category:
+Unicode character class names--general category
+---------------------------------------------------
 
 ========= ==============================================
 ``C``     other
@@ -280,9 +307,10 @@ Unicode character class names--general category:
 ========= ==============================================
 
 
-Unicode character class names--scripts:
+Unicode character class names--scripts
+------------------------------------------
 
-============================
+============================ ========================================
 ``Arabic``                   Arabic
 ``Armenian``                 Armenian
 ``Balinese``                 Balinese
@@ -330,62 +358,63 @@ Unicode character class names--scripts:
 ``Kayah_Li``                 Kayah Li
 ``Kharoshthi``               Kharoshthi
 ``Khmer``                    Khmer
-``Lao``    Lao
-``Latin``    Latin
-``Lepcha``    Lepcha
-``Limbu``    Limbu
-``Linear_B``    Linear B
-``Lycian``    Lycian
-``Lydian``    Lydian
-``Malayalam``    Malayalam
-``Mandaic``    Mandaic
-``Meetei_Mayek``    Meetei Mayek
-``Meroitic_Cursive``    Meroitic Cursive
-``Meroitic_Hieroglyphs``    Meroitic Hieroglyphs
-``Miao``    Miao
-``Mongolian``    Mongolian
-``Myanmar``    Myanmar
-``New_Tai_Lue``    New Tai Lue (aka Simplified Tai Lue)
-``Nko``    Nko
-``Ogham``    Ogham
-``Ol_Chiki``    Ol Chiki
-``Old_Italic``    Old Italic
-``Old_Persian``    Old Persian
-``Old_South_Arabian``    Old South Arabian
-``Old_Turkic``    Old Turkic
-``Oriya``    Oriya
-``Osmanya``    Osmanya
-``Phags_Pa``    'Phags Pa
-``Phoenician``    Phoenician
-``Rejang``    Rejang
-``Runic``    Runic
-``Saurashtra``    Saurashtra
-``Sharada``    Sharada
-``Shavian``    Shavian
-``Sinhala``    Sinhala
-``Sora_Sompeng``    Sora Sompeng
-``Sundanese``    Sundanese
-``Syloti_Nagri``    Syloti Nagri
-``Syriac``    Syriac
-``Tagalog``    Tagalog
-``Tagbanwa``    Tagbanwa
-``Tai_Le``    Tai Le
-``Tai_Tham``    Tai Tham
-``Tai_Viet``    Tai Viet
-``Takri``    Takri
-``Tamil``    Tamil
-``Telugu``    Telugu
-``Thaana``    Thaana
-``Thai``    Thai
-``Tibetan``    Tibetan
-``Tifinagh``    Tifinagh
-``Ugaritic``    Ugaritic
-``Vai``    Vai
-``Yi``    Yi
-=========================
+``Lao``                      Lao
+``Latin``                    Latin
+``Lepcha``                   Lepcha
+``Limbu``                    Limbu
+``Linear_B``                 Linear B
+``Lycian``                   Lycian
+``Lydian``                   Lydian
+``Malayalam``                Malayalam
+``Mandaic``                  Mandaic
+``Meetei_Mayek``             Meetei Mayek
+``Meroitic_Cursive``         Meroitic Cursive
+``Meroitic_Hieroglyphs``     Meroitic Hieroglyphs
+``Miao``                     Miao
+``Mongolian``                Mongolian
+``Myanmar``                  Myanmar
+``New_Tai_Lue``              New Tai Lue (aka Simplified Tai Lue)
+``Nko``                      Nko
+``Ogham``                    Ogham
+``Ol_Chiki``                 Ol Chiki
+``Old_Italic``               Old Italic
+``Old_Persian``              Old Persian
+``Old_South_Arabian``        Old South Arabian
+``Old_Turkic``               Old Turkic
+``Oriya``                    Oriya
+``Osmanya``                  Osmanya
+``Phags_Pa``                 Phags Pa
+``Phoenician``               Phoenician
+``Rejang``                   Rejang
+``Runic``                    Runic
+``Saurashtra``               Saurashtra
+``Sharada``                  Sharada
+``Shavian``                  Shavian
+``Sinhala``                  Sinhala
+``Sora_Sompeng``             Sora Sompeng
+``Sundanese``                Sundanese
+``Syloti_Nagri``             Syloti Nagri
+``Syriac``                   Syriac
+``Tagalog``                  Tagalog
+``Tagbanwa``                 Tagbanwa
+``Tai_Le``                   Tai Le
+``Tai_Tham``                 Tai Tham
+``Tai_Viet``                 Tai Viet
+``Takri``                    Takri
+``Tamil``                    Tamil
+``Telugu``                   Telugu
+``Thaana``                   Thaana
+``Thai``                     Thai
+``Tibetan``                  Tibetan
+``Tifinagh``                 Tifinagh
+``Ugaritic``                 Ugaritic
+``Vai``                      Vai
+``Yi``                       Yi
+============================ ========================================
 
 
 Vim character classes
+--------------------------
 
 ======== ==================================================================
 ``\i``   identifier character (NOT SUPPORTED) VIM
@@ -418,7 +447,8 @@ Vim character classes
 ======== ==================================================================
 
 
-Vim flags:
+Vim flags
+------------
 
 ======== =========================================================================
 ``\c``   ignore case (NOT SUPPORTED) VIM
@@ -431,7 +461,8 @@ Vim flags:
 ======== =========================================================================
 
 
-Magic:
+Magic
+---------
 
 ========================== ================================================================
 ``(?{code})``              arbitrary Perl code (NOT SUPPORTED) PERL
