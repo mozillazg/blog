@@ -150,3 +150,5 @@ SEARCH_BOX = True
 # GITHUB_USER = 'mozillazg'
 # GITHUB_REPO_COUNT = 0
 QR_CODE = True
+
+ADDTHIS_PROFILE = 'ra-54f7c39e17a8ec5f'
