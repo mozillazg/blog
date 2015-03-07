@@ -1,4 +1,4 @@
-[django]在解决 django 模板中无法正常输入 javascript 模板所需的关键字 {{ 和 {% 的问题
+[django]解决 django 模板中无法正常输入 javascript 模板所需的关键字：{{ 或 {%
 ========================================================================================
 
 :date: 2015-03-07
@@ -8,7 +8,9 @@
 如果我们所用的 javascript 模板引擎的关键字也是 ``{{`` 或 ``{%`` 的话，会出现无法正常输入 ``{{`` 或 ``{%`` 的情况。
 
 
-比如，下面的模板代码::
+比如，下面的模板代码:
+
+.. code-block:: html+django
 
     <script id="template" type="x-tmpl-mustache">
         {{#stooges}}
@@ -24,7 +26,9 @@
 
 有下面四种解决办法：
 
-* 临时关掉模板引擎 `[ref]`__ ::
+* 临时关掉模板引擎 `[ref]`__ :
+
+.. code-block:: html+django
 
      {% verbatim %}
      <script id="template" type="x-tmpl-mustache">
@@ -34,8 +38,11 @@
        {% test %}
      </script>
      {% endverbatim %}
+
 * 修改 javascript 模板引擎的关键字
-* 使用 ``templatetag`` 标签 `[ref]`__ ::
+* 使用 ``templatetag`` 标签 `[ref]`__ :
+
+.. code-block:: html+django
 
      <script id="template" type="x-tmpl-mustache">
        {% templatetag openvariable %}#stooges{% templatetag closevariable %}
@@ -43,7 +50,10 @@
        {% templatetag openvariable %}/stooges{% templatetag closevariable %}
        {% templatetag openblock %} test {% templatetag closeblock %}
      </script>
-* 自定义几个标签，用于输入包含关键字的字符串::
+
+* 自定义几个标签，用于输入包含关键字的字符串:
+
+.. code-block:: django
 
      @register.simple_tag()
      def brace(str):
@@ -53,8 +63,9 @@
      @register.simple_tag()
      def double_brace(str):
          return "{{%s}}" % str
-        
-        
+
+.. code-block:: html+django
+
      <script id="template" type="x-tmpl-mustache">
        {% double_brace "#stooges" %}
        <li>{% double_brace "name" %}</li>
