@@ -49,7 +49,9 @@ Slug: hello-postgresql
 	postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
 
 或
+
 	sudo -u postgres createdb -O dbuser exampledb
+
 查看所有数据库
 
 	postgres=# \l
