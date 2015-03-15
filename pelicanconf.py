@@ -68,6 +68,8 @@ SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
 
 # GITHUB_ACTIVITY_FEED = 'https://github.com/mozillazg.atom'
 
+PYGMENTS_STYLE = 'solarizedlight'
+CUSTOM_CSS = 'static/custom.css'
 # The folder ``images`` should be copied into the folder ``static`` when
 # generating the output.
 # STATIC_PATHS = ['static/images', 'static/downloads', ]
