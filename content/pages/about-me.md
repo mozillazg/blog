@@ -6,7 +6,7 @@ Slug: about-me
 
 ## 简介
 
-男，90后，常用网名： **mozillazg** 。
+常用网名： **mozillazg** 。
 
 博客： [http://mozillazg.com](http://mozillazg.com/)
 
