@@ -4,7 +4,7 @@
 :date: 2015-04-07
 :slug: go-add-http-basic-auth-for-http-server
 
-一句话总结就是：增加一个装饰器函数 ``BasicAuth`` 装饰被保护的函数。
+一句话总结就是：增加一个装饰器函数 ``BasicAuth`` 装饰需要被保护的函数。
 
 .. code-block:: go
 
