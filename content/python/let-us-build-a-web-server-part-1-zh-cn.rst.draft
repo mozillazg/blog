@@ -149,4 +149,5 @@ You’ve just manually simulated your browser! You sent an HTTP request and got 
 
 [img]
 
+The HTTP request consists of the line indicating the HTTP method (GET, because we are asking our server to return us something), the path /hello that indicates a “page” on the server we want and the protocol version.
 
