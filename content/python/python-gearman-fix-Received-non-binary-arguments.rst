@@ -14,7 +14,7 @@
     client.submit_job("task1")  # error: Received non-binary arguments
 
 
-查看源码后发现，是因为 gearman client submit_job 不支持 unicode, 把参数类型改成 str 或 bytes 就可以了： ::
+查看源码后发现，是因为 gearman client submit_job 的 task name 不支持 unicode, 把参数类型改成 str 或 bytes 就可以了： ::
 
     client.submit_job(b"task1")  # ok
 
