@@ -1,0 +1,67 @@
+[react]使用 ajax 获取远程数据来填充网页内容
+
+:slug: react-use-ajax-get-data-from-server
+:date: 2015-05-06
+
+
+下面讲解在 react 中如何使用 ajax 获取远程数据来填充网页内容
+
+
+    <html>
+        <body>
+            <div id="content"></div>
+        </body>
+    </html>
+
+
+    var RepoList = React.createClass({
+        render: function() {
+            var repoNode = this.props.data.map(function(repo) {
+                return (
+                    <ul>
+                        <li>name: {repo.name}</li>
+                        <li>url: {repo.html_url}</li>
+                    </ul>
+                );
+            };
+            return (
+                <div>
+                    repos:
+                </div>
+            );
+        }
+    });
+
+    var RepoBox = React.createClass({
+        loadDataFromServer: function() {
+            $.ajax({
+                url: this.props.url,
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    this.setState({data: data});      // 通知 react 使用新数据渲染 DOM
+                }.bind(this),
+                error: function(xhr, status, err) {
+                    console.error(this.props.url, status, err.toString());
+                }.bind(this)
+            });
+        },
+        
+        getInitialState: function() {     // 第一次渲染 DOM 的初始值
+            return {data: []};
+        },
+        
+        componentDidMount: function() {   // 第一次渲染完 DOM 后
+            this.loadDataFromServer();    // 执行 ajax 请求
+        },
+        
+        render: function() {          // 必须返回一个闭合标签
+            return <RepoList data={this.state.data} />
+        }
+    });
+
+
+    React.render(
+      <RepoBox url="https://api.github.com/search/repositories?q=python&per_page=3" />,
+      document.getElementById('content')
+    );
