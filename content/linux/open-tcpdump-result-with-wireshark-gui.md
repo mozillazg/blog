@@ -44,7 +44,7 @@ tags: tcpdump, wireshark
 
 ## 其他 tcpdump 技巧
 
-过滤 http 请求:
+过滤 http 请求和响应:
 
     sudo tcpdump -i eth0 host 3sd.me and port 80 -v
 
