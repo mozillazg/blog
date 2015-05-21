@@ -61,7 +61,7 @@ tags: tcpdump, wireshark
     $ sudo tcpdump -i eth0 -A host 3sd.me and port 80 and 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
     tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
     listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
-    18:41:59.219052 IP 104.152.189.106.62093 > 3sd.me.http: Flags [P.], seq 2875869606:2875869979, ack 2796606839, win 64240, length 373
+    18:41:59.219052 IP xxx.xxx.xxx.xxxx > 3sd.me.http: Flags [P.], seq 2875869606:2875869979, ack 2796606839, win 64240, length 373
     E.....@.r..Gh..j..P....P.jI....wP....7..GET /JbVGP HTTP/1.1
     Host: 3sd.me
     Connection: Keep-Alive
