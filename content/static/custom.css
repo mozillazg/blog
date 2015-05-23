@@ -1,5 +1,26 @@
-#content {
+#content li,
+#content p {
     font-family: 文泉驿微米黑,文泉驿正黑,微软雅黑,宋体,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    line-height: 2;
+    font-size: 150%;
+    line-height: 150%;
+}
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+    border-bottom: 1px dashed #999;
+}
+
+.codehilite,
+code,
+tt,
+kbd,
+pre,
+samp {
+    font-family: Consolas,"Courier New",Courier,FreeMono,monospace;
+    font-size: 140%;
+    line-height: 140%;
+    background-color: #fdf6e3;
 }
