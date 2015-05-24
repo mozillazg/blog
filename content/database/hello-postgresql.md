@@ -7,65 +7,76 @@ Slug: hello-postgresql
 
 ## 安装
 
-	sudo apt-get install postgresql-client
-	sudo apt-get install postgresql
+    sudo apt-get install postgresql-client
+    sudo apt-get install postgresql
 
 ## 启动
 
-	sudo service postgresql start
+    sudo service postgresql start
 
 ## 进入控制台
 
-	sudo -u postgres psql
+    sudo -u postgres psql
+
+或
+
     psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432
+
 退出
 
-	postgres=# \q
+    postgres=# \q
 
 
 ## 创建用户 
 
-	sudo -u postgres createuser dbuser
+    sudo -u postgres createuser dbuser
+
 或
 
-	sudo -u postgres psql
-	postgres=# CREATE USER dbuser WITH PASSWORD 'password';
+    sudo -u postgres psql
+    postgres=# CREATE USER dbuser WITH PASSWORD 'password';
+
 查看所有用户
 
-	postgres=# \du
+    postgres=# \du
 
 更改密码
 
-	postgres=# \password dbuser
-	postgres=# \q
+    postgres=# \password dbuser
+    postgres=# \q
 
 删除用户
 
-	postgres=# drop user dbuser;
+    postgres=# drop user dbuser;
 
 ## 创建数据库
 
-	postgres=# CREATE DATABASE exampledb OWNER dbuser;
-	postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
+    postgres=# CREATE DATABASE exampledb OWNER dbuser;
+    postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
+    postgres=# \c exampledb;
+    postgres=# ALTER SCHEMA public OWNER to dbuser;
+    postgres=# GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO dbuser;
+    postgres=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO dbuser;
 
 或
 
-	sudo -u postgres createdb -O dbuser exampledb
+    sudo -u postgres createdb -O dbuser exampledb
 
 查看所有数据库
 
-	postgres=# \l
+    postgres=# \l
 
 ## 切换数据库
 
-	postgres=# \c exampledb
+    postgres=# \c exampledb
 
 ## 查看表
 
-	postgres=# \d
+    postgres=# \d
+
 查看表结构
 
-	postgres=# \d user_tab1
+    postgres=# \d user_tab1
 
 ## 常用控制台命令
 
@@ -132,13 +143,26 @@ Slug: hello-postgresql
 
 ## 备份、恢复
 
-pg_dump 备份
-pg_dumpall 备份所有数据库
-pg_restore 恢复
-导入数据
-psql exampledb < exampledb.sql
+* pg_dump 备份
+* pg_dumpall 备份所有数据库
+* pg_restore 恢复
+* psql exampledb < exampledb.sql  导入数据
+
+example:
+
+    pg_dump --format=t -d db_name -U user_name -W -h 127.0.0.1 > dump.sql
+    pg_restore -d db_name -h 127.0.0.1 -U user_name < dump.sql
+
+
+## Peer authentication failed for user "user_name"
+
+    $ pg_dump --format=t -d db_name -U user_name 
+    pg_dump: [archiver (db)] connection to database "db_name" failed: FATAL:  Peer authentication failed for user "user_name"
+    $ # 指定 hostname 即可
+    $ pg_dump --format=t -d db_name -U user_name -h 127.0.0.1
 
 
 ## 参考资料
 
 * [PostgreSQL新手入门 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/12/getting_started_with_postgresql.html)
+* http://www.postgresql.org/docs
