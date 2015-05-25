@@ -1,6 +1,8 @@
 [python][译]让我们一起构建一个 Web Server（一）
 ======================================================
 
+本文译自：http://ruslanspivak.com/lsbaws-part1/
+
 
 有一天出去散步的时候，一个女人来到一处工地上，她看到有三个男人在工作。
 她问第一个人，“你在做什么？“，第一个男人对这个问题感到非常的厌烦，
@@ -150,4 +152,38 @@ You’ve just manually simulated your browser! You sent an HTTP request and got 
 [img]
 
 The HTTP request consists of the line indicating the HTTP method (GET, because we are asking our server to return us something), the path /hello that indicates a “page” on the server we want and the protocol version.
+
+
+For simplicity’s sake our Web server at this point completely ignores the above request line. You could just as well type in any garbage instead of “GET /hello HTTP/1.1” and you would still get back a “Hello, World!” response.
+
+Once you’ve typed the request line and hit Enter the client sends the request to the server, the server reads the request line, prints it and returns the proper HTTP response.
+
+Here is the HTTP response that the server sends back to your client (telnet in this case): 
+
+[img]HTTP Response Anatomy
+
+Let’s dissect it. The response consists of a status line HTTP/1.1 200 OK, followed by a required empty line, and then the HTTP response body.
+让我们来分析一下。response 包括一个 status line ``HTTP/1.1  200 OK``, 接下来是一个空行，然后是 HTTP response 的 body 。
+
+The response status line HTTP/1.1 200 OK consists of the HTTP Version, the HTTP status code and the HTTP status code reason phrase OK. When the browser gets the response, it displays the body of the response and that’s why you see “Hello, World!” in your browser.
+
+response status line ``HTTP/1.1 200 OK` 包括了 HTTP 版本，HTTP 状态码以及 HTTP 状态码原因短语 OK。
+当浏览器获取到响应时，它将显示响应的 body 部分，这就是为什么你能在你的浏览器中看到“Hello, World!”的原因。
+
+
+And that’s the basic model of how a Web server works. To sum it up: The Web server creates a listening socket and starts accepting new connections in a loop. The client initiates a TCP connection and, after successfully establishing it, the client sends an HTTP request to the server and the server responds with an HTTP response that gets displayed to the user. To establish a TCP connection both clients and servers use sockets.
+
+Now you have a very basic working Web server that you can test with your browser or some other HTTP client. As you’ve seen and hopefully tried, you can also be a human HTTP client too, by using telnet and typing HTTP requests manually.
+现在你已经有一个非常基础的 Web server 了，你可以用你的游览器或其他的 HTTP 客户端来测试它。
+正如你见过的，如果想尝试的话你也可以通过使用 telent 手动输入 HTTP 请求的方式成为一个人肉 HTTP 客户端。
+
+
+Here’s a question for you: “How do you run a Django application, Flask application, and Pyramid application under your freshly minted Web server without making a single change to the server to accommodate all those different Web frameworks?”
+有个问题要问你：“如何在你这个新鲜出炉的 Web server 上运行一个 Django 应用，
+Flask 应用，以及 Pyramid 应用，并且不需要做任何的改动就可以适应这些不同的 Web 框架？”
+
+
+I will show you exactly how in Part 2 of the series. Stay tuned.
+我将在第二篇文章中向你详细的讲解。敬请期待。
+
 
