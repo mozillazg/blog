@@ -157,8 +157,10 @@ The HTTP request consists of the line indicating the HTTP method (GET, because w
 For simplicity’s sake our Web server at this point completely ignores the above request line. You could just as well type in any garbage instead of “GET /hello HTTP/1.1” and you would still get back a “Hello, World!” response.
 
 Once you’ve typed the request line and hit Enter the client sends the request to the server, the server reads the request line, prints it and returns the proper HTTP response.
+一旦你输入完请求行并按下回车键，客户端就会把请求发生到服务器，服务器读取请求行，打印出来，并返回合适的 HTTP 响应。
 
 Here is the HTTP response that the server sends back to your client (telnet in this case): 
+下面是 server 发送回你的客户端(在这里是 telnet)的 HTTP response：
 
 [img]HTTP Response Anatomy
 
@@ -167,11 +169,12 @@ Let’s dissect it. The response consists of a status line HTTP/1.1 200 OK, foll
 
 The response status line HTTP/1.1 200 OK consists of the HTTP Version, the HTTP status code and the HTTP status code reason phrase OK. When the browser gets the response, it displays the body of the response and that’s why you see “Hello, World!” in your browser.
 
-response status line ``HTTP/1.1 200 OK` 包括了 HTTP 版本，HTTP 状态码以及 HTTP 状态码原因短语 OK。
-当浏览器获取到响应时，它将显示响应的 body 部分，这就是为什么你能在你的浏览器中看到“Hello, World!”的原因。
+response status line ``HTTP/1.1 200 OK` 包括了 HTTP version，HTTP status code 以及 HTTP status code reason phrase OK。
+当浏览器获取到 response 时，它将显示 response 的 body 部分，这就是为什么你能在你的浏览器中看到 “Hello, World!” 的原因。
 
 
 And that’s the basic model of how a Web server works. To sum it up: The Web server creates a listening socket and starts accepting new connections in a loop. The client initiates a TCP connection and, after successfully establishing it, the client sends an HTTP request to the server and the server responds with an HTTP response that gets displayed to the user. To establish a TCP connection both clients and servers use sockets.
+这就是一个 Web server 如何工作的基本模型了。总结一下： Web server 创建一个 socket 监听并开始在一个循环里接受新的连接。客户端启动一个 TCP 连接，成功建立连接之后客户端发送一个 HTTP 请求到 server ，然后 server 响应一个展示给用户的 HTTP response 。客户端和服务器都使用 socket 来建立 TCP 连接。
 
 Now you have a very basic working Web server that you can test with your browser or some other HTTP client. As you’ve seen and hopefully tried, you can also be a human HTTP client too, by using telnet and typing HTTP requests manually.
 现在你已经有一个非常基础的 Web server 了，你可以用你的游览器或其他的 HTTP 客户端来测试它。
