@@ -1,8 +1,8 @@
-#content li,
-#content p {
+/* #content li, */
+#content {
     font-family: 文泉驿微米黑,文泉驿正黑,微软雅黑,宋体,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 150%;
-    line-height: 150%;
+    font-size: 130%;
+    line-height: 130%;
 }
 #content h1,
 #content h2,
@@ -19,8 +19,8 @@ tt,
 kbd,
 pre,
 samp {
-    font-family: Consolas,"Courier New",Courier,FreeMono,monospace;
-    font-size: 120%;
-    line-height: 120%;
+    font-family: Consolas,"Courier New",Courier,FreeMono,monospace,文泉驿微米黑,文泉驿正黑,微软雅黑,宋体,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 110%;
+    line-height: 110%;
     background-color: #fdf6e3;
 }
