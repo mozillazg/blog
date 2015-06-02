@@ -1,4 +1,4 @@
-[python][译]让我们一起构建一个 Web Server（一）（粗译）
+[python][译]让我们一起来构建一个 Web Server（一）（粗译）
 ================================================================
 
 :slug: let-us-build-a-web-server-part-1-zh-cn
