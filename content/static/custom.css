@@ -1,9 +1,14 @@
 /* #content li, */
 #content {
     font-family: 文泉驿微米黑,文泉驿正黑,微软雅黑,宋体,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 130%;
-    line-height: 130%;
+    font-size: 150%;
+    line-height: 150%;
 }
+
+#content p {
+    margin: 15px auto;
+}
+
 #content h1,
 #content h2,
 #content h3,
