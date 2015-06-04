@@ -191,6 +191,7 @@ Flask 应用，以及 Pyramid 应用，并且不需要做任何的改动就可�
 我将在第二篇文章中向你详细的讲解。敬请期待。
 
 
+.. [1] 灵感来自 `Lead with a Story: A Guide to Crafting Business Narratives That Captivate, Convince, and Inspire <http://www.amazon.com/gp/product/0814420303/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0814420303&linkCode=as2&tag=russblo0b-20&linkId=HY2LNXTSGPPFZ2EV>`__
 
 
 
@@ -203,5 +204,3 @@ Flask 应用，以及 Pyramid 应用，并且不需要做任何的改动就可�
 .. |LSBAWS_socket.png| image:: /static/images/lsbaws-part1/LSBAWS_socket.png
 .. |LSBAWS_HTTP_request_anatomy.png| image:: /static/images/lsbaws-part1/LSBAWS_HTTP_request_anatomy.png
 .. |LSBAWS_HTTP_response_anatomy.png| image:: /static/images/lsbaws-part1/LSBAWS_HTTP_response_anatomy.png
-
-.. [1] 灵感来自 `Lead with a Story: A Guide to Crafting Business Narratives That Captivate, Convince, and Inspire <http://www.amazon.com/gp/product/0814420303/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0814420303&linkCode=as2&tag=russblo0b-20&linkId=HY2LNXTSGPPFZ2EV>`__
