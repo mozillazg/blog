@@ -1,9 +1,9 @@
-[python][译]让我们一起来构建一个 Web 服务器（二）（粗译）
+[python][译]让我们一起来构建一个 Web 服务器（二）
 ================================================================
 
 :slug: let-us-build-a-web-server-part-2-zh-cn
 :date: 2015-06-06
-:tags: server, http, wsgi
+:tags: server, http, wsgi, lsbaws
 
 本文译自：http://ruslanspivak.com/lsbaws-part2/
 
@@ -230,8 +230,6 @@ WSGI_ 允许开发者自由选择 Web 框架和 Web 服务器。现在你可以�
     (lsbaws) $ pip install django
 
 
-At this point you need to create a Web application. Let’s start with Pyramid first. Save the following code as pyramidapp.py to the same directory where you saved webserver2.py or download the file directly from GitHub:
-
 到这一步的时候你需要创建一个 Web 应用。让我们先用 Pyramid_ 开始吧。把下面的代码保存为 ``pyramidapp.py``  并放到你之前所保存的 ``webserver2.py`` 文件或直接从 `GitHub <https://github.com/rspivak/lsbaws/blob/master/part2/pyramidapp.py>`__ 所下载的文件所在目录（即：把 ``pyramidapp.py`` 放在 ``webserver2.py`` 所在目录）：
 
 .. code-block:: python
@@ -449,81 +447,60 @@ Web 服务器像下面这样运行这个应用： ::
 
 |Simple WSGI Application|
 
-You just wrote your very own minimalistic WSGI Web framework while learning about how to create a Web server! Outrageous.
+
 在学习如何创建一个 Web 服务器的同时，你刚刚又写了一个你自己的微型 WSGI WEB 框架！
 真是意外之喜！
 
-Now, let’s get back to what the server transmits to the client. Here is the HTTP response the server generates when you call your Pyramid application using an HTTP client:
-现在，让我们回到服务器都给客户端传输什么东西。
+
+现在，让我们回到服务器都给客户端传输了什么东西。
 下面是当你使用 HTTP 客户端调用你的 Pyramind 应用时，服务器生成的 HTTP 响应：
 
 |HTTP Response Part 1|
 
-The response has some familiar parts that you saw in Part 1 but it also has something new. It has, for example, four HTTP headers that you haven’t seen before: Content-Type, Content-Length, Date, and Server. Those are the headers that a response from a Web server generally should have. None of them are strictly required, though. The purpose of the headers is to transmit additional information about the HTTP request/response.
+
 这个响应有一些你在 `第一部分`_ 看到过的东西，但是它也有一些新东西。比如说，它有四个你之前还没见过的 `HTTP headers`_：
 Content-Type Content-Length, Date 以及 Server.
 这些包含在响应里的头信息是一个 Web 服务器应该要生成的信息。
 虽然它们中没有一个是严格要求必须提供的。
 这些头信息的目的是传输关于 HTTP 请求/响应的附加信息。
 
-Now that you know more about the WSGI interface, here is the same HTTP response with some more information about what parts produced it:
 现在你已经了解了关于 WSGI 接口的更详细的信息了，下面是同一个 HTTP 响应部分是如何产生的更详细的信息：
 
 |HTTP Response Part 2|
 
-I haven’t said anything about the ‘environ’ dictionary yet, but basically it’s a Python dictionary that must contain certain WSGI and CGI variables prescribed by the WSGI specification. The server takes the values for the dictionary from the HTTP request after parsing the request. This is what the contents of the dictionary look like:
 我还没有说过任何有关 'environ' 字典相关的信息，但是，基本上就是它是一个 Python 字段，它必须包含某些由 WSGI 规范所规定的 WSGI 和 CGI 变量。
 解析完请求信息后，服务器从 HTTP 请求中得到这个字典所需的一些值。
 这个字典看起来像下面这样：
 
 |Environ Python Dictionary|
 
-A Web framework uses the information from that dictionary to decide which view to use based on the specified route, request method etc., where to read the request body from and where to write errors, if any.
 Web 框架使用来自这个字典里的信息来决定那个 view  可以被用来服务，基于获得的路由，请求方法等信息,
 决定可以从哪里读取请求的 body 信息以及哪里可以用来写入错误信息，如果有的话。
 
-By now you’ve created your own WSGI Web server and you’ve made Web applications written with different Web frameworks. And, you’ve also created your barebones Web application/Web framework along the way. It’s been a heck of a journey. Let’s recap what your WSGI Web server has to do to serve requests aimed at a WSGI application:
+
 到目前为止，你已经创建了你自己的 WSGI Web 服务器，你也用不同的 Web 框架编写过 Web 应用了。同时，你也顺便创建过极其简陋的 Web 应用/Web 框架。
 真是一个操蛋的旅程。让我们来重述一下为了服务一个针对 WSGI 应用的请求信息，你的 WSGI Web 框架需要做的事情：
 
-First, the server starts and loads an ‘application’ callable provided by your Web framework/application
-
-首先，服务器启动并载入一个由你的 Web 框架/应用所定义的 'application' 可调用对象
-
-Then, the server reads a request
-
-然后，服务器读取一个请求
-
-Then, the server parses it
-
-然后，服务器解析这个请求
-
-Then, it builds an ‘environ’ dictionary using the request data
-
-然后，服务器用这个请求数据构建了一个 'environ' 字典
-
-Then, it calls the ‘application’ callable with the ‘environ’ dictionary and a ‘start_response’ callable as parameters and gets back a response body.
-
-然后，服务器以 'environ' 字典和一个 'start_response' 可调用对象作为参数来调用 'application' 对象，并获得一个返回的响应 body 。
-
-Then, the server constructs an HTTP response using the data returned by the call to the ‘application’ object and the status and response headers set by the ‘start_response’ callable.
-
-然后，服务器用通过调用 'application' 对象获得的 body 数据以及通过 'start_reponse' 可调用对象设置的状态信息和响应头信息一起构建了一个 HTTP 响应。
-
-And finally, the server transmits the HTTP response back to the client
-
-最后，服务器把 HTTP 响应传输回客户端
+1.首先，服务器启动并载入一个由你的 Web 框架/应用所定义的 'application' 可调用对象
+2. 然后，服务器读取一个请求
+3. 然后，服务器解析这个请求
+4. 然后，服务器用这个请求数据构建了一个 'environ' 字典
+5. 然后，服务器以 'environ' 字典和一个 'start_response' 可调用对象作为参数来调用 'application' 对象，并获得一个返回的响应 body 。
+6. 然后，服务器用通过调用 'application' 对象获得的 body 数据以及通过 'start_reponse' 可调用对象设置的状态信息和响应头信息一起构建了一个 HTTP 响应。
+7. 最后，服务器把 HTTP 响应传输回客户端
 
 |Server Summary|
 
-That’s about all there is to it. You now have a working WSGI server that can serve basic Web applications written with WSGI compliant Web frameworks like Django, Flask, Pyramid, or your very own WSGI framework. The best part is that the server can be used with multiple Web frameworks without any changes to the server code base. Not bad at all.
+
+
 就这些了。你现在有了一个可以工作的 WSGI 服务器，它能够服务那些用 WSGI 兼容的 Web 框架（比如：Django_, Flask_, Pyramid_ 或者是你自己开发的 WSGI 框架) 开发的基础的 Web 应用。最棒的是不需要修改任何的服务器代码就可以与多个 Web 框架一起使用。目前看起来还不赖嘛。
 
-Before you go, here is another question for you to think about, “How do you make your server handle more than one request at a time?”
-在你离开前，这里有另一个问题需要你思考，”如何让你的 server 在同一时刻能够处理多个请求？“
 
-Stay tuned and I will show you a way to do that in Part 3. Cheers!
-敬请期待，在第三部分我将向你展示一种方法。加油！
+
+在你离开前，这里有另一个问题需要你思考，”如何让你的服务器能够在同一时刻处理多个请求？“
+
+
+敬请期待，在 `第三部分 <#>`_ 我将向你展示一种方法。加油！
 
 .. _第一部分: http://mozillazg.com/2015/06/let-us-build-a-web-server-part-1-zh-cn.html
 .. _Gunicorn: http://gunicorn.org/

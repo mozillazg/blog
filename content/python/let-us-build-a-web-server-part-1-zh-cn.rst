@@ -1,9 +1,9 @@
-[python][译]让我们一起来构建一个 Web 服务器（一）（粗译）
+[python][译]让我们一起来构建一个 Web 服务器（一）
 ================================================================
 
 :slug: let-us-build-a-web-server-part-1-zh-cn
 :date: 2015-06-03
-:tags: server, http
+:tags: server, http, lsbaws
 
 本文译自：http://ruslanspivak.com/lsbaws-part1/
 
@@ -188,7 +188,7 @@ response 状态行 ``HTTP/1.1 200 OK`` 包括了 HTTP 版本，HTTP 状态码 �
 Flask 应用，以及 Pyramid 应用，并且不需要做任何的改动就可以适应这些不同的 Web 框架？”
 
 
-我将在第二篇文章中向你详细的讲解。敬请期待。
+我将在 `第二篇文章 <http://mozillazg.com/2015/06/let-us-build-a-web-server-part-2-zh-cn.html>`__ 中向你详细的讲解。敬请期待。
 
 
 .. [1] 灵感来自 `Lead with a Story: A Guide to Crafting Business Narratives That Captivate, Convince, and Inspire <http://www.amazon.com/gp/product/0814420303/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0814420303&linkCode=as2&tag=russblo0b-20&linkId=HY2LNXTSGPPFZ2EV>`__
