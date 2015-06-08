@@ -17,6 +17,8 @@ article h4,
 article h5,
 article h6 {
     border-bottom: 1px dashed #999;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .codehilite,
