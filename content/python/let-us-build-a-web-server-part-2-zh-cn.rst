@@ -1,8 +1,9 @@
-[python][译]让我们一起来构建一个 Web 服务器（二）
+让我们一起来构建一个 Web 服务器（二）
 ================================================================
 
 :slug: let-us-build-a-web-server-part-2-zh-cn
 :date: 2015-06-06
+:modified: 2015-06-10
 :tags: server, http, wsgi, lsbaws
 
 本文译自：http://ruslanspivak.com/lsbaws-part2/
@@ -459,7 +460,7 @@ Web 服务器像下面这样运行这个应用： ::
 
 
 这个响应有一些你在 `第一部分`_ 看到过的东西，但是它也有一些新东西。比如说，它有四个你之前还没见过的 `HTTP headers`_：
-Content-Type Content-Length, Date 以及 Server.
+``Content-Type`` , ``Content-Length`` , ``Date`` 以及 ``Server`` .
 这些包含在响应里的头信息是一个 Web 服务器应该要生成的信息。
 虽然它们中没有一个是严格要求必须提供的。
 这些头信息的目的是传输关于 HTTP 请求/响应的附加信息。
@@ -468,25 +469,25 @@ Content-Type Content-Length, Date 以及 Server.
 
 |HTTP Response Part 2|
 
-我还没有说过任何有关 'environ' 字典相关的信息，但是，基本上就是它是一个 Python 字段，它必须包含某些由 WSGI 规范所规定的 WSGI 和 CGI 变量。
+我还没有说过任何有关 ``environ`` 字典相关的信息，但是，基本上就是它是一个 Python 字典，它必须包含某些由 WSGI 规范所规定的 WSGI 和 CGI 变量。
 解析完请求信息后，服务器从 HTTP 请求中得到这个字典所需的一些值。
 这个字典看起来像下面这样：
 
 |Environ Python Dictionary|
 
-Web 框架使用来自这个字典里的信息来决定那个 view  可以被用来服务，基于获得的路由，请求方法等信息,
+Web 框架使用来自这个字典里的信息来决定那个 view 可以被用来服务，基于获得的路由，请求方法等信息,
 决定可以从哪里读取请求的 body 信息以及哪里可以用来写入错误信息，如果有的话。
 
 
 到目前为止，你已经创建了你自己的 WSGI Web 服务器，你也用不同的 Web 框架编写过 Web 应用了。同时，你也顺便创建过极其简陋的 Web 应用/Web 框架。
 真是一个操蛋的旅程。让我们来重述一下为了服务一个针对 WSGI 应用的请求信息，你的 WSGI Web 框架需要做的事情：
 
-1.首先，服务器启动并载入一个由你的 Web 框架/应用所定义的 'application' 可调用对象
+1. 首先，服务器启动并载入一个由你的 Web 框架/应用所定义的 ``application`` 可调用对象
 2. 然后，服务器读取一个请求
 3. 然后，服务器解析这个请求
-4. 然后，服务器用这个请求数据构建了一个 'environ' 字典
-5. 然后，服务器以 'environ' 字典和一个 'start_response' 可调用对象作为参数来调用 'application' 对象，并获得一个返回的响应 body 。
-6. 然后，服务器用通过调用 'application' 对象获得的 body 数据以及通过 'start_reponse' 可调用对象设置的状态信息和响应头信息一起构建了一个 HTTP 响应。
+4. 然后，服务器用这个请求数据构建了一个 ``environ`` 字典
+5. 然后，服务器以 ``environ`` 字典和一个 ``start_response`` 可调用对象作为参数来调用 ``application`` 对象，并获得一个返回的响应 body 。
+6. 然后，服务器用通过调用 ``application`` 对象获得的 body 数据以及通过 ``start_reponse`` 可调用对象设置的状态信息和响应头信息一起构建了一个 HTTP 响应。
 7. 最后，服务器把 HTTP 响应传输回客户端
 
 |Server Summary|

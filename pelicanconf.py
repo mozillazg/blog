@@ -41,7 +41,10 @@ SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
 
 PYGMENTS_STYLE = 'solarizedlight'
 CUSTOM_CSS = 'static/custom.css'
-CUSTOM_CSSES = ['static/han.min.css', 'static/custom.css']
+CUSTOM_CSSES = [
+    # 'static/han.min.css',
+    'static/custom.css'
+]
 # The folder ``images`` should be copied into the folder ``static`` when
 # generating the output.
 # STATIC_PATHS = ['static/images', 'static/downloads', ]
