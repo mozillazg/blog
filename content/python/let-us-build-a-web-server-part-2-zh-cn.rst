@@ -399,9 +399,9 @@ WSGI 规定了 Python Web 服务器和  Python Web 框架之间的一些接口�
 
 
 1. 框架提供了一个 ``application`` 可调用对象（WSGI 规范没有规定它应该如何被实现）
-2. 每当收到来自 HTTP 客户端的请求的时候，服务器就调用这个 'application' 可调用对象。
-   它把一个包含 WSGI/CGI 变量的字典 'environ' 和一个 'start_response' 可调用对象作为参数传递给了 'application' 可调用对象。
-3. 框架/应用生成一个 HTTP 状态信息和 HTTP 响应头信息，并把它们传递给了 'start_response' 可调用对象，
+2. 每当收到来自 HTTP 客户端的请求的时候，服务器就调用这个 ``application`` 可调用对象。
+   它把一个包含 WSGI/CGI 变量的字典 ``environ`` 和一个 ``start_response`` 可调用对象作为参数传递给了 ``application`` 可调用对象。
+3. 框架/应用生成一个 HTTP 状态信息和 HTTP 响应头信息，并把它们传递给了 ``start_response`` 可调用对象，
    让服务器把它们存起来。框架/应用也返回了一个响应 body 信息。
 4. 服务器把状态信息，响应头信息以及响应 body 信息合并为一个 HTTP 响应，然后把它传输给客户端（这一步不是规范的一部分，
    但是它是流程中的下一个逻辑步骤，为了清晰可见我把它列在了这里）

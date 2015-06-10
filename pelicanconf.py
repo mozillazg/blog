@@ -129,3 +129,4 @@ NOT_ON_HOME_CATEGORIES = [
     "comic",
     "comics",
 ]
+SHOW_DATE_MODIFIED = True
