@@ -17,7 +17,7 @@ JSON Web Token 的结构
 
 可以简化为下面这样的结构::
 
-    base64.encode(Header) + '.' + base64.encode(Payload) + '.' + base64.encode(Signature)
+    base64.encode(Header) + '.' + base64.encode(Claims) + '.' + base64.encode(Signature)
 
 Header
 --------
@@ -30,19 +30,20 @@ Header 包含了一些元数据，至少会表明 token 类型以及 签名方�
     }
 
 * ``type``: 必需。token 类型，``JWT`` 表示是 JSON Web Token.
-* ``alg``: 必需。token 所使用的签名算法。
+* ``alg``: 必需。token 所使用的签名算法，可用的值在 `这里 <http://tools.ietf.org/html/rfc7518#section-3.1>`__ 有规定。
 
 
-Payload (Claims)
+Claims (Payload)
 ------------------
 
-Payload 部分包含了一些跟这个 token 有关的重要信息。
+Claims 部分包含了一些跟这个 token 有关的重要信息。
 JWT 标准规定了一些字段，下面节选一些字段:
 
 * ``iss``: The issuer of the token，token 是给谁的
 * ``sub``: The subject of the token，token 主题
-* ``exp``: Token expiration time defined in Unix time。 token 过期时间，Unix 时间戳格式
-* ``iat``: “Issued at” time, in Unix time。 token 创建时间， Unix 时间戳格式
+* ``exp``: Expiration Time。 token 过期时间，Unix 时间戳格式
+* ``iat``: Issued At。 token 创建时间， Unix 时间戳格式
+* ``jti``: JWT ID。针对当前 token 的唯一标识
 
 除了规定的字段外，可以包含其他任何 JSON 兼容的字段。
 
@@ -58,14 +59,14 @@ Payload 示例::
 Signature
 ------------
 
-JWT 标准遵照 SON Web Signature (JWS) 标准来生成签名。签名主要用于验证 token 是否有效，是否被篡改。 签名时可以选择任意的加密算法，比如 HMAC SHA-256::
+JWT 标准遵照 JSON Web Signature (JWS) 标准来生成签名。签名主要用于验证 token 是否有效，是否被篡改。 签名时可以 这些算法进行签名，比如 HMAC SHA-256::
 
-    content = base64.encode(Header) + '.' + base64.encode(Payload)
+    content = base64.encode(Header) + '.' + base64.encode(Claims)
     signature = hmacsha256.hash(content)
 
-**说到这里有一点需要特别注意的是，默认情况下，JWT 中信息都是明文的，即 Payload 的内容并没有
-被加密，可以通过 base64.decode(text) 的方式解码得到 Payload** 。
-所以，不要在 Payload 里包含敏感信息，如果一定要包含敏感信息的话，记得先将 Payload 的内容进行加密（比如，使用 JSON Web Encryption (JWE) 标准进行加密）
+**说到这里有一点需要特别注意的是，默认情况下，JWT 中信息都是明文的，即 Claims 的内容并没有
+被加密，可以通过 base64.decode(text) 的方式解码得到 Claims** 。
+所以，不要在 Claims 里包含敏感信息，如果一定要包含敏感信息的话，记得先将 Claims 的内容进行加密（比如，使用 JSON Web Encryption (JWE) 标准进行加密）
 然后在进行 base64.encode 操作。
 
 
@@ -86,27 +87,30 @@ Python 实现
         "typ" : "JWT",
         "alg" : "HS256"
     })
-    payload = json.dumps({
+    claims = json.dumps({
         "iss": "mozillazg.com",
         "exp": 1435055117,
         "user_id": 1,
         "foo": "bar"
     })
-    content = base64.b64encode(headers) + '.' + base64.b64encode(payload)
+    content = base64.b64encode(headers) + '.' + base64.b64encode(claims)
     secret_key = 'your secret key'
     signature = hmac.new(secret_key, content, hashlib.sha256).digest()
 
     token = content + '.' + base64.b64encode(signature)
 
-最后得到的 token 的值是 ``eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJpc3MiOiAibW96aWxsYXpnLmNvbSIsICJmb28iOiAiYmFyIiwgInVzZXJfaWQiOiAxLCAiZXhwIjogMTQzNTA1NTExN30=.A95dY1nUHTVC2Jlf3rEoij2x5w+hm00N0H1JQZpRdpI=``
+最后得到的 token 的值是 ::
 
-再次提示， **payload 的值并没有被加密**，就算不知道 secert_key 的值也可以得到 payload 的值。
+    eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJpc3MiOiAibW96aWxsYXpnLmNvbSIsICJmb28iOiAiYmFyIiwgInVzZXJfaWQiOiAxLCAiZXhwIjogMTQzNTA1NTExN30=.A95dY1nUHTVC2Jlf3rEoij2x5w+hm00N0H1JQZpRdpI=
+
+再次提示， **claims 的值并没有被加密**，就算不知道 secert_key 的值也可以得到 claims 的值。
 
 
 参考资料
 --------
 
 * http://jwt.io/
+* http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
 * https://developer.atlassian.com/static/connect/docs/latest/concepts/understanding-jwt.html
 * http://www.intridea.com/blog/2013/11/7/json-web-token-the-useful-little-standard-you-haven-t-heard-about
 * https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/
