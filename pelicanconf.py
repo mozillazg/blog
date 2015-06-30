@@ -123,7 +123,7 @@ SITEMAP = {'format': 'xml', }
 
 SEARCH_BOX = True
 
-ADDTHIS_PROFILE = 'ra-54f7c39e17a8ec5f'
+# ADDTHIS_PROFILE = 'ra-54f7c39e17a8ec5f'
 
 NOT_ON_HOME_CATEGORIES = [
     "comic",
