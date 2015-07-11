@@ -115,7 +115,7 @@ FILES_TO_COPY = (
     ('extra/favicon.ico', 'favicon.ico'),
     ('extra/google37c30fbcbbc5f169.html', 'google37c30fbcbbc5f169.html'),
 )
-
+FAVICON = 'favicon.ico'
 USE_FOLDER_AS_CATEGORY = True
 DISPLAY_CATEGORIES_ON_MENU = False
 
