@@ -1,4 +1,4 @@
-Title: django @admin.register 线程安全陷阱
+Title: django @admin.register 非线程安全陷阱
 Date: 2015-07-27
 Tags: Thread-Locals
 Slug: dango-admin.register-ModelAdmin-is-not-thread-safe
@@ -22,14 +22,14 @@ Slug: dango-admin.register-ModelAdmin-is-not-thread-safe
     @admin.register(Foo)
     class FooAdmin(admin.ModelAdmin):
     
-    def foobar(self):
-        print(self.param)
-    
-    def changelist_view(self, request, extra_context=None):
-        self.param = request.GET['param']
-        return super(FooAdmin,self).changelist_view(request, extra_context=extra_context)
+        def foobar(self):
+            print(self.param)
+        
+        def changelist_view(self, request, extra_context=None):
+            self.param = request.GET['param']
+            return super(FooAdmin,self).changelist_view(request, extra_context=extra_context)
 
-对于使用多线程的服务，可以使用 Thread-Locals 解决这个问题:
+对于使用多线程的服务，可以使用 Thread-Locals （内置的 threading.local 或 werkzeug.local） 解决这个问题:
 
     from threading import local
     g = local()
@@ -37,14 +37,14 @@ Slug: dango-admin.register-ModelAdmin-is-not-thread-safe
     @admin.register(Foo)
     class FooAdmin(admin.ModelAdmin):
     
-    def foobar(self):
-        print(g.param)
-    
-     def changelist_view(self, request, extra_context=None):
-        g.param = request.GET['param']
-        return super(FooAdmin,self).changelist_view(request, extra_context=extra_context)
+        def foobar(self):
+            print(g.param)
+        
+        def changelist_view(self, request, extra_context=None):
+            g.param = request.GET['param']
+            return super(FooAdmin,self).changelist_view(request, extra_context=extra_context)
 
-对于使用协程（比如，使用 gevent）的服务，可以用 werkzeug.local.Local:
+对于使用协程（比如，使用 gevent）的服务，可以用 werkzeug.local.Local（内置的 threading.local 不行）:
 
     from werkzeug.local import Local
     g = Local()
@@ -55,7 +55,7 @@ Slug: dango-admin.register-ModelAdmin-is-not-thread-safe
 
 ## 参考资料
 
-* http://stackoverflow.com/questions/727928/django-admin-how-to-access-the-request-object-in-admin-py-for-list-display-met#comment27035661_729879
-* https://github.com/django/django/blob/927b30a6ab33ea33e5e3b1e7408ac1d5d267ff6a/django/contrib/admin/sites.py#L110
-* http://stackoverflow.com/questions/1408171/thread-local-storage-in-python
-* http://werkzeug.pocoo.org/docs/0.10/local/#werkzeug.local.LocalProxy
+* <http://stackoverflow.com/questions/727928/django-admin-how-to-access-the-request-object-in-admin-py-for-list-display-met#comment27035661_729879>
+* <https://github.com/django/django/blob/927b30a6ab33ea33e5e3b1e7408ac1d5d267ff6a/django/contrib/admin/sites.py#L110>
+* <http://stackoverflow.com/questions/1408171/thread-local-storage-in-python>
+* <http://werkzeug.pocoo.org/docs/0.10/local/#werkzeug.local.LocalProxy>
