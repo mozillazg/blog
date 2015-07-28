@@ -26,10 +26,11 @@ CC_LICENSE = 'CC-BY-SA'
 CC_ATTR_MARKUP = True
 
 MD_EXTENSIONS = (['toc', 'codehilite', 'footnotes', 'tables'])
-PLUGIN_PATH = [
-    os.path.abspath('./pelican-plugins'),
-]
+# PLUGIN_PATH = [
+#     os.path.abspath('./pelican-plugins'),
+# ]
 PLUGIN_PATHS = [
+   os.path.abspath('./pelican-plugins'),
    'sitemap',
    'related_posts',
    'extract_toc',
@@ -111,12 +112,19 @@ SOCIAL = (
     ('RSS Feed', '{0}/feeds/all.rss.xml'.format(SITEURL)),
 )
 
-FILES_TO_COPY = (
-    ('extra/CNAME', 'CNAME'),
-    ('extra/robots.txt', 'robots.txt'),
-    ('extra/favicon.ico', 'favicon.ico'),
-    ('extra/google37c30fbcbbc5f169.html', 'google37c30fbcbbc5f169.html'),
-)
+
+# FILES_TO_COPY = (
+#    ('extra/CNAME', 'CNAME'),
+#    ('extra/robots.txt', 'robots.txt'),
+#    ('extra/favicon.ico', 'favicon.ico'),
+#    ('extra/google37c30fbcbbc5f169.html', 'google37c30fbcbbc5f169.html'),
+# )
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/google37c30fbcbbc5f169.html': {'path': 'google37c30fbcbbc5f169.html'},
+}
 FAVICON = 'favicon.ico'
 USE_FOLDER_AS_CATEGORY = True
 DISPLAY_CATEGORIES_ON_MENU = False
