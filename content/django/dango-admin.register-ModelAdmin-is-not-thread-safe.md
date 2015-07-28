@@ -16,7 +16,7 @@ Slug: dango-admin.register-ModelAdmin-is-not-thread-safe
     @admin.register(Foo)
     class FooAdmin(admin.ModelAdmin):
         pass
-实际上注册的是一个 FooAdmin 示例，也就是说 FooAdmin 这个类在启动的时候就初始化，所有的请求访问的都是同一个实例。
+实际上注册的是一个 FooAdmin 实例，也就是说 FooAdmin 这个类在启动的时候就实例化了，所有的请求访问的都是同一个实例。
 所以类似下面的代码就会有非线程安全的问题，因为 FooAdmin 实例(self)会共享给所有子线程/所有请求：
 
     @admin.register(Foo)
