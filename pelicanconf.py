@@ -26,11 +26,10 @@ CC_LICENSE = 'CC-BY-SA'
 CC_ATTR_MARKUP = True
 
 MD_EXTENSIONS = (['toc', 'codehilite', 'footnotes', 'tables'])
-# PLUGIN_PATH = [
-#     os.path.abspath('./pelican-plugins'),
-# ]
 PLUGIN_PATHS = [
    os.path.abspath('./pelican-plugins'),
+]
+PLUGINS = [
    'sitemap',
    'related_posts',
    'extract_toc',
