@@ -6,6 +6,28 @@
 假如有如下 model ，我们想自定义一个按 过滤的过滤条件
 
 
+class DeletedFilter(admin.SimpleListFilter):
+    title = '是否已删除'
+    parameter_name = 'deleted'
+
+    def __init__(self, request, params, model, model_admin):
+        super(DeletedFilter, self).__init__(
+            request, params, model, model_admin
+        )
+        self._model = model
+
+    def lookups(self, request, model_admin):
+        return (
+            ('false', '未删除'),
+            ('true', '已删除'),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'true':
+            return queryset.filter(status=self._model.DELETED)
+        if self.value() == 'false':
+            return queryset.exclude(status=self._model.DELETED)
+
 
 ## 参考
 
