@@ -55,7 +55,7 @@ Slug: go-use-goxc-to-cross-compile
 默认全平台。
 
 
-`goxc -d=build -pv=0.1.0 bc='linux,windows,darwin'`
+`goxc -d=build -pv=0.1.0 -bc='linux,windows,darwin'`
 
 指定只生成适用于 `linxu, windows, 苹果系统` 的文件
 
