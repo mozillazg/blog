@@ -4,14 +4,14 @@
 
 :slug: let-us-build-a-web-server-part-3-zh-cn
 :date: 2015-08-04
-:modified: 2015-08-04
+:modified: 2015-08-05
 :tags: server, http, fork, lsbaws
 
 
 本文译自： http://ruslanspivak.com/lsbaws-part3/
 
 
-    “当我们必须要发明创造的时候学到东西最多” —— Piaget
+    “当我们必须要发明创造的时候学到的东西最多” —— Piaget
 
 
 在 `第二部分`_ 你创建了一个能够处理基本的 GET 请求的微型 WSGI 服务器。
@@ -178,7 +178,7 @@
     一个 TCP 连接的 socket 对是一个 4 元组，这个元组标识了一个 TCP 连接的两个端点：
     本地 IP 地址，本地端口，远程 IP 地址，以及远程端口。
     一个套接字对唯一标识了网络上每个 TCP 连接。
-    一个 IP 地址和一个端口号这个两个值标识了每个端点，通常被叫做一个套接字。 [1] 
+    一个 IP 地址和一个端口号这个两个值标识了每个端点，通常被叫做一个套接字。 [1]_
 
 
 |lsbaws_part3_it_socketpair.png|
@@ -202,14 +202,11 @@ IP 地址 12.12.12.3 和端口 8888 在这里被归为一个套接字（客户�
     listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
-2. 服务器可能会设置一些 socket 选项（这是可选的，但是你能在上面的服务器代码中看到它,
-
-只是为了在你决定杀死或重启服务器的时候能够立即就可以一遍又一遍的重复使用相同的地址）。::
+2. 服务器可能会设置一些 socket 选项（这是可选的，但是你能在上面的服务器代码中看到它,只是为了在你决定杀死或重启服务器的时候能够立即就可以一遍又一遍的重复使用相同的地址）。::
 
     listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-3. 然后，服务器绑定这个地址. ``bind`` 函数在 socket 上分配一个本地协议地址。
-对于 TCP 则是，调用 ``bind`` 让你指定一个端口号，一个 IP 地址，这两个都要或都不需要指定。::
+3. 然后，服务器绑定这个地址. ``bind`` 函数在 socket 上分配一个本地协议地址。对于 TCP 则是，调用 ``bind`` 让你指定一个端口号，一个 IP 地址，这两个都要或都不需要指定。::
 
     listen_socket.bind(SERVER_ADDRESS)
 
@@ -288,7 +285,7 @@ IP 地址 12.12.12.3 和端口 8888 在这里被归为一个套接字（客户�
 
 什么是进程？一个进程只是一个正在执行的程序的实例。
 比如说，当服务器代码被执行的时候，它被加载到内存里，然后这个正在执行的程序的实例就叫做进程。
-内核记录了有关这个进程的一大串的信息——一个例子技术它的进程 I ——为了方便跟踪这个进程。
+内核记录了有关这个进程的一大串的信息—— 比如进程的 ID ——为了方便跟踪这个进程。
 当你运行你的循环服务器 `webserver3a.py <https://github.com/rspivak/lsbaws/blob/master/part3/webserver3a.py>`__ 或 `webserver3b.py <https://github.com/rspivak/lsbaws/blob/master/part3/webserver3b.py>`__ 的时候，你只是运行了一个进程。
 
 |lsbaws_part3_it_server_process.png|
@@ -560,7 +557,7 @@ file/socket 对象。
 简短的定义当然非常好，但是你也应该记住复杂的定义：
 
 
-    如果你没法通过观察程序来知道哪个是先执行的，那么这两个事件就是并发执行的。[2]
+    如果你没法通过观察程序来知道哪个是先执行的，那么这两个事件就是并发执行的。[2]_
 
 又到了概况你目前所学知识的时间了。
 
@@ -784,9 +781,7 @@ file/socket 对象。
 
 
 现在使用 ps 命令来显示正在运行的 Python 进程。
-下面是我的 Ubuntu 上的 ``ps`` 命令输出：
-
-
+下面是我的 Ubuntu 上的 ``ps`` 命令输出： ::
 
     $ ps auxw | grep -i python | grep -v grep
     vagrant   9099  0.0  1.2  31804  6256 pts/0    S+   16:33   0:00 python webserver3d.py
@@ -1177,7 +1172,7 @@ file/socket 对象。
 下一步是什么？正如 Josh Billings 说过的，
 
 
-    “像一张邮票一下 —— 坚持一件事情直到你到达终点。”
+    “像一张邮票一样 —— 坚持一件事情直到你到达终点。”
 
 开始征服基础知识。质疑你已经知道的。同时总是深入挖掘。
 
