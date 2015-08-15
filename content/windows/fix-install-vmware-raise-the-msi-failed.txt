@@ -1,0 +1,11 @@
+
+
+
+
+f:\Downloads>VMware-workstation-full-10.0.2-1744117.1398244508.exe /extract vm\
+
+f:\Downloads>cd vm
+
+f:\Downloads\vm>vmwareworkstation_x64.msi EULAS_AGREED=1
+
+f:\Downloads\vm>
