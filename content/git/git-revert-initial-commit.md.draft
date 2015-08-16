@@ -1,7 +1,0 @@
-title: [git] 如何撤销第一次提交的 commit
-
-
-git update-ref -d HEAD
-
-
-http://stackoverflow.com/questions/6632191/how-to-revert-initial-git-commit
