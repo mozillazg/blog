@@ -15,7 +15,7 @@ Date: 2015-08-16
 
 3. 安装 [git-remote-hg](https://github.com/fingolfin/git-remote-hg)
 
-        mkdir /usr/loca/bin
+        mkdir /usr/local/bin
         curl -o /usr/local/bin/git-remote-hg https://raw.githubusercontent.com/fingolfin/git-remote-hg/master/git-remote-hg
         chmod +x /usr/local/bin/git-remote-hg
 
@@ -49,43 +49,43 @@ Date: 2015-08-16
 9. push 到 github 仓库
 
         git push mine --all
-        git push --tags
+        git push mine --tags
 
 10. 定时同步代码
 
-   1. 下载同步分支信息的脚本： [fetch_remote_branch_name_to_local.py](https://github.com/mozillazg/snippets/blob/master/git/track_all_remote_branches.py)
-   2. 将下面的代码同步脚本保存为 update.sh:
+    1. 下载同步分支信息的脚本： [fetch_remote_branch_name_to_local.py](https://github.com/mozillazg/snippets/blob/master/git/track_all_remote_branches.py)
+    2. 将下面的代码同步脚本保存为 update.sh:
 
-           #!/usr/bin/env bash
+            #!/usr/bin/env bash
 
-           source ~/.bashrc
+            source ~/.bashrc
 
-           echo "step 0"
-           cd /www/pypy/
+            echo "step 0"
+            cd /www/pypy/
 
-           echo "step 1"
-           for remote in `git branch|grep -v '\* master'`; do git branch -d $remote ;  done
+            echo "step 1"
+            for remote in `git branch|grep -v '\* master'`; do git branch -d $remote ;  done
 
-           echo "step 2"
-           git fetch origin
+            echo "step 2"
+            git fetch origin
 
-           echo "step 3"
-           python track_all_remote_branches.py
+            echo "step 3"
+            python track_all_remote_branches.py
 
-           echo "step 4"
-           git pull
+            echo "step 4"
+            git pull
 
-           echo "step 5"
-           git push mine --all
+            echo "step 5"
+            git push mine --all
 
-           echo "step 6"
-           git push mine --tags
+            echo "step 6"
+            git push mine --tags
    
-   3. 配置 crontab 定时任务，每天 3 点同步一次代码
+    3. 配置 crontab 定时任务，每天 3 点同步一次代码
 
-           $ crontab -e
-        
-           0 3 * * * cd /www/pypy && /usr/bin/env bash /www/pypy/update.sh > /var/log/mirror_pypy.log 2>&1
+            $ crontab -e
+
+            0 3 * * * cd /www/pypy && /usr/bin/env bash /www/pypy/update.sh > /var/log/mirror_pypy.log 2>&1
 
 
 想抢先查看实际效果？欢迎围观我创建的 [PyPy 镜像仓库](https://github.com/mozillazg/pypy)
