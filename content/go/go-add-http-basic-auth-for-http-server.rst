@@ -2,6 +2,7 @@
 ====================================================
 
 :date: 2015-04-07
+:modified: 2015-08-27
 :slug: go-add-http-basic-auth-for-http-server
 
 一句话总结就是：增加一个装饰器函数 ``BasicAuth`` 装饰需要被保护的函数。
@@ -45,7 +46,7 @@
             }
 
             // 认证失败，提示 401 Unauthorized
-            // Restricted 可以改成其他的值，作用类似于 session ,这样就不会每次访问页面都提示登录
+            // Restricted 可以改成其他的值
             w.Header().Set("WWW-Authenticate", `Basic realm="Restricted"`)
             // 401 状态码
             w.WriteHeader(http.StatusUnauthorized)
