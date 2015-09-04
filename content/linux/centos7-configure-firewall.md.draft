@@ -1,0 +1,16 @@
+title: CentOS 7 配置防火墙 Firewalld
+date: 2015-09-03
+slug: centos7-configure-firewalld
+tags: centos, firewalld
+
+sudo systemctl start firewalld
+
+firewall-cmd --state
+
+
+firewall-cmd --permanent --add-port=8238/tcp
+
+firewall-cmd --reload
+
+
+systemctl enable firewalld
