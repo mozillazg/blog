@@ -35,6 +35,37 @@ date: 2015-09-16
             return False
 
 
+完整代码举例 (admin.py)：
+
+    @admin.register(Foo)
+    class FooAdmin(admin.ModelAdmin):
+        actions = None
+
+        def has_add_permission(self, request):
+            return False
+
+        def has_change_permission(self, request, obj=None):
+            if obj is None:
+                return True
+            else:
+                return False
+
+        def has_delete_permission(self, request, obj=None):
+            return False
+    
+    
+    @admin.register(Bar)
+    class BarAdmin(admin.ModelAdmin):
+        readonly_fields = [field.name for field in Bar._meta.fields]
+        actions = None
+
+        def has_add_permission(self, request):
+            return False
+
+        def has_delete_permission(self, request, obj=None):
+            return False
+
+
 demo 项目: [admin\_readonly\_model](https://github.com/mozillazg/django-simple-projects/tree/master/projects/admin_readonly_model)
 
 
