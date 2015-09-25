@@ -1,4 +1,4 @@
-title: 《High Performance Django》阅读笔记
+title: 《High Performance Django》阅读笔记（一）
 slug: high-performance-django-note-1
 tags: High Performance Django, Django
 
@@ -210,7 +210,3 @@ servers, services or third-party software.
 * PEP8/linting
 * 使用 Selenium 进行功能测试
 * 所以 Jmeter 进行性能测试
-
-
-## 第三章：The Deployment
-
