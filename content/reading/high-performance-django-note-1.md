@@ -1,8 +1,9 @@
 title: 《High Performance Django》阅读笔记（一）
 slug: high-performance-django-note-1
 tags: High Performance Django, Django
+date: 2015-09-26
 
-[](![]())
+[![](/static/images/reading/s28041145.jpg)](http://book.douban.com/subject/26359018/)
 
 
 一句话点评：老司机的经验之谈，物有所值。
@@ -27,7 +28,7 @@ tags: High Performance Django, Django
 servers, services or third-party software.
 * Choosing proven and dependable moving parts instead of the new hotness.
 * Using a proven and dependable architecture instead of blazing your own trail.
-* Deflecting traffic away from complex parts and toward fast, scalable, and simple parts（
+* Deflecting traffic away from complex parts and toward fast, scalable, and simple parts .
 
 > Simple systems are easier to scale, easier to understand, and easier to develop. 
 
@@ -94,9 +95,9 @@ servers, services or third-party software.
 
 可以使用下面这些工具
 
-* [Django Debug Toolbar]()
-* [django-debug-panel]()
-* [django-devserver]()
+* [Django Debug Toolbar](http://django-debug-toolbar.readthedocs.org/)
+* [django-debug-panel](https://github.com/recamshak/django-debug-panel)
+* [django-devserver](https://github.com/dcramer/django-devserver)
 
 观察页面性能：
 
@@ -139,7 +140,7 @@ servers, services or third-party software.
         posts = Post.objects.all().values_list('id')
         posts = Post.objects.all().values_list('id', flat=True)
 
-* 缓存查询结果。这里提到两个库: [Johnny Cache]() 和 [Cache Machine]() 这两个库的原理都是在 ORM 和数据库中间加了一个缓存层，将 ORM 生成的 SQL 作为 key 来缓存查询结果。
+* 缓存查询结果。这里提到两个库: [Johnny Cache](https://johnny-cache.readthedocs.org/en/latest/ ) 和 [Cache Machine](https://cache-machine.readthedocs.org/en/latest/) 这两个库的原理都是在 ORM 和数据库中间加了一个缓存层，将 ORM 生成的 SQL 作为 key 来缓存查询结果。
 * 只读 replicas。对那些读远远大于写的站点，可以考虑从 只读 replicas 中读取数据，实现读写分离。减少主库的负担优化性能。
 * raw 查询。如果感觉 ORM 有点慢话，可以考虑使用 `raw` 方法执行原生的 SQL 语句。
 * 反范式。这种方法有个问题就是每次更新的时候都需要同时更新其他表中相关的冗余字段。
