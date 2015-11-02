@@ -21,18 +21,20 @@ tags: gitlab, gitlab-git-http-server
 解决办法如下：
 
 1. 修改 `/etc/gitlab/gitlab.rb`, 找到如下配置并修改为：
-
+    
         nginx['enabled'] = false
         gitlab_git_http_server['listen_network'] = "tcp"
         # 这个端口修改为你实际需要的端口
         gitlab_git_http_server['listen_addr'] = "localhost:8081"
+    
 2. 应用更改 `sudo gitlab-ctl reconfigure`
 3. 下载官方 nginx 配置（选择相应版本分支下的文件）:
-
+    
         wget https://gitlab.com/gitlab-org/gitlab-ce/raw/v8.1.2/lib/support/nginx/gitlab -O /etc/nginx/conf.d/gitlab.conf
         # 如果你的 ci 服务器使用的是独立的域名或者使用了 ssl 的话，可以去
         # https://gitlab.com/gitlab-org/gitlab-ce/tree/master/lib/support/nginx
         # 下载相应的配置文件
+    
 4. 修改 nginx 配置文件中的 `upstream`， `server_name`, `root`，提示：
    如果不存在 `/home/git/gitlab/public` 目录的话，那么 `root` 就是
    `/opt/gitlab/embedded/service/gitlab-rails/public`

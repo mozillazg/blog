@@ -41,8 +41,9 @@ tags: rq, celery, django-rq
             'NAME': 'foo',
             },
         }
+    
 3. 使用 `connection.on_commit` 来执行需要在事物成功提交时才执行的操作：
-
+    
         connection.on_commit(lambda: job1.delay(foobar.pk))
 
 详情请查看文档：<https://django-transaction-hooks.readthedocs.org>
