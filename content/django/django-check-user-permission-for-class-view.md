@@ -10,27 +10,27 @@ date: 2015-11-03
 
 1. 定义一个基类，重写 as_view 方法，在 as_view 方法中判断用户权限。然后其他 class view 继承这个基类
     
-    from django.contrib.auth.decorators import login_required
+        from django.contrib.auth.decorators import login_required
 
-    class LoginRequiredMixin(object):
-        @classmethod
-        def as_view(cls, **initkwargs):
-            view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
-            return login_required(view)
-    
+        class LoginRequiredMixin(object):
+            @classmethod
+            def as_view(cls, **initkwargs):
+                view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
+                return login_required(view)
+        
     
 2. 定义一个基类，重写 dispatch 方法，给这个加个权限判断的装饰器。然后其他 class view 继承这个基类
     
-    from django.contrib.auth.decorators import login_required
-    from django.utils.decorators import method_decorator
-    from django.views.generic import TemplateView
+        from django.contrib.auth.decorators import login_required
+        from django.utils.decorators import method_decorator
+        from django.views.generic import TemplateView
 
-    class ProtectedView(TemplateView):
-        template_name = 'secret.html'
+        class ProtectedView(TemplateView):
+            template_name = 'secret.html'
 
-        @method_decorator(login_required)
-        def dispatch(self, *args, **kwargs):
-            return super(ProtectedView, self).dispatch(*args, **kwargs)
+            @method_decorator(login_required)
+            def dispatch(self, *args, **kwargs):
+                return super(ProtectedView, self).dispatch(*args, **kwargs)
 
 
 如果所需的权限不只是 login_required 该怎么判断权限呢？还是上面的方法，我就举一个第一种方法的例子。
@@ -72,8 +72,8 @@ date: 2015-11-03
 然后定义 class view 的时候继承自这个 Mixin:
 
     
-    class GodOnlyView(GodRequiredMixin, TemplateView):
-        ...
+        class GodOnlyView(GodRequiredMixin, TemplateView):
+            ...
 
 现在我们的 `GodOnlyView` 只有当用户是 `is_god()` 的时候才能查看了。
 
