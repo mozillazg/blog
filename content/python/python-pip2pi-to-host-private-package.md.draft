@@ -1,0 +1,13 @@
+title: 借助 pip2pi 搭建托管私有模块的 pypi 服务
+slug: python-pip2pi-to-host-private-package
+date: 2015-11-04
+
+本文将讲述如何借助 pip2pi 搭建托管私有模块的 pypi 服务，
+解决通过 pip 安装私有模块的问题。
+
+
+1. 安装 [pip2p](https://github.com/wolever/pip2pi) 工具:
+    
+        pip install pip2p
+    
+2. 

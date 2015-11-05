@@ -8,18 +8,18 @@ date: 2015-11-03
 
 至少有两种方法：
 
-1. 定义一个基类，重写 as_view 方法，在 as_view 方法中判断用户权限。然后其他 class view 继承这个基类
+1. 定义一个基类，包含一个 as_view 方法，在 as_view 方法中判断用户权限。然后其他 class view 继承这个基类
     
         from django.contrib.auth.decorators import login_required
 
         class LoginRequiredMixin(object):
             @classmethod
             def as_view(cls, **initkwargs):
-                view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
+               view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
                 return login_required(view)
         
     
-2. 定义一个基类，重写 dispatch 方法，给这个加个权限判断的装饰器。然后其他 class view 继承这个基类
+2. 定义一个基类，包含一个 dispatch 方法，给这个方法加个权限判断的装饰器。然后其他 class view 继承这个基类
     
         from django.contrib.auth.decorators import login_required
         from django.utils.decorators import method_decorator
@@ -63,7 +63,7 @@ date: 2015-11-03
 
         @classmethod
         def as_view(cls, **initkwargs):
-            view = super(GodRequiredMixin, cls).as_view(**initkwargs)
+           view = super(GodRequiredMixin, cls).as_view(**initkwargs)
             actual_decorator = user_passes_test(
                 god_check, login_url=LOGIN_URL
             )
