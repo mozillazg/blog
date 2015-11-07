@@ -4,7 +4,7 @@
 :slug: django-the-power-of-q-objects-and-how-to-use-q-object
 :date: 2015-11-07
 
-本文将讲述如何在 Django 项目中使用 ``Q`` 构建复杂的查询条件。
+本文将讲述如何在 Django 项目中使用 ``Q`` 对象构建复杂的查询条件。
 假设有如下的 model:
 
 .. code-block:: python
@@ -45,6 +45,7 @@ AND 查询
 
 .. code-block:: python
 
+    >>> from django.db.models import Q
     # Q(...)
     >>> Question.objects.filter(Q(question_text__contains='you'))
     [<Question: what are you doing>, <Question: what is wrong with you>, <Question: who are you>]
