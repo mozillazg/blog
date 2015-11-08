@@ -22,4 +22,4 @@
 参考资料
 ------------
 
-* `python-gearman/protocol.py at 740a23f20f39f0f0d557e25afe998e56cc72a9bf · Yelp/python-gearman https://github.com/Yelp/python-gearman/blob/740a23f20f39f0f0d557e25afe998e56cc72a9bf/gearman/protocol.py#L246>`__
+* `python-gearman/protocol.py at 740a23f20f39f0f0d557e25afe998e56cc72a9bf · Yelp/python-gearman <https://github.com/Yelp/python-gearman/blob/740a23f20f39f0f0d557e25afe998e56cc72a9bf/gearman/protocol.py#L246>`__
