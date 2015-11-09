@@ -1,0 +1,12 @@
+title: 收集受 unicode_literals 影响的内置模块和函数
+slug: python-unicode_literals-broken-some-built-in-modules-and-functions
+date: 2015-11-09
+
+本文将收集在 Python 2 下代码中启用了
+
+    from __future__ import unicode_literals
+
+后会影响哪些内置模块和函数。
+
+* 
+* 
