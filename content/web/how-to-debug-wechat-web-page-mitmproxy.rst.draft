@@ -1,0 +1,54 @@
+使用 mitmproxy 搭建代理服务器的方式来调试微信开发
+===============================================
+
+:date: 2015-11-15
+:slug: how-to-debug-wechat-web-page-with-mitmproxy
+:tags: wechat, mitmproxy, python
+
+本文主要讲述如何使用代理服务器的方式本地调试已上线的
+微信公众号内的网页。
+
+因为已经上线了，所以不能随便在线上服务器上修改代码增加 alert 之类的代码，也不能在线上启用 debug 模式。
+所以，我们要通过在本地搭建代理服务器的方式来修改服务端返回
+的信息，比如：将 jssdk 的调用改为 debug 模式，
+替换页面内容为本地修改后的 html 内容等等：
+
+
+安装 mitmproxy
+----------------
+
+$ git clone git@github.com:mitmproxy/mitmproxy.git --depth=1
+$ virtualenv venv
+$ source venv/bin/active
+$ pip install .
+$
+
+hello word
+-----------------
+
+直接执行 ``mitmproxy`` 命令就会启动一个监听 `0.0.0.0:8080` 的代理服务器。
+但是这个服务器不会修改任何服务器的返回内容，所以我们需要另一种启动方式 ``mitmproxy -s script.py`` :
+
+script.py 的内容如下，作用是将任意页面的响应改为 ``hello world`` :
+
+.. code:: python
+
+    from libmproxy.models import decoded
+
+
+    def response(context, flow):
+        with decoded(flow.response):  # automatically decode gzipped responses.
+            flow.response.content = 'hello world'
+
+执行 ``mitmproxy -s script.py`` 启动代理服务器，然后在手机上配置好 wifi 代理。
+现在在手机浏览器上访问任意网页都将显示 ``hello world`` :)
+
+下面我就讲几个微信开发中应该会用到的调试方式（以 “中国移动北京公司”这个公众号为例）。
+
+
+修改 wx.config, 将 debug 参数改为 true
+---------------------------------------
+
+上线后的公众号网页内的 ``wx.config`` 中 ``debug`` 参数的值都是 ``false``，
+既然我要调试问题自然就要开启调试模式了。
+
