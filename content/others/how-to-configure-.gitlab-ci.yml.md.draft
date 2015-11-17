@@ -1,0 +1,9 @@
+title: 如何配置 .gitlab-ci.yml
+slug: how-to-configure-.gitlab-ci.yml
+tags: gitlab
+date: 2015-11-16
+
+
+http://doc.gitlab.com/ce/ci/yaml/README.html
+
+https://gitlab.com/gitlab-org/gitlab-ce
