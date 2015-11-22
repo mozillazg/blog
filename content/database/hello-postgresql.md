@@ -51,7 +51,7 @@ Slug: hello-postgresql
 
 ## 创建数据库
 
-    postgres=# CREATE DATABASE exampledb OWNER dbuser;
+    postgres=# CREATE DATABASE exampledb ENCODING='UTF8' OWNER dbuser;
     postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
     postgres=# \c exampledb;
     postgres=# ALTER SCHEMA public OWNER to dbuser;
@@ -152,6 +152,7 @@ example:
 
     pg_dump --format=t -d db_name -U user_name -W -h 127.0.0.1 > dump.sql
     pg_restore -d db_name -h 127.0.0.1 -U user_name < dump.sql
+    # 注意要加 -U 并且一定要是 db_name 的 owner
 
 
 ## Peer authentication failed for user "user_name"
