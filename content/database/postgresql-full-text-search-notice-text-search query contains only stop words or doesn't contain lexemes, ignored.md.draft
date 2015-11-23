@@ -13,3 +13,41 @@ postgresql 全文检索功能搜索中文提示 “text-search query contains on
 通过大半天的查资料，验证之后，终于解决了这个问题。如果你也出现类似问题的话，可以检查下面几项：
 
 
+##解析器
+
+english -> simple
+
+
+## 数据库编码
+
+
+
+
+psql -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='chendian';"
+
+
+
+// Delete the database
+sudo -u postgres psql -c "DROP DATABASE chendian;"
+
+//Re-create the database using the encoding keyword
+sudo -u postgres psql -c "CREATE DATABASE chendian WITH ENCODING 'UTF8' LC_COLLATE='en_US.UTF-8' LC_CTYPE='en_US.UTF-8' owner chendian TEMPLATE=template0;"
+
+
+
+//Import the saved data
+sudo -u postgres psql -f chendian.sql -U chendian -h 127.0.0.1
+
+
+sudo -u postgres pg_restore -d chendian -h 127.0.0.1 -U postgres <
+
+
+GRANT ALL PRIVILEGES ON DATABASE chendian to chendian;
+
+ALTER SCHEMA public OWNER to chendian;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO chendian;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO chendian;
+
+
+## 
+
