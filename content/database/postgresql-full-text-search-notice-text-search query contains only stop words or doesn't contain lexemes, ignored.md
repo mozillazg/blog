@@ -4,6 +4,10 @@ slug: postgresql-full-text-search-search-chinese-notice-text-search-query-contai
 tags: postgresql
 
 
+![](/static/images/postgresql/tumblr_inline_nwxibtWTJU1rrl2l6_500.png)
+
+图片来源: [http://derpinews.tumblr.com/post/132078326118/were-back](http://derpinews.tumblr.com/post/132078326118/were-back)
+
 最近使用了一下 postgresql 的 full text search 功能，在开发机器上可以实现简单的搜索中文的功能，
 但是到其他服务器上后总是出现可以搜索英文但是搜索中文却没有结果的情况。
 通过在 postgres 的 shell 中执行程序生成的搜索语句后发现：当搜索条件是中文时，总是提示：
@@ -112,19 +116,19 @@ english -> simple 。如果你搜索时使用的解释器是 `english` 的话改
 
         pg_restore -d db_name -h 127.0.0.1 -U user_name < dump.sql
 
-7. 现在再试一下应该可以正常搜索中文了。
+7. 现在再试一下应该已经可以正常搜索中文了。
 
 
 
 ## 参考资料
 
-* http://stackoverflow.com/questions/16736891/pgerror-error-new-encoding-utf8-is-incompatible
-* http://www.postgresql.org/docs/9.4/static/multibyte.html
-* http://stackoverflow.com/questions/380924/how-can-i-change-database-encoding-for-a-postgresql-database-using-sql-or-phppga
-* https://coderwall.com/p/j-_mia/make-postgres-default-to-utf8
-* https://github.com/wvanbergen/scoped_search/issues/23
-* https://github.com/ckan/ckan/pull/1838
-* https://ruby-china.org/topics/14607
-* https://github.com/kvesteri/sqlalchemy-searchable/issues/33
+* <http://stackoverflow.com/questions/16736891/pgerror-error-new-encoding-utf8-is-incompatible>
+* <http://www.postgresql.org/docs/9.4/static/multibyte.html>
+* <http://stackoverflow.com/questions/380924/how-can-i-change-database-encoding-for-a-postgresql-database-using-sql-or-phppga>
+* <https://coderwall.com/p/j-_mia/make-postgres-default-to-utf8>
+* <https://github.com/wvanbergen/scoped_search/issues/23>
+* <https://github.com/ckan/ckan/pull/1838>
+* <https://ruby-china.org/topics/14607>
+* <https://github.com/kvesteri/sqlalchemy-searchable/issues/33>
 
 

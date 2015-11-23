@@ -166,4 +166,4 @@ example:
 ## 参考资料
 
 * [PostgreSQL新手入门 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/12/getting_started_with_postgresql.html)
-* http://www.postgresql.org/docs
+* <http://www.postgresql.org/docs>
