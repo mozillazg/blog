@@ -51,7 +51,7 @@ Slug: hello-postgresql
 
 ## 创建数据库
 
-    postgres=# CREATE DATABASE exampledb ENCODING='UTF8' OWNER dbuser;
+    postgres=# CREATE DATABASE exampledb OWNER dbuser;
     postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
     postgres=# \c exampledb;
     postgres=# ALTER SCHEMA public OWNER to dbuser;
