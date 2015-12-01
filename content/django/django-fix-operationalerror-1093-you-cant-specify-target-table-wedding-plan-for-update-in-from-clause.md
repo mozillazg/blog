@@ -32,6 +32,6 @@ date: 2015-11-30 19:00:00
 这条语句是有问题的。
 而修改后的代码生成的 sql 语句是这样的:
 
-    update from user set a=1234 where id in (
+    update user set a=1234 where id in (
         1, 2, 3
     )
