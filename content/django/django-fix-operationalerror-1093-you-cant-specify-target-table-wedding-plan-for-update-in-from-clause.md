@@ -2,6 +2,10 @@ title: [django] 解决 OperationalError: (1093, "You can't specify target table 
 slug: django-fix-operationalerror-1093-you-cant-specify-target-table-wedding-plan-for-update-in-from-clause
 date: 2015-11-30 19:00:00
 
+![](/static/images/django/djangopony.jpg)
+
+图片来源： <http://avalonstar.com/journal/2008/the-web-framework-for-ponies/>
+
 
 错误信息如下：
 
