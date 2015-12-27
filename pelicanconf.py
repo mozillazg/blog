@@ -7,7 +7,7 @@ import os
 
 AUTHOR = 'mozillazg'
 SITENAME = u"Mozillazg's Blog"
-SITEURL = 'http://mozillazg.com'
+SITEURL = 'https://mozillazg.com'
 SITEDESCRIPTION = u'Just another Pelican blog'
 
 # This can also be the absolute path to a theme that you downloaded
