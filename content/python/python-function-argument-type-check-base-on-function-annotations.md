@@ -12,7 +12,7 @@ tags: python 3, Function Annotations
         return a, b, c
 
 * `a: int` 这种是注解参数
-* `c: str = 5` 是关键字参数的注解
+* `c: str = 5` 是注解有默认值的参数
 * `-> tuple` 是注解返回值。
 
 注解的内容既可以是个类型也可以是个字符串，甚至表达式：
@@ -79,13 +79,13 @@ Python 解释器并不会基于函数注解来自动进行类型检查，需要�
             CheckItem = collections.namedtuple('CheckItem', ('anno', 'arg_name', 'value'))
             check_list = []
 
-            # collection args   *args 传入的参数以及对应的函数参数注解
+            # collect args   *args 传入的参数以及对应的函数参数注解
             for i, value in enumerate(args):
                 arg_name = arg_keys[i]
                 anno = parameters[arg_name].annotation
                 check_list.append(CheckItem(anno, arg_name, value))
                 
-            # collection kwargs  **kwargs 传入的参数以及对应的函数参数注解
+            # collect kwargs  **kwargs 传入的参数以及对应的函数参数注解
             for arg_name, value in kwargs.items():
                anno = parameters[arg_name].annotation
                check_list.append(CheckItem(anno, arg_name, value))
@@ -114,7 +114,11 @@ Python 解释器并不会基于函数注解来自动进行类型检查，需要�
 
     >>> foobar(1, 'b', 3.5)
     (1, 'b', 3.5)
-
+    
+    >>> foobar('a', 'b')
+    ...
+    TypeError: Expected type <class 'int'> for argument a, but got type <class 'str'> with value 'a
+    
     >>> foobar(1, 2)
     ...
     TypeError: Expected type <class 'str'> for argument b, but got type <class 'int'> with value 2
@@ -134,6 +138,10 @@ Python 解释器并不会基于函数注解来自动进行类型检查，需要�
     ...
     TypeError: Expected type <class 'int'> for argument a, but got type <class 'str'> with value 'foo'
     
+    >>> foobar(b=3, a=2)
+    ...
+    TypeError: Expected type <class 'str'> for argument b, but got type <class 'int'> with value 3
+
     >>> foobar(a=2, b='bar', c=3)
     ...
     TypeError: Expected type <class 'float'> for argument c, but got type <class 'int'> with value 
