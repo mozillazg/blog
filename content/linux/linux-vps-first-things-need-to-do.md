@@ -79,7 +79,7 @@ Slug: linux-vps-first-things-need-to-do
         127.0.0.1 ubuntu
 
 
-生成密钥：
+生成密钥（可选，可以使用本地已有的公钥，把公钥内容追加到 ~/.ssh/authorized_keys 里就可以了）：
 
     :::console
     $ ssh-keygen
@@ -109,13 +109,14 @@ id\_rsa 文件就是客户端用来登录的私钥了，下面我们要把他从
 
 在进行下面的配置前你需要再三确认可以通过上面生成的密钥以普通用户的身份登录 VPS，并且 root 密码正确无误的记下来了。
 
-编辑 ssh 服务器端配置文件：
+编辑 sshd 服务器端配置文件：
 
     :::console
     $ sudo vi /etc/ssh/sshd_config
 
-将 26 行左右的 `PermitRootLogin yes` 改为 `PermitRootLogin no` ，       
-50 行左右的 `#PasswordAuthentication yes` 改为 `PasswordAuthentication no`。
+将 26 行左右的 `#PermitRootLogin yes` 改为 `PermitRootLogin no` ，       
+50 行左右的 `#PasswordAuthentication yes` 改为 `PasswordAuthentication no`。                   
+修改端口, 将 `#Port 22` 改为 `Port 端口号数字`(比如： `Port 7564`)。
 
 重启 ssh 服务：
 
@@ -130,7 +131,7 @@ id\_rsa 文件就是客户端用来登录的私钥了，下面我们要把他从
     $ sudo apt-get install iptables             # ubuntu
     $ yum install iptables                      # centos
 
-对于 centos/redhat：
+对于 centos/redhat（适用 centos 5, centos 6）：
 
     :::console
     $ sudo vi /etc/sysconfig/iptables
@@ -144,7 +145,7 @@ id\_rsa 文件就是客户端用来登录的私钥了，下面我们要把他从
     -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
     -A INPUT -p icmp -j ACCEPT
     -A INPUT -i lo -j ACCEPT
-    -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+    -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT   # 如果有修改 sshd 服务端口号，改为修改后的数字
     -A INPUT -j REJECT --reject-with icmp-host-prohibited
     -A FORWARD -j REJECT --reject-with icmp-host-prohibited
     -A INPUT -j DROP
@@ -162,14 +163,14 @@ ubuntu：
 应用防火墙规则：
 
     :::console
-    $ sudo service iptables restart  # centos
+    $ sudo service iptables restart  # centos  5, 6
 
     $ sudo iptables-restore < /etc/iptables.up.rules   # ubuntu
 
 开机启动 iptables ：
 
     :::console
-    $ sudo chkconfig iptables on  # redhat/centos
+    $ sudo chkconfig iptables on  # redhat/centos  5, 6
     
     $ sudo apt-get install sysv-rc-conf  # ubuntu
     $ sudo sysv-rc-conf iptables on    # ubuntu
