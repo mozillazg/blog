@@ -44,7 +44,7 @@ Slug: linux-vps-first-things-need-to-do
 
     hello ALL=(ALL) ALL
 
-
+<!--
 如果不想每次使用 `sudo` 都输入 root 密码，上面的命令修改为：
 
     :::console
@@ -52,6 +52,7 @@ Slug: linux-vps-first-things-need-to-do
     # tail -3 /etc/sudoers
 
     hello ALL=(ALL) NOPASSWD:ALL
+-->
 
 ## 使用 SSH 密匙认证登录 VPS
 
