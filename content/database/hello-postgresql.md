@@ -1,6 +1,6 @@
 Title: [database] postgresql 常用操作
 Date: 2014-06-05
-Tags: postpresql, psql
+Tags: postpresql, psql, postgresql
 Slug: hello-postgresql
 
 

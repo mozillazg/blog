@@ -17,3 +17,6 @@ Slug: about-me
 * Twitter: @[mozillazg](http://twitter.com/mozillazg)
 * About.me: @[mozillazg](http://about.me/mozillazg)
 * Email: mozillazg101 (at) gmail (dot) com
+* 微信：
+
+![wechat](/static/wechat.png)
