@@ -93,7 +93,7 @@ Date: 2015-08-16
 
 ## 参考资料
 
-* https://github.com/fingolfin/git-remote-hg
-* https://bitbucket.org/pypy/pypy
-* https://pip.pypa.io/en/latest/installing.html
-* https://github.com/mozillazg/pypy
+* <https://github.com/fingolfin/git-remote-hg>
+* <https://bitbucket.org/pypy/pypy>
+* <https://pip.pypa.io/en/latest/installing.html>
+* <https://github.com/mozillazg/pypy>

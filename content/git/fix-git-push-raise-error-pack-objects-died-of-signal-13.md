@@ -1,6 +1,6 @@
-titel: 解决 git push 时出现 error: pack-objects died of signal 13 的问题
+title: 解决 git push 时出现 error: pack-objects died of signal 13 的问题
 slug: fix-git-push-raise-error-pack-objects-died-of-signal-13
-date: 2016-01-29
+date: 2016-01-31
 
 今天执行 `git push` 的时候报了如下的错误：
 
