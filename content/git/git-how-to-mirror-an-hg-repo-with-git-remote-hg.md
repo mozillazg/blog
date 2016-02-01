@@ -26,7 +26,7 @@ Date: 2015-08-16
 
 5. 配置 git:
 
-        git config core.notesRef refs/notes/hg
+        git config --global core.notesRef refs/notes/hg
 
 6. clone Hg 仓库，假设仓库存放在 /www
 
@@ -76,10 +76,10 @@ Date: 2015-08-16
             git pull
 
             echo "step 5"
-            git push mine --all
+            git push mine --all -f
 
             echo "step 6"
-            git push mine --tags
+            git push mine --tags -f
    
     3. 配置 crontab 定时任务，每天 3 点同步一次代码
 
