@@ -1,9 +1,9 @@
-title: psycopg2 插入数据时如何获取新纪录的主键
+title: psycopg2 插入数据时如何获取新纪录的主键值
 slug: psycopg2-how-to-get-lastrowid-when-insert-a-new-row
 date: 2016-02-15
 tags: psycopg2, postgresql
 
-默认情况下，使用 psycopg2 时 `cursor.lastrowid` 并不会返回新纪录的主键。
+默认情况下，使用 psycopg2 时 `cursor.lastrowid` 并不会返回新纪录的主键值。
 [文档](http://initd.org/psycopg/docs/cursor.html?highlight=lastrowid#cursor.lastrowid) 中是这样解释的：
 
 > cursor.lastrowid
