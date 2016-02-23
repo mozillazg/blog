@@ -28,20 +28,20 @@ Hello World
 ----------------
 
 `bustard`_ 参考了 `Flask`_ 和 `Django`_ 的设计，路由风格跟 `Flask`_
-类似采用装饰器风格，view 方式风格跟 `Django`_ 类似采用显示传入 ``request``
+类似采用装饰器风格，view 风格跟 `Django`_ 类似采用显示传入 ``request``
 的方式。 ::
 
-	from bustard.app import Bustard
+    from bustard.app import Bustard
     
-	app = Bustard()
+    app = Bustard()
     
     
-	@app.route('/')
-	def helloword(request):
-		return 'Hello World!'
+    @app.route('/')
+    def helloword(request):
+        return 'Hello World!'
     
-	if __name__ == '__main__':
-		app.run()
+    if __name__ == '__main__':
+        app.run()
 
 
 路由
@@ -129,7 +129,7 @@ ORM
         id = AutoField(primary_key=True)
         username = CharField(max_length=80, index=True)
         password = CharField(max_length=200, default='')
-        is_actived = orm.BooleanField(default=False, server_default=False)
+        is_actived = BooleanField(default=False, server_default=False)
 
     engine = Engine('postgresql://dbuser:password@localhost/exampledb')
     session = Session(engine)
