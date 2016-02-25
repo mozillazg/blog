@@ -1,4 +1,4 @@
-Title: CommitStrip：第一个
+Title: CommitStrip：每日站立会议
 Date: 2016-02-25
 Tags: CommitStrip
 Slug: Strip-Daily-Standup-650-final.zh-cn
