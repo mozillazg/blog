@@ -46,7 +46,7 @@ PYGMENTS_STYLE = 'solarizedlight'
 CUSTOM_CSSES = [
     # 'static/han.min.css',
     'static/yue.css',
-    # 'static/custom.css'
+    'static/custom.css'
 ]
 # The folder ``images`` should be copied into the folder ``static`` when
 # generating the output.

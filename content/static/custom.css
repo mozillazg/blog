@@ -1,34 +1,21 @@
-/* #content li, */
-article {
-    font-family: 文泉驿微米黑,文泉驿正黑,微软雅黑,宋体,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 150%;
-    line-height: 1.7;
+body {
+    background-color: #eee;
 }
-
-article p,
-article li {
-    margin: 15px auto;
+body > div.container {
+    background-color: #fff;
 }
-
-article h1,
-article h2,
-article h3,
-article h4,
-article h5,
-article h6 {
-    border-bottom: 1px dashed #999;
-    margin-top: 20px;
-    margin-bottom: 30px;
+.entry-content h2 {
+    color: #fff;
+    background-color: #337ab7;
+    padding: 0.8em 0 0.8em 0.8em;
 }
-
-.codehilite,
-code,
-tt,
-kbd,
-pre,
-samp {
-    font-family: Consolas,"Courier New",Courier,FreeMono,monospace,文泉驿微米黑,文泉驿正黑,微软雅黑,宋体,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 100%;
-    /* line-height: 100%; */
-    background-color: #fdf6e3;
+.entry-content h3 {
+    background-color: #dff0d8;
+    padding: 0.6em 0 0.6em 0.6em;
+    margin-left: 0.6em
+}
+.entry-content h4 {
+    background-color: #d9edf7;
+    padding: 0.5em 0 0.5em 0.5em;
+    margin-left: 0.8em;
 }
