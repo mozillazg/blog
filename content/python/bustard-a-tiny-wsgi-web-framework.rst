@@ -7,7 +7,9 @@
 最近一直在填一个玩具式（仅供学习交流，不可用于生产环境）的 WEB 框架的坑，现在大部分功能都已经完成的差不多了， 所以写篇博文介绍一下这个框架。
 
 | 项目地址： https://github.com/mozillazg/bustard
-| 安装： ::
+| 安装：
+
+::
 
     pip install bustard
     pip install psycopg2  # 如果需要 orm 功能
