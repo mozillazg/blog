@@ -183,7 +183,7 @@ ORM
     {% endfor %}
 
 
-更多使用示例详见 `examples`_
+更多使用示例详见 `examples`_ 和 `tests`_
 
 
 .. _WSGI: https://www.python.org/dev/peps/pep-3333/
@@ -194,3 +194,4 @@ ORM
 .. _Jinja2: http://jinja.pocoo.org
 .. _bustard: https://github.com/mozillazg/bustard
 .. _examples: https://github.com/mozillazg/bustard/tree/master/examples
+.. _tests: https://github.com/mozillazg/bustard/tree/master/tests
