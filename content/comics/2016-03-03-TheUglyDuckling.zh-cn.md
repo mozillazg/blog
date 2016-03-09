@@ -6,7 +6,7 @@ Slug: 2016-03-03-TheUglyDuckling.zh-cn.zh-cn
 译自：[http://buttersafe.com/2012/11/15/thanks-grandma/](http://buttersafe.com/2012/11/15/thanks-grandma/)
 
 
-![2016-03-03-TheUglyDuckling.zh-cn.zh-cn.png](/static/images/comics/2016-03-03-TheUglyDuckling.zh-cn.zh-cn.png)
+![2016-03-03-TheUglyDuckling.zh-cn.png](/static/images/comics/2016-03-03-TheUglyDuckling.zh-cn.png)
 
 
 
