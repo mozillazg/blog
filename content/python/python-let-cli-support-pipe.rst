@@ -3,7 +3,8 @@
 :slug: python-let-cli-support-pipe-read-data-from-stdin
 :date: 2016-03-10
 
-``sys.stdin`` 即为标准输入，可以通过 ``sys.stdin.isatty()``
+管道和重定向输入的数据都是通过标准输入传入程序的， ``sys.stdin`` 这个 file-like 对象即为标准输入。
+同时也可以通过 ``sys.stdin.isatty()``
 判断是否是管道和重定向输入（为 ``True`` 时表示是交互式环境，
 为 ``False`` 时是我们要的场景）。
 
