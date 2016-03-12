@@ -123,7 +123,7 @@ python 3.x:
 
 
 参考资料
----------
+++++++++++++
 
 * `《Python 学习手册第4版》第 695 ~ 697 页 <http://book.douban.com/subject/6049132/>`__
 * `abc – Abstract Base Classes - Python Module of the Week <http://pymotw.com/2/abc/>`__
