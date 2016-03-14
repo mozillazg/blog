@@ -3,7 +3,7 @@ Date: 2016-03-07
 Tags: buttersafe
 Slug: 2016-03-03-TheUglyDuckling.zh-cn.zh-cn
 
-译自：[http://buttersafe.com/2012/11/15/thanks-grandma/](http://buttersafe.com/2012/11/15/thanks-grandma/)
+译自：[http://buttersafe.com/2016/03/03/the-ugly-duckling/](http://buttersafe.com/2016/03/03/the-ugly-duckling/)
 
 
 ![2016-03-03-TheUglyDuckling.zh-cn.png](/static/images/comics/2016-03-03-TheUglyDuckling.zh-cn.png)
