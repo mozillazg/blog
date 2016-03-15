@@ -4,7 +4,7 @@
 :slug: let-us-build-a-web-server-part-2-zh-cn
 :date: 2015-06-06
 :modified: 2015-06-10
-:tags: server, http, wsgi, lsbaws
+:tags: server, http, wsgi, lsbaws, 让我们一起来构建一个 Web 服务器
 
 本文译自：http://ruslanspivak.com/lsbaws-part2/
 

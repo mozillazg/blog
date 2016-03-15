@@ -6,13 +6,17 @@
 :modified: 2016-03-10
 :tags: exec, sanbox
 
-我们都知道 ``exec`` 函数可以用来动态执行 python 代码::
+我们都知道 ``exec`` 函数可以用来动态执行 python 代码:
+
+.. code-block:: python
 
     >> exec('foobar = 123')
     >>> foobar
     123
 
-那么大家是否知道 ``exec`` 函数还支持两个可选参数呢(不支持通过关键字去指定参数)？ ::
+那么大家是否知道 ``exec`` 函数还支持两个可选参数呢(不支持通过关键字去指定参数)？ :
+
+.. code-block:: python
 
     exec(object[, globals[, locals]])
 
@@ -28,7 +32,9 @@
 globals
 ---------
 
-``globals`` 是个 ``dict`` 对象，用来指定代码执行时可以使用的全局变量以及收集代码执行后的全局变量::
+``globals`` 是个 ``dict`` 对象，用来指定代码执行时可以使用的全局变量以及收集代码执行后的全局变量:
+
+.. code-block:: python
 
     >>> age = 10
     >>> exec('abc = age + 1')
@@ -48,7 +54,9 @@ globals
 
 **有一点需要注意的是**: 当 ``globals`` 字典不包含 ``__builtins__`` 这个 key 时，
 python 会自动加一个指向 `builtins <https://docs.python.org/3/library/builtins.html#module-builtins>`__ 的引用。所以如果要禁止/限制代码使用内置函数的话，
-需要同时指定 ``__builtins__`` 这个 key::
+需要同时指定 ``__builtins__`` 这个 key:
+
+.. code-block:: python
 
     >>> exec('int(1)', {})
 
@@ -62,7 +70,9 @@ python 会自动加一个指向 `builtins <https://docs.python.org/3/library/bui
 locals
 -------
 
-``locals`` 可以是任何 mapping 对象，用来指定代码执行时的局部变量以及收集代码执行后的局部变量::
+``locals`` 可以是任何 mapping 对象，用来指定代码执行时的局部变量以及收集代码执行后的局部变量:
+
+.. code-block:: python
 
     >>> exec('abc = age + 1', {}, {'age': 2})
     >>>

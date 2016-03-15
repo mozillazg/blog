@@ -9,6 +9,5 @@ six
 MarkupSafe
 markdown
 typogrify
-BeautifulSoup
 BeautifulSoup4
 lxml

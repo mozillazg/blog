@@ -3,7 +3,7 @@
 
 :slug: let-us-build-a-web-server-part-1-zh-cn
 :date: 2015-06-03
-:tags: server, http, lsbaws
+:tags: server, http, lsbaws, 让我们一起来构建一个 Web 服务器
 
 本文译自：http://ruslanspivak.com/lsbaws-part1/
 

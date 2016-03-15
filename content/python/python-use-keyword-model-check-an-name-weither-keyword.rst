@@ -4,7 +4,9 @@
 :slug: python-use-keyword-model-check-an-name-weither-keyword
 
 无意中发现 python 标准库中包含呢一个 ``keyword`` 模块
-可以用来检查一个变量名是否是 python 关键字::
+可以用来检查一个变量名是否是 python 关键字:
+
+.. code-block:: python
 
     >>> import keyword
     >>> keyword.iskeyword('is')

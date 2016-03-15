@@ -8,7 +8,9 @@
 判断是否是管道和重定向输入（为 ``True`` 时表示是交互式环境，
 为 ``False`` 时是我们要的场景）。
 
-假设有个 ``hello.py``::
+假设有个 ``hello.py``:
+
+.. code-block:: python
 
     import sys
 
@@ -25,8 +27,9 @@
         print(' '.join(data))
 
 
-测试效果::
+测试效果:
 
+.. code-block:: shell
 
     $ echo "hello" > hello.txt
     $ python hello.py hello world       # 参数输入

@@ -34,7 +34,9 @@ Hello World
 
 `bustard`_ 参考了 `Flask`_ 和 `Django`_ 的设计，路由风格跟 `Flask`_
 类似采用装饰器风格，view 风格跟 `Django`_ 类似采用显示传入 ``request``
-的方式。 ::
+的方式。 :
+
+.. code-block:: python
 
     from bustard.app import Bustard
     
@@ -54,25 +56,33 @@ Hello World
 
 支持以下三种方式的路由:
 
-* 静态路由 ::
+* 静态路由 :
+
+  .. code-block:: python
 
         @app.route('/hello')
         def hello(request):
             return 'hello'
 
-* 类似 `Flask`_ 的动态路由(``<name>``) ::
+* 类似 `Flask`_ 的动态路由(``<name>``) :
+
+  .. code-block:: python
 
         @app.route('/hello/<name>')
         def hello(request, name):
             return 'hello {}'.format(name)
 
-* 类似 `Django`_ 的动态路由(正则表达式) ::
+* 类似 `Django`_ 的动态路由(正则表达式) :
+
+  .. code-block:: python
 
     @app.route('/hello/(?P<name>\w+)')
     def hello(request, name):
         return 'hello {}'.format(name)
 
-``app.route`` 支持一个可选参数 ``methods`` 用于指定支持的 http method: ::
+``app.route`` 支持一个可选参数 ``methods`` 用于指定支持的 http method:
+
+.. code-block:: python
 
     @app.route('/', methods=['GET',' POST'])
     def hello(request):
@@ -95,7 +105,7 @@ Request
 Response
 ------------
 
-::
+.. code-block:: python
 
     response = Response(b'data', status_code=200, content_type='text/html',
                         headers={'X-Total': 23})
@@ -113,7 +123,9 @@ Response
 Session
 -------------
 
-访问 ``request.session`` 来获取 ``session`` 数据，它是一个类 ``dict`` 对象`:  ::
+访问 ``request.session`` 来获取 ``session`` 数据，它是一个类 ``dict`` 对象`:
+
+.. code-block:: python
 
     user_id = request.session['user_id']
     request.session['name'] = 'Tom'
@@ -122,7 +134,9 @@ Session
 ORM
 ------
 
-``ORM`` 只支持 `postgresql`_ 数据库，用法类似 `Django`_ ORM 和 `SQLAlchemy`_ 的结合体: ::
+``ORM`` 只支持 `postgresql`_ 数据库，用法类似 `Django`_ ORM 和 `SQLAlchemy`_ 的结合体:
+
+.. code-block:: python
 
     from bustard.orm import (
         Model, Engine, Session, AutoField, CharField, BooleanField
@@ -139,20 +153,26 @@ ORM
     engine = Engine('postgresql://dbuser:password@localhost/exampledb')
     session = Session(engine)
 
-新增: ::
+新增:
+
+.. code-block:: python
 
     user = User(username='tom', is_actived=False)
     session.insert(user)
     session.commit()
 
-查询: ::
+查询:
+
+.. code-block:: python
 
     session.query(User).filter(User.id > 10)
     session.query(User).filter(id=10)
     session.query(User).filter(User.id > 10).order_by(User.is_actived)
     session.query(User).filter(User.id > 10).limit(3).offset(1)
 
-更新: ::
+更新:
+
+.. code-block:: python
 
     session.query(User).filter(User.id > 10).update(is_actived=True)
     session.commit()
@@ -161,7 +181,9 @@ ORM
     session.update(user)
     session.commit()
 
-删除: ::
+删除:
+
+.. code-block:: python
 
     session.query(User).filter(User.id > 10).delete()
     session.commit()
@@ -173,7 +195,9 @@ ORM
 模版
 -------
 
-模版语法类似 `Jinja2`_ : ::
+模版语法类似 `Jinja2`_ :
+
+.. code-block:: htmldjango
 
     {% for user in users %}
         {{ user.name }}

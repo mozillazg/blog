@@ -17,7 +17,7 @@
 
 下面是示例代码:
 
-.. code:: go
+.. code-block:: go
 
     package main
     
@@ -44,8 +44,9 @@
     }
 
 
-测试效果::
+测试效果:
 
+.. code-block:: shell
 
     $ echo "hello" > hello.txt
     $ go run main.go hello world       # 参数输入
