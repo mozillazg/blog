@@ -1,6 +1,6 @@
 让我们一起来构建一个模版引擎（一）
 ====================================
-:date: 2016-03-10
+:date: 2016-03-15
 :slug: let-us-build-a-template-engine-part1
 :tags: lsbate, 让我们一起来构建一个模版引擎
 
