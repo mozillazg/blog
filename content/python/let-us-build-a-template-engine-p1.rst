@@ -114,7 +114,7 @@
 
     namespace = {'person': person}
     exec(code, namespace)
-    render_functio = namespace['render_function']
+    render_function = namespace['render_function']
     html = render_function()
 
 模版引擎的核心技术就是这些了，下面让我们一步一步的实现它吧。

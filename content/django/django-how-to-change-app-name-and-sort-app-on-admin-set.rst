@@ -10,9 +10,9 @@
 
 |image|
 
-下面详细讲一下配置方法。
+下面详细讲一下配置方法(假设这个应用叫 foo)。
 
-1. 定义一个继承 AppConfig 的子类::
+1. 在应用目录下建一个 apps.py 文件，在其中定义一个继承自 AppConfig 的子类::
 
         # foo/apps.py
         from django.apps import AppConfig
@@ -21,9 +21,9 @@
             name = 'foo'  # app 名称，可以 import 的路径, 比如 foo.bar.foobar
             verbose_name = '1名称1'   # 后台显示的名称
 
-2. 然后应用配置，有两种方式:
+2. 然后应用配置，有两种方式（二选一，使用其中一种方法即可）:
 
-   1. 在 ``__init__.py`` 中指定 ``default_app_config`` ::
+   1. 在应用目录下的 ``__init__.py`` 中指定 ``default_app_config`` ::
 
             # foo/__init__.py
             default_app_config = 'foo.apps.FooConfig'
