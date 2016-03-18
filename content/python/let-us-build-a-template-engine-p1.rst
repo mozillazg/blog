@@ -70,7 +70,7 @@
 
 
     def gen_html(person):
-        return Template(HTML).render(person=person)
+        return Template(HTML).render({'person': person})
 
 本系列文章要讲的就是如何从零开始实现一个这样的模版引擎( ``Template`` )。
 
@@ -98,7 +98,7 @@
                 '<li>',
                 str(item),
                 ': ',
-                value,
+                str(value),
                 '</li>\n'
             ])
         result.extend([
