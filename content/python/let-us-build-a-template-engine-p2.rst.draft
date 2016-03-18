@@ -248,7 +248,6 @@ for ... endfor
     ...    no break
     ... {% endfor %}
     ... ''')
-
     >>> t.code_builder
     def __func_name():
         __result = []
@@ -266,11 +265,9 @@ for ... endfor
             __result.extend(['\n   no break\n'])
         __result.extend(['\n'])
         return "".join(__result)
-
-
+    
     >>> t.render({'numbers': range(3)}).replace('\n', '')
     '         0            1            2      no break'
-
     >>> t.render({'numbers': range(4)}).replace('\n', '')
     '         0            1            2            '
 
