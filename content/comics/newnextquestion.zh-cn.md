@@ -3,7 +3,7 @@ Date: 2016-03-16
 Tags: Victims of Circumsolar
 Slug: newnextquestion.zh-cn
 
-译自：[http://www.victimsofcircumsolar.com/comic/whoops-a-daisy/](http://www.victimsofcircumsolar.com/comic/whoops-a-daisy/)
+译自：[http://www.victimsofcircumsolar.com/comic/next-question/](http://www.victimsofcircumsolar.com/comic/next-question/)
 
 
 ![newnextquestion.zh-cn.png](/static/images/comics/newnextquestion.zh-cn.png)
