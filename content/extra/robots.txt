@@ -2,11 +2,10 @@ User-agent: *
 Disallow: /index.html
 Disallow: /index*.html
 Disallow: /index
-Disallow: /archives.html
 Disallow: /tags.html
 Disallow: /categories.html
 Disallow: /tag/
 Disallow: /category/
 Disallow: /author/
 Disallow: /drafts/
-Sitemap: http://mozillazg.com/sitemap.xml
+Sitemap: https://mozillazg.com/sitemap.xml

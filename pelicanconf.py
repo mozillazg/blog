@@ -13,6 +13,7 @@ SITEDESCRIPTION = u'Just another Pelican blog'
 # This can also be the absolute path to a theme that you downloaded
 # i.e. './themes/anothertheme/'
 THEME = './pelican-bootstrap3/'
+# THEME = './pelican-octopress-theme/'
 
 SHOW_ARTICLE_CATEGORY = True
 DISPLAY_CATEGORIES_ON_SIDEBAR = True
@@ -77,7 +78,7 @@ DEFAULT_CATEGORY = 'Uncategorized'
 # I like to have ``Archives`` in the main menu.
 MENUITEMS = (
     ('Home', '/index.html'),
-    ('Archives', '/archives.html'),
+    # ('Archives', '/archives.html'),
 )
 
 DISPLAY_PAGES_ON_MENU = True
@@ -91,6 +92,9 @@ REVERSE_ARCHIVE_ORDER = True
 DISQUS_SITENAME = 'my-github-blog'
 TWITTER_USER = 'mozillazg'
 # GITHUB_POSITION = True
+TWITTER_CARDS = True
+USE_OPEN_GRAPH = True
+TWITTER_USERNAME = 'mozillazg'
 
 DEFAULT_LANG = u'zh-Hans'
 
@@ -104,10 +108,10 @@ FEED_ALL_ATOM = 'feeds/all.atom.xml'
 FEED_ALL_RSS = 'feeds/all.rss.xml'
 FEED_ATOM = None
 SOCIAL = (
-    (u'豆瓣', 'http://www.douban.com/people/mozillazg/'),
+    # (u'豆瓣', 'http://www.douban.com/people/mozillazg/'),
     ('Fork me on GitHub', 'https://github.com/mozillazg'),
-    ('About Me', 'http://about.me/mozillazg'),
-    (u'翻译的漫画', 'http://comic.mozillazg.com'),
+    # ('About Me', 'http://about.me/mozillazg'),
+    (u'Comics', 'https://comic.mozillazg.com'),
     ('Atom Feed', '{0}/feeds/all.atom.xml'.format(SITEURL)),
     ('RSS Feed', '{0}/feeds/all.rss.xml'.format(SITEURL)),
 )
