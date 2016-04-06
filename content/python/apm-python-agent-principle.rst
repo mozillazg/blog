@@ -2,7 +2,7 @@ Python 探针实现原理
 =======================
 
 :slug: apm-python-agent-principle
-:date: 2016-04-06
+:date: 2016-04-04
 :tags: import, sys.meta_path, sitecustomize, usercustomize, 探针, APM
 
 本文将简单讲述一下 Python 探针的实现原理。
@@ -370,12 +370,12 @@ agent.py 的内容如下:
 .. _PEP 0302: https://www.python.org/dev/peps/pep-0302/
 .. _关于描述符的介绍: https://docs.python.org/3/howto/descriptor.html
 .. _sitecustomize.py: 
-.. _part1: 
-.. _part2: 
-.. _part3: 
-.. _part4: 
-.. _part5: 
-.. _part6: 
+.. _part1: https://github.com/mozillazg/apm-python-agent-principle/tree/master/part1
+.. _part2: https://github.com/mozillazg/apm-python-agent-principle/tree/master/part2
+.. _part3: https://github.com/mozillazg/apm-python-agent-principle/tree/master/part3
+.. _part4: https://github.com/mozillazg/apm-python-agent-principle/tree/master/part4
+.. _part5: https://github.com/mozillazg/apm-python-agent-principle/tree/master/part5
+.. _part6: https://github.com/mozillazg/apm-python-agent-principle/tree/master/part6
 .. _New Relic: https://pypi.python.org/pypi/newrelic
 .. _OneAPM: http://pypi.oneapm.com/simple/blueware/
 .. _TingYun: http://doc.tingyun.com/help/html/doc/sdkServerDownload.html?tabType=python
