@@ -105,6 +105,7 @@ include
             name_suffix = str(hash(template_path)).replace('-', '_')
             func_name = '{}_{}'.format(self.func_name, name_suffix)
             result_var = '{}_{}'.format(self.result_var, name_suffix)
+            
             with open(template_path, encoding=self.encoding) as fp:
                 template = self.__class__(
                     fp.read(), indent=self.code_builder.indent,
@@ -392,7 +393,7 @@ child2.html:
     '<div id="header"> child_header  parent_header  </div>\n'
 
 
-到目前为主我们已经实现了现代 python 模板引擎应有到大部分功能了， 之后就是完善了。
+到目前为主我们已经实现了现代 python 模板引擎应有的大部分功能了， 之后就是完善了。
 
 不知道大家有没有注意到，我之前都是用生成 html 来试验模板引擎的功能的，
 这是因为模板引擎确实是在 web 开发中用的比较多，既然是生成 html 源码那就需要考虑
