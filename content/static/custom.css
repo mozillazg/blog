@@ -1,9 +1,34 @@
 body {
     background-color: #eee;
+    font-size: 18px;
+}
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Helvetica,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",Arial,sans-serif;
+}
+p {
+  padding: 0.5em 0;
+}
+.container {
+    max-width: 970px;
+}
+.container > .row {
+  padding-top: 1em;
 }
 body > div.container {
     background-color: #fff;
+    padding: auto 3em;
 }
+/*
 .entry-content h2 {
     color: #fff;
     background-color: #337ab7;
@@ -21,6 +46,56 @@ body > div.container {
     margin-left: 7px;
     margin-right: 7px;
 }
+*/
 .yue pre {
     color: #4c4c4c;
+}
+
+code,
+kbd,
+pre,
+samp,
+tt,
+pre {
+  font-size: 90%;
+}
+tt {
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  color: #c7254e;
+  padding: 2px 4px;
+}
+article .page-header {
+    border-bottom: none;
+    margin-bottom: 55px;
+}
+/*
+article .page-header h1 {
+    font-size: 3em;
+    font-weight: 500;
+}
+*/
+article .published {
+    font-size: 1.8rem;
+    /*font-weight: 400;*/
+    color: #9EABB3;
+    margin-top: 1.1rem;
+}
+article .entry-content {
+    color: #2F2F2F;
+}
+article .entry-content .article-info {
+    border-bottom: 1px solid #dededc;
+    margin-bottom: 2em;
+}
+
+#sidebar {
+  font-size: 0.8em;
+}
+.post-list li {
+  padding: 0.5em 0;
+}
+#archives a,
+.post-list a {
+  color: #337ab7;
 }

@@ -210,7 +210,7 @@ sitecustomize.py
     $ tree
     .
     ├── sitecustomize.py
-    └── usercustomize.p
+    └── usercustomize.py
 
 ``sitecustomize.py``::
 
