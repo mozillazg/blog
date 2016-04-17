@@ -6,9 +6,8 @@ Slug: about-me
 
 ## 简介
 
-常用网名： **mozillazg** 。
+90后（？），宅，自行车，目前在北京。
 
-博客： [http://mozillazg.com](http://mozillazg.com/)
 
 ## 联系方式
 
