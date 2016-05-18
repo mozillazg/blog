@@ -15,6 +15,11 @@
 
     go get golang.org/x/crypto/ssh/terminal
 
+也可以使用 ``github.com/mattn/go-isatty`` 这个包::
+
+    !isatty.IsTerminal(os.Stdin.Fd())
+
+
 下面是示例代码:
 
 .. code-block:: go

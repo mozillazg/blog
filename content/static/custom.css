@@ -64,6 +64,7 @@ tt {
   border-radius: 4px;
   color: #c7254e;
   padding: 2px 4px;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
 article .page-header {
     border-bottom: none;
