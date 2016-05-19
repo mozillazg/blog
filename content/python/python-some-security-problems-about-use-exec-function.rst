@@ -176,7 +176,7 @@
                  51 CALL_FUNCTION            1 (1 positional, 0 keyword pair)
                  54 RETURN_VALUE
 
-    >>> re.search('\d+\s+LOAD_ATTR\s+\d+\s+\(_[^\)]+\)', w.text)
+    >>> re.search(r'\d+\s+LOAD_ATTR\s+\d+\s+\(_[^\)]+\)', w.text)
     <_sre.SRE_Match object; span=(264, 305), match='12 LOAD_ATTR                0 (__class__)'>
 
 
