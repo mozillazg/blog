@@ -7,8 +7,8 @@ import os
 
 AUTHOR = 'mozillazg'
 SITENAME = u"Mozillazg's Blog"
-# SITEURL = 'https://mozillazg.com'
-SITEURL = 'http://127.0.0.1:8000'
+SITEURL = 'https://mozillazg.com'
+# SITEURL = 'http://127.0.0.1:8000'
 SITEDESCRIPTION = u'Just another Pelican blog'
 
 # This can also be the absolute path to a theme that you downloaded
