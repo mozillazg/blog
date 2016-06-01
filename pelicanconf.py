@@ -7,7 +7,8 @@ import os
 
 AUTHOR = 'mozillazg'
 SITENAME = u"Mozillazg's Blog"
-SITEURL = 'https://mozillazg.com'
+# SITEURL = 'https://mozillazg.com'
+SITEURL = 'http://127.0.0.1:8000'
 SITEDESCRIPTION = u'Just another Pelican blog'
 
 # This can also be the absolute path to a theme that you downloaded
@@ -42,7 +43,7 @@ ABOUT = u'宅（伪）&& Geek（伪）'
 SITE_DESCRIPTION = u'Just another Pelican blog'
 SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
 
-PYGMENTS_STYLE = 'solarizedlight'
+PYGMENTS_STYLE = 'github'
 # CUSTOM_CSS = 'static/custom.css'
 CUSTOM_CSSES = [
     # 'static/han.min.css',
@@ -72,12 +73,13 @@ PAGE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/pages/{slug}-{lang}.html'
 
 # I like to put everything into the category ``Blog``, which also appears on
 # the main menu. Tags will not appear on the menu.
-#DEFAULT_CATEGORY = 'Blog'
+# DEFAULT_CATEGORY = 'Blog'
 DEFAULT_CATEGORY = 'Uncategorized'
 
 # I like to have ``Archives`` in the main menu.
 MENUITEMS = (
     ('Home', '/index.html'),
+    ('About', '/2014/10/pages/about-me.html'),
     # ('Archives', '/archives.html'),
 )
 
@@ -129,7 +131,9 @@ EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
     'extra/robots.txt': {'path': 'robots.txt'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
-    'extra/google37c30fbcbbc5f169.html': {'path': 'google37c30fbcbbc5f169.html'},
+    'extra/google37c30fbcbbc5f169.html': {
+        'path': 'google37c30fbcbbc5f169.html'
+    },
 }
 FAVICON = 'favicon.ico'
 USE_FOLDER_AS_CATEGORY = True
@@ -146,3 +150,4 @@ NOT_ON_HOME_CATEGORIES = [
     "comics",
 ]
 SHOW_DATE_MODIFIED = True
+HIDE_SIDEBAR = True

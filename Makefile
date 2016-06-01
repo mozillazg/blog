@@ -52,7 +52,7 @@ serve:
 	cd $(OUTPUTDIR) && python -m SimpleHTTPServer
 
 devserver:
-	$(BASEDIR)/develop_server.sh restart
+	bash $(BASEDIR)/develop_server.sh restart
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)

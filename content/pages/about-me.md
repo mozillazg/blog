@@ -6,7 +6,7 @@ Slug: about-me
 
 ## 简介
 
-90后（？），宅，自行车，目前在北京。
+小学生一枚 ;)
 
 
 ## 联系方式
@@ -29,8 +29,8 @@ Slug: about-me
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 var disqus_shortname = 'my-github-blog'; // required: replace example with your forum shortname
 
-var disqus_identifier = 'install-postgresql-9.5-on-centos-7';
-var disqus_url = 'https://mozillazg.com/2016/01/install-postgresql-9.5-on-centos-7.html';
+var disqus_identifier = 'about-me';
+var disqus_url = 'https://mozillazg.com/2014/10/pages/about-me.html';
 
 var disqus_config = function () {
 this.language = "zh-hans";

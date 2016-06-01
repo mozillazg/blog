@@ -1,6 +1,7 @@
 body {
-    background-color: #eee;
+    /* background-color: #eee; */
     font-size: 18px;
+    padding-top: 0px;
 }
 body,
 button,
@@ -57,7 +58,7 @@ pre,
 samp,
 tt,
 pre {
-  font-size: 90%;
+  /* font-size: 90%; */
 }
 tt {
   background-color: #f9f2f4;
@@ -65,6 +66,7 @@ tt {
   color: #c7254e;
   padding: 2px 4px;
   font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-size: 13px;
 }
 article .page-header {
     border-bottom: none;
