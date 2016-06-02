@@ -79,7 +79,7 @@ DEFAULT_CATEGORY = 'Uncategorized'
 # I like to have ``Archives`` in the main menu.
 MENUITEMS = (
     ('Home', '/index.html'),
-    ('About', '/2014/10/pages/about-me.html'),
+    # ('About', '/2014/10/pages/about-me.html'),
     # ('Archives', '/archives.html'),
 )
 
