@@ -262,6 +262,10 @@ P.S. 整个系列的所有文章地址：
 
 P.S. 文章中涉及的代码已经放到 GitHub 上了: `<https://github.com/mozillazg/lsbate>`__
 
+2016.06.18 更新：
+
+* 使用 `dis` 没法分析嵌套函数的代码，所以 ``check_unsafe_attributes`` 部分还需要再完善，
+  详见 `使用 exec 函数时需要注意的一些安全问题`_ 下面的评论。
 
 
 .. _template3c.py: https://github.com/mozillazg/lsbate/raw/master/part3/template3c.py

@@ -179,9 +179,13 @@
     >>> re.search(r'\d+\s+LOAD_ATTR\s+\d+\s+\(_[^\)]+\)', w.text)
     <_sre.SRE_Match object; span=(264, 305), match='12 LOAD_ATTR                0 (__class__)'>
 
-
 我所知道的使用 ``exec`` 函数时需要注意的安全问题就是这些了。
 如果你还知道其他需要注意的安全问题的话，欢迎留言告知。
+
+
+2016.06.18 更新：
+
+* 使用 ``dis`` 没法分析类似嵌套函数的代码，所以 ``dis`` 的办法并不怎么好使，详见下方的评论。
 
 
 .. _之前: https://mozillazg.com/2016/03/python-exec-function-globals-and-locals-arguments.html
