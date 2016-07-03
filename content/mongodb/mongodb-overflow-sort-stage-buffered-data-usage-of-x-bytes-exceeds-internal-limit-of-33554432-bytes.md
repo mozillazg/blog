@@ -18,8 +18,8 @@ Slug: mongodb-overflow-sort-stage-buffered-data-usage-of-x-bytes-exceeds-interna
 
 如果要修改这个限制的话，可以通过如下的 mongo 命令进行修改，比如修改为 50 M(52428800 bytes):
 
-> use admin
-> db.adminCommand({setParameter: 1, internalQueryExecMaxBlockingSortBytes: 52428800})
+    > use admin
+    > db.adminCommand({setParameter: 1, internalQueryExecMaxBlockingSortBytes: 52428800})
 
 
 ## 参考资料
