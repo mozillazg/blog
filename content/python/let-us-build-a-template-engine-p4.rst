@@ -190,15 +190,15 @@ exec 的安全问题
     '0'
 
 一种解决办法就是不允许在模板中访问以下划线 `_` 开头的属性。
-为什么要包括单下划线呢，因为约定单下划线开头的属性是约定的私有属性，
+为什么要包括单下划线呢，因为按照约定单下划线开头的属性是私有属性，
 不应该在外部访问这些属性。
 
-这里我们使用 ``dis`` 模块来帮助我们解析生成的代码，然后再找出其中的特殊属性。
+这里我们使用 ``tokenize`` 模块来帮助我们解析生成的代码，然后再找出其中的特殊属性。
 
 .. code-block:: python
 
-    import dis
     import io
+    import tokenize
 
 
     class Template:
@@ -208,24 +208,23 @@ exec 的安全问题
 
         def render(self, ...):
             ...
-            func = namespace[self.func_name]
+            code = str(self.code_builder)
             if self.safe_attribute:
-                check_unsafe_attributes(func)
-            result = func()
+                check_unsafe_attributes(code)
+            exec(code, namespace)
+            func = namespace[self.func_name]
 
-
-    def check_unsafe_attributes(code):
-        writer = io.StringIO()
-        dis.dis(code, file=writer)
-        output = writer.getvalue()
-
-        match = re.search(r'\d+\s+LOAD_ATTR\s+\d+\s+\((?P<attr>_[^\)]+)\)',
-                          output)
-        if match is not None:
-            attr = match.group('attr')
-            msg = "access to attribute '{0}' is unsafe.".format(attr)
-            raise AttributeError(msg)
-
+    def check_unsafe_attributes(s):
+        g = tokenize.tokenize(io.BytesIO(s.encode('utf-8')).readline)
+        pre_op = ''
+        for toktype, tokval, _, _, _ in g:
+            if toktype == tokenize.NAME and pre_op == '.' and \
+                    tokval.startswith('_'):
+                attr = tokval
+                msg = "access to attribute '{0}' is unsafe.".format(attr)
+                raise AttributeError(msg)
+            elif toktype == tokenize.OP:
+                pre_op = tokval
 
 效果:
 
@@ -264,8 +263,12 @@ P.S. 文章中涉及的代码已经放到 GitHub 上了: `<https://github.com/mo
 
 2016.06.18 更新：
 
-* 使用 `dis` 没法分析嵌套函数的代码，所以 ``check_unsafe_attributes`` 部分还需要再完善，
+* 使用 ``dis`` 没法分析嵌套函数的代码，所以 ``check_unsafe_attributes`` 部分还需要再完善，
   详见 `使用 exec 函数时需要注意的一些安全问题`_ 下面的评论。
+
+2016.07.10 更新:
+
+* 已经改为使用 ``tokenize`` 分析生成的代码（可以分析嵌套函数）。
 
 
 .. _template3c.py: https://github.com/mozillazg/lsbate/raw/master/part3/template3c.py

@@ -178,7 +178,63 @@
 
     >>> re.search(r'\d+\s+LOAD_ATTR\s+\d+\s+\(_[^\)]+\)', w.text)
     <_sre.SRE_Match object; span=(264, 305), match='12 LOAD_ATTR                0 (__class__)'>
+* 使用 ``tokenize`` 模块:
 
+    In [68]: from io import BytesIO
+    In [69]: code = '''
+       ....: a = 'b'
+       ....: a.__str__
+       ....: def b():
+       ....:     b.__get__
+       ....: '''
+    In [70]: t = tokenize(BytesIO(code.encode()).readline)
+    In [71]: for x in t:
+       ....:     print(x)
+       ....:
+    TokenInfo(type=59 (ENCODING), string='utf-8', start=(0, 0), end=(0, 0), line='')
+    TokenInfo(type=58 (NL), string='\n', start=(1, 0), end=(1, 1), line='\n')
+    TokenInfo(type=1 (NAME), string='a', start=(2, 0), end=(2, 1), line="a = 'b'\n")
+    TokenInfo(type=53 (OP), string='=', start=(2, 2), end=(2, 3), line="a = 'b'\n")
+    TokenInfo(type=3 (STRING), string="'b'", start=(2, 4), end=(2, 7), line="a = 'b'\n")
+    TokenInfo(type=4 (NEWLINE), string='\n', start=(2, 7), end=(2, 8), line="a = 'b'\n")
+    TokenInfo(type=1 (NAME), string='a', start=(3, 0), end=(3, 1), line='a.__str__\n')
+    TokenInfo(type=53 (OP), string='.', start=(3, 1), end=(3, 2), line='a.__str__\n')
+    TokenInfo(type=1 (NAME), string='__str__', start=(3, 2), end=(3, 9), line='a.__str__\n')
+    TokenInfo(type=4 (NEWLINE), string='\n', start=(3, 9), end=(3, 10), line='a.__str__\n')
+    TokenInfo(type=1 (NAME), string='def', start=(4, 0), end=(4, 3), line='def b():\n')
+    TokenInfo(type=1 (NAME), string='b', start=(4, 4), end=(4, 5), line='def b():\n')
+    TokenInfo(type=53 (OP), string='(', start=(4, 5), end=(4, 6), line='def b():\n')
+    TokenInfo(type=53 (OP), string=')', start=(4, 6), end=(4, 7), line='def b():\n')
+    TokenInfo(type=53 (OP), string=':', start=(4, 7), end=(4, 8), line='def b():\n')
+    TokenInfo(type=4 (NEWLINE), string='\n', start=(4, 8), end=(4, 9), line='def b():\n')
+    TokenInfo(type=5 (INDENT), string='    ', start=(5, 0), end=(5, 4), line='    b.__get__\n')
+    TokenInfo(type=1 (NAME), string='b', start=(5, 4), end=(5, 5), line='    b.__get__\n')
+    TokenInfo(type=53 (OP), string='.', start=(5, 5), end=(5, 6), line='    b.__get__\n')
+    TokenInfo(type=1 (NAME), string='__get__', start=(5, 6), end=(5, 13), line='    b.__get__\n')
+    TokenInfo(type=4 (NEWLINE), string='\n', start=(5, 13), end=(5, 14), line='    b.__get__\n')
+    TokenInfo(type=6 (DEDENT), string='', start=(6, 0), end=(6, 0), line='')
+    TokenInfo(type=0 (ENDMARKER), string='', start=(6, 0), end=(6, 0), line='')
+
+从上面的输出我们可以知道当 type 是 OP 并且 string 等于 '.' 时，下一条记录就是
+点之后的属性名称。所以我们的检查代码可以这样写:
+
+.. code-block:: python
+
+    import io
+    import tokenize
+
+
+    def check_unsafe_attributes(string):
+        g = tokenize.tokenize(io.BytesIO(string.encode('utf-8')).readline)
+        pre_op = ''
+        for toktype, tokval, _, _, _ in g:
+            if toktype == tokenize.NAME and pre_op == '.' and tokval.startswith('_'):
+                attr = tokval
+                msg = "access to attribute '{0}' is unsafe.".format(attr)
+                raise AttributeError(msg)
+            elif toktype == tokenize.OP:
+                pre_op = tokval
+                
 我所知道的使用 ``exec`` 函数时需要注意的安全问题就是这些了。
 如果你还知道其他需要注意的安全问题的话，欢迎留言告知。
 
@@ -186,6 +242,10 @@
 2016.06.18 更新：
 
 * 使用 ``dis`` 没法分析类似嵌套函数的代码，所以 ``dis`` 的办法并不怎么好使，详见下方的评论。
+
+2016.07.10 更新：
+
+* 增加使用 ``tokenize`` 模块的方法，可以分析嵌套函数。
 
 
 .. _之前: https://mozillazg.com/2016/03/python-exec-function-globals-and-locals-arguments.html
