@@ -107,7 +107,7 @@
 对于这两种办法又如何应对呢？ 一种办法就是禁止访问以 ``_`` 开头的属性：
 
 * 如果可以控制 code 的生成，那么就在生成 code 的时候判断
-* 如果不能的话，可以通过 ``dis`` 模块分析生成的 code:
+* 如果不能的话，可以通过 ``dis`` 模块分析生成的 code (无法分析嵌套函数）:
 
 .. code-block:: python
 
@@ -178,7 +178,10 @@
 
     >>> re.search(r'\d+\s+LOAD_ATTR\s+\d+\s+\(_[^\)]+\)', w.text)
     <_sre.SRE_Match object; span=(264, 305), match='12 LOAD_ATTR                0 (__class__)'>
+
 * 使用 ``tokenize`` 模块:
+
+.. code-block:: python
 
     In [68]: from io import BytesIO
     In [69]: code = '''
