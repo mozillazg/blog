@@ -1,5 +1,5 @@
-Python: 建造者模式(builder pattern)
-=====================================
+Python 设计模式: 建造者模式(builder pattern)
+================================================
 :date: 2016-08-21
 :slug: python-builder-pattern
 :tags: design pattern, 设计模式

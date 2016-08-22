@@ -1,4 +1,4 @@
-[python] exec 函数的 globals 和 locals 参数的用法
+Python: exec 函数的 globals 和 locals 参数的用法
 ====================================================
 
 :slug: python-exec-function-globals-and-locals-arguments

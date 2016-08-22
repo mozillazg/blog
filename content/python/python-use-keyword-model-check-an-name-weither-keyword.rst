@@ -1,4 +1,4 @@
-[python]使用 keyword 模块检查变量名是否是 python 关键字
+Python: 使用 keyword 模块检查变量名是否是 python 关键字
 =========================================================
 :date: 2016-03-08
 :slug: python-use-keyword-model-check-an-name-weither-keyword

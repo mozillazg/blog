@@ -1,7 +1,7 @@
-Python: 工厂模式(fatcory pattern)
-======================================
+Python 设计模式: 工厂模式(factory pattern)
+============================================
 :date: 2016-08-20
-:slug: python-fatcory-pattern
+:slug: python-factory-pattern
 :tags: design pattern, 设计模式
 
 

@@ -1,4 +1,4 @@
-title: [django] 解决 OperationalError: (1093, "You can't specify target table 'xxx' for update in FROM clause")
+title: Django: 解决 OperationalError: (1093, "You can't specify target table 'xxx' for update in FROM clause")
 slug: django-fix-operationalerror-1093-you-cant-specify-target-table-wedding-plan-for-update-in-from-clause
 date: 2015-11-30 19:00:00
 

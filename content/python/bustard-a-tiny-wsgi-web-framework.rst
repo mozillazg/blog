@@ -1,4 +1,4 @@
-[python]bustard: 一个玩具式的 web 框架
+Python: bustard: 一个玩具式的 web 框架
 =================================================
 :slug: bustard-a-tiny-wsgi-web-framework
 :date: 2016-02-22

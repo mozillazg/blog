@@ -1,4 +1,4 @@
-[django] 使用 Q 对象构建复杂的查询语句
+Django: 使用 Q 对象构建复杂的查询语句
 ==========================================
 
 :slug: django-the-power-of-q-objects-and-how-to-use-q-object

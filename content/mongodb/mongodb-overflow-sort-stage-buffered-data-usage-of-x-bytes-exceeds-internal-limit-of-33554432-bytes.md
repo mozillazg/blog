@@ -1,4 +1,4 @@
-Title: mongodb: 解决 Overflow sort stage buffered data 错误
+Title: MongoDB: 解决 Overflow sort stage buffered data 错误
 Date: 2016-07-02
 Slug: mongodb-overflow-sort-stage-buffered-data-usage-of-x-bytes-exceeds-internal-limit-of-33554432-bytes
 

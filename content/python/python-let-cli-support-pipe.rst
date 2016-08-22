@@ -1,4 +1,4 @@
-[python]如何让命令行程序支持管道和重定向输入
+Python: 如何让命令行程序支持管道和重定向输入
 ==================================================
 :slug: python-let-cli-support-pipe-read-data-from-stdin
 :date: 2016-03-10
