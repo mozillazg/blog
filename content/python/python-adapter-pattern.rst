@@ -28,8 +28,13 @@ Python 设计模式: 适配器模式(adapter pattern)
             content = self._client.get_data(path, ...)
             return content
 
+    def download(client, remote_path, local_path):
+        with open(local_path, 'wb') as fp:
+            content = client.get_content(remote_path)
+            fp.write(content)
+
     client = OSSClient(...)
-    client.get_content('/hello/world.json')
+    download(client, '/hello/world.json', 'hello.json')
 
 
 参考资料
