@@ -17,7 +17,7 @@ Slug: about-me
 * About.me: @[mozillazg](http://about.me/mozillazg)
 * Email: mozillazg101 (at) gmail (dot) com
 
-<!-- 微信：![wechat](/static/wechat.png) -->
+微信：![wechat](/static/wechat.png)
 
 
 <hr/>
