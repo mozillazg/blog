@@ -16,6 +16,18 @@ Python 设计模式: 单例模式(singleton pattern)
 
 .. code-block:: python
 
+    # 存储在类属性中，通过类方法去获取
+    class Singleton:
+        __instance = None
+
+        @classmethod
+        def instance(cls, *args, **kwargs):
+            if cls.__instance is None:
+                cls.__instance = cls(*args, **kwargs)
+            return cls.__instance
+
+
+
     # 在类的 __new__ 方法中判断
     class Singleton:
         __instance = None
@@ -30,28 +42,28 @@ Python 设计模式: 单例模式(singleton pattern)
 
     # 依附在一个可变对象上
     def Singleton(*args, **kwargs):
-        if singleton.instance is not None:
-            return singleton.instance
+        if singleton.__instance is not None:
+            return singleton.__instance
 
         class _Singleton:
             def __init__(self):
                 pass
 
-        singleton.instance = _Singleton(*args, **kwargs)
-        return singleton.instance
+        singleton.__instance = _Singleton(*args, **kwargs)
+        return singleton.__instance
+    Singleton.__instance = None
 
-    Singleton.instance = None
     s1 = Singleton()
     s2 = Singleton()
     assert id(s1) == id(s2)
 
-    # 
+    # 闭包
     class _Singleton:
         def __call__(self):
             return self
-
     Singleton = _Singleton()
     del _Singleton
+
     s1 = Singleton()
     s2 = Singleton()
     assert id(s1) == id(s2)
@@ -65,3 +77,4 @@ Python 设计模式: 单例模式(singleton pattern)
 -----------
 * `《Python in Practice》 <https://book.douban.com/subject/24390228/>`_
 * `The Singleton Pattern implemented with Python « Python recipes « ActiveState Code <http://code.activestate.com/recipes/52558-the-singleton-pattern-implemented-with-python/>`_
+* `SingletonProgramming - Python Wiki <https://wiki.python.org/moin/SingletonProgramming>`_

@@ -181,10 +181,11 @@ Python 3
     $ cat a.py
     def div():
         2 / 0
+
     try:
         div()
     except ZeroDivisionError as e:
-        raise ValueError(e)
+        raise ValueError(e) from e
 
     $ python a.py
     Traceback (most recent call last):
