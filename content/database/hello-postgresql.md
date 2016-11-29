@@ -162,6 +162,9 @@ example:
     $ # 指定 hostname 即可
     $ pg_dump --format=t -d db_name -U user_name -h 127.0.0.1
 
+或者修改 /var/lib/pgsql/xxx/data/pg_hba.conf, 将 `ident` 替换为 `md5`,
+然后重装配置文件：`systemctl status postgresql-9.6.service`
+
 
 ## 参考资料
 
