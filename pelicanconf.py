@@ -6,7 +6,7 @@ import os
 """Settings for pelican."""
 
 AUTHOR = 'mozillazg'
-SITENAME = u"Mozillazg's Blog"
+SITENAME = u"Huang Huang 的博客"
 SITEURL = 'https://mozillazg.com'
 # SITEURL = 'http://127.0.0.1:8000'
 SITEDESCRIPTION = u'Just another Pelican blog'
