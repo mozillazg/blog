@@ -37,7 +37,7 @@ Python 3 和 Python 2 的另一个区别是: Python 3 可以使用直接使用 `
 
 所以，你如果用的是 Python 2 的话，记得将本文的 ``super()`` 替换为 ``suepr(Class, self)`` 。
 
-如果还有其他不兼容 Python 2 的情况，我在本文注明的。
+如果还有其他不兼容 Python 2 的情况，我会在文中注明的。
 
 
 单继承
@@ -186,7 +186,7 @@ MRO 指的是 ``type2`` 的 MRO, MRO 中的那个类就是 ``type1`` ，同时 `
 
     super(C, A).foo()
 
-``super`` 只会从 ``C`` 之后查找，即: 只会在 ``D`` 或 ``E`` 中查找 ``foo`` 方法。
+``super`` 只会从 ``C`` 之后查找，即: 只会在 ``D`` 或 ``E`` 或 ``object`` 中查找 ``foo`` 方法。
 
 多继承中 super 的工作方式
 ----------------------------
@@ -320,5 +320,6 @@ That's all! 希望这篇文章能对你有所帮助 ;)
 
 * `Python's super() Explained <http://sixty-north.com/blog/series/pythons-super-explained>`__
 * `2. Built-in Functions — Python 3.5.2 documentation <https://docs.python.org/3/library/functions.html#super>`__
+* `Python's Super Considered Harmful <https://fuhm.net/super-harmful/>`__
 
 .. |super| image:: /static/images/python/super.png

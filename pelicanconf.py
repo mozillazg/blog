@@ -7,7 +7,7 @@ import os
 
 AUTHOR = 'mozillazg'
 SITENAME = u"Huang Huang 的博客"
-SITEURL = 'https://mozillazg.com'
+SITEURL = 'https://mozillazg.github.io'
 # SITEURL = 'http://127.0.0.1:8000'
 SITEDESCRIPTION = u'Just another Pelican blog'
 
