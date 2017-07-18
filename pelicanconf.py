@@ -7,8 +7,7 @@ import os
 
 AUTHOR = 'mozillazg'
 SITENAME = u"Huang Huang 的博客"
-SITEURL = 'https://mozillazg.github.io'
-# SITEURL = 'http://127.0.0.1:8000'
+SITEURL = os.environ.get('BLOG_SITE_URL', 'https://mozillazg.github.io')
 SITEDESCRIPTION = u'Just another Pelican blog'
 
 # This can also be the absolute path to a theme that you downloaded
@@ -34,14 +33,16 @@ PLUGIN_PATHS = [
 PLUGINS = [
    # 'sitemap',
    'related_posts',
-   'extract_toc',
-   'series',
+   # 'extract_toc',
+   'headerid',
+   # 'series',
 ]
+HEADERID_LINK_CHAR = '¶'
 
 WEBASSETS = True
 ABOUT = u'宅（伪）&& Geek（伪）'
 SITE_DESCRIPTION = u'Just another Pelican blog'
-SITE_KEYWORDS = u'python, web.py, django, firefox, vim'
+SITE_KEYWORDS = u'mozillazg, python, golang'
 
 PYGMENTS_STYLE = 'github'
 # CUSTOM_CSS = 'static/custom.css'

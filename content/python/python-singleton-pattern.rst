@@ -31,9 +31,9 @@ Python 设计模式: 单例模式(singleton pattern)
     # 在类的 __new__ 方法中判断
     class Singleton:
         __instance = None
-        def __new__(self, *args, **kwargs):
+        def __new__(cls, *args, **kwargs):
             if Singleton.__instance is None:
-                Singleton.__instance = object.__new__(self, *args, **kwargs)
+                Singleton.__instance = object.__new__(cls, *args, **kwargs)
             return Singleton.__instance
 
     s1 = Singleton()
@@ -42,15 +42,15 @@ Python 设计模式: 单例模式(singleton pattern)
 
     # 依附在一个可变对象上
     def Singleton(*args, **kwargs):
-        if singleton.__instance is not None:
-            return singleton.__instance
+        if Singleton.__instance is not None:
+            return Singleton.__instance
 
         class _Singleton:
             def __init__(self):
                 pass
 
-        singleton.__instance = _Singleton(*args, **kwargs)
-        return singleton.__instance
+        Singleton.__instance = _Singleton(*args, **kwargs)
+        return Singleton.__instance
     Singleton.__instance = None
 
     s1 = Singleton()
