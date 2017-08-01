@@ -1,5 +1,5 @@
-Python: time.sleep 与 signal 一起使用可能会出现 time.sleep 失效的情况
-==========================================================================
+Python: time.sleep 与 signal 一起使用可能会出现 sleep 被提前终止的情况
+=====================================================================================
 
 :slug: python-time-sleep-terminate-by-signal
 :date: 2017-07-18
@@ -166,7 +166,10 @@ signal handler raise exception
 
     logging.info('start sleep %s seconds', n)
     start = time.time()
-    time.sleep(n)
+    try:
+        time.sleep(n)
+    except Exception as e:
+        logging.exception(e)
     logging.info('end sleep %s seconds, spend %s', n, time.time() - start)
 
 测试：
@@ -175,19 +178,21 @@ signal handler raise exception
 
     $ python time_c.py &
     [1] 6390
-    2017-07-16 16:09:28,459 - INFO - start sleep 60 seconds
+    2017-07-16 16:09:31,340 - INFO - start sleep 60 seconds
 
     $ kill -s SIGHUP 6390
-    2017-07-16 16:09:35,998 - INFO - recived 1
+    2017-07-16 16:09:35,328 - INFO - recived 1
+    2017-07-16 16:09:35,329 - ERROR - test
     Traceback (most recent call last):
-      File "time_c.py", line 22, in <module>
+      File "time_c.py", line 21, in <module>
         time.sleep(n)
-      File "time_c.py", line 15, in handler
+      File "time_c.py", line 14, in handler
         raise Exception('test')
     Exception: test
-    [1]+  Exit 1                  python time_c.py
+    2017-07-16 16:09:35,329 - INFO - end sleep 60 seconds, spend 3.988664150238037
+    [1]+  Done                    python time_c.py
 
-可以看到，当 signal handler 抛异常时，整个程序都退出了。
+可以看到，当 signal handler 抛异常时， ``time.sleep`` 会抛出异常提前终止 sleep 操作。
 
 下面来测试 Python 3.5+ 下这四种情况的行为。
 
@@ -255,20 +260,23 @@ signal handler raise exception
 ::
 
     $ python3.6 time_c.py &
-    [1] 22702
-    2017-07-16 16:20:03,939 - INFO - start sleep 60 seconds
-    $ kill -s SIGHUP 22702
-    2017-07-16 16:20:07,949 - INFO - recived 1
+    [1] 42908
+    2017-07-16 16:20:00,679 - INFO - start sleep 60 seconds
+
+    $ kill -s SIGHUP 42908
+    2017-07-16 16:20:06,126 - INFO - recived 1
+    2017-07-16 16:20:06,126 - ERROR - test
     Traceback (most recent call last):
-      File "time_c.py", line 15, in <module>
+      File "time_c.py", line 21, in <module>
         time.sleep(n)
-      File "time_c.py", line 11, in handler
+      File "time_c.py", line 14, in handler
         raise Exception('test')
     Exception: test
-    [1]+  Exit 1                  python3.6 time_c.py
+    2017-07-16 16:20:06,127 - INFO - end sleep 60 seconds, spend 5.4475321769714355
+    [1]+  Done                    python3.6 time_c.py
 
 可以看到，跟在 Python 2 下一样，当 signal handler
-抛异常时，整个程序都退出了。
+抛异常时，``time.sleep`` 会抛出异常提前终止 sleep 操作。
 
 原因
 ----

@@ -31,7 +31,7 @@ PLUGIN_PATHS = [
    os.path.abspath('./pelican-plugins'),
 ]
 PLUGINS = [
-   # 'sitemap',
+   'sitemap',
    'related_posts',
    # 'extract_toc',
    'headerid',
