@@ -254,10 +254,10 @@ exec 的安全问题
 
 P.S. 整个系列的所有文章地址：
 
-* `让我们一起来构建一个模板引擎（一） <https://mozillazg.com/2016/03/let-us-build-a-template-engine-part1.html>`__
-* `让我们一起来构建一个模板引擎（二） <https://mozillazg.com/2016/03/let-us-build-a-template-engine-part2.html>`__
-* `让我们一起来构建一个模板引擎（三） <https://mozillazg.com/2016/03/let-us-build-a-template-engine-part3.html>`__
-* `让我们一起来构建一个模板引擎（四） <https://mozillazg.com/2016/06/let-us-build-a-template-engine-part4.html>`__
+* `让我们一起来构建一个模板引擎（一） <http://mozillazg.com/2016/03/let-us-build-a-template-engine-part1.html>`__
+* `让我们一起来构建一个模板引擎（二） <http://mozillazg.com/2016/03/let-us-build-a-template-engine-part2.html>`__
+* `让我们一起来构建一个模板引擎（三） <http://mozillazg.com/2016/03/let-us-build-a-template-engine-part3.html>`__
+* `让我们一起来构建一个模板引擎（四） <http://mozillazg.com/2016/06/let-us-build-a-template-engine-part4.html>`__
 
 P.S. 文章中涉及的代码已经放到 GitHub 上了: `<https://github.com/mozillazg/lsbate>`__
 
@@ -276,5 +276,5 @@ P.S. 文章中涉及的代码已经放到 GitHub 上了: `<https://github.com/mo
 .. _template4b.py: https://github.com/mozillazg/lsbate/raw/master/part4/template4b.py
 .. _template4c.py: https://github.com/mozillazg/lsbate/raw/master/part4/template4c.py
 .. _template4d.py: https://github.com/mozillazg/lsbate/raw/master/part4/template4d.py
-.. _上篇文章: https://mozillazg.com/2016/03/let-us-build-a-template-engine-part3.html
-.. _使用 exec 函数时需要注意的一些安全问题: https://mozillazg.com/2016/05/python-some-security-problems-about-use-exec-function.rst.html
+.. _上篇文章: http://mozillazg.com/2016/03/let-us-build-a-template-engine-part3.html
+.. _使用 exec 函数时需要注意的一些安全问题: http://mozillazg.com/2016/05/python-some-security-problems-about-use-exec-function.rst.html

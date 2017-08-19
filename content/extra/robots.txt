@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: /drafts/
-Sitemap: https://mozillazg.com/sitemap.xml
+Sitemap: http://mozillazg.com/sitemap.xml

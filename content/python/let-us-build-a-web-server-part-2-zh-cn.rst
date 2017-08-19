@@ -501,7 +501,7 @@ Web 框架使用来自这个字典里的信息来决定那个 view 可以被用�
 在你离开前，这里有另一个问题需要你思考，”如何让你的服务器能够在同一时刻处理多个请求？“
 
 
-敬请期待，在 `第三部分 <https://mozillazg.com/2015/08/let-us-build-a-web-server-part-3-zh-cn.html>`_ 我将向你展示一种方法。加油！
+敬请期待，在 `第三部分 <http://mozillazg.com/2015/08/let-us-build-a-web-server-part-3-zh-cn.html>`_ 我将向你展示一种方法。加油！
 
 .. _第一部分: http://mozillazg.com/2015/06/let-us-build-a-web-server-part-1-zh-cn.html
 .. _Gunicorn: http://gunicorn.org/

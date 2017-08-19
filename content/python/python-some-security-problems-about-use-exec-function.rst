@@ -251,4 +251,4 @@
 * 增加使用 ``tokenize`` 模块的方法，可以分析嵌套函数。
 
 
-.. _之前: https://mozillazg.com/2016/03/python-exec-function-globals-and-locals-arguments.html
+.. _之前: http://mozillazg.com/2016/03/python-exec-function-globals-and-locals-arguments.html

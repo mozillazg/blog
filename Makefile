@@ -33,6 +33,7 @@ help:
 	@echo '   dropbox_upload                   upload the web site via Dropbox    '
 	@echo '   ftp_upload                       upload the web site via FTP        '
 	@echo '   github                           upload the web site via gh-pages   '
+	@echo '   replace_domain                   replace old domain to new          '
 	@echo '                                                                       '
 
 
@@ -73,4 +74,7 @@ github: publish
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages
 
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload github
+replace_domain:
+	ag -l 'http://mozillazg.com/' |xargs   sed -i 's/https:\/\/mozillazg.com\//http:\/\/mozillazg.com\//g'
+
+.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload github replace_domain

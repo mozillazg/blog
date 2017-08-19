@@ -30,7 +30,7 @@ Slug: about-me
 var disqus_shortname = 'my-github-blog'; // required: replace example with your forum shortname
 
 var disqus_identifier = 'about-me';
-var disqus_url = 'https://mozillazg.com/2014/10/pages/about-me.html';
+var disqus_url = 'http://mozillazg.com/2014/10/pages/about-me.html';
 
 var disqus_config = function () {
 this.language = "zh-hans";

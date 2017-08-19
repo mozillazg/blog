@@ -139,6 +139,7 @@ EXTRA_PATH_METADATA = {
     },
 }
 FAVICON = 'favicon.ico'
+OPEN_GRAPH_IMAGE = 'static/avatar.jpeg'
 USE_FOLDER_AS_CATEGORY = True
 DISPLAY_CATEGORIES_ON_MENU = False
 

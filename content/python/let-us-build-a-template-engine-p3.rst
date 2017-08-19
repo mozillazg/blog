@@ -406,5 +406,5 @@ child2.html:
 .. _template3b.py: https://github.com/mozillazg/lsbate/raw/master/part3/template3b.py
 .. _template3c.py: https://github.com/mozillazg/lsbate/raw/master/part3/template3c.py
 .. _template3d.py: https://github.com/mozillazg/lsbate/raw/master/part3/template3d.py
-.. _第四篇文章: https://mozillazg.com/2016/06/let-us-build-a-template-engine-part4.html
-.. _上篇文章: https://mozillazg.com/2016/03/let-us-build-a-template-engine-part2.html
+.. _第四篇文章: http://mozillazg.com/2016/06/let-us-build-a-template-engine-part4.html
+.. _上篇文章: http://mozillazg.com/2016/03/let-us-build-a-template-engine-part2.html

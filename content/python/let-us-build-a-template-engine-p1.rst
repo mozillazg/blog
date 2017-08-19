@@ -427,4 +427,4 @@ Template
 .. _template1b.py: https://github.com/mozillazg/lsbate/raw/master/part1/template1b.py
 .. _template1c.py: https://github.com/mozillazg/lsbate/raw/master/part1/template1c.py
 .. _template1d.py: https://github.com/mozillazg/lsbate/raw/master/part1/template1d.py
-.. _第二篇文章: https://mozillazg.com/2016/03/let-us-build-a-template-engine-part2.html
+.. _第二篇文章: http://mozillazg.com/2016/03/let-us-build-a-template-engine-part2.html

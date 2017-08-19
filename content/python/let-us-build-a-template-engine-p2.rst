@@ -457,5 +457,5 @@ child.html 渲染后将生成类似下面这样的字符串:
 .. _template2b.py: https://github.com/mozillazg/lsbate/raw/master/part2/template2b.py
 .. _template2c.py: https://github.com/mozillazg/lsbate/raw/master/part2/template2c.py
 .. _template2d.py: https://github.com/mozillazg/lsbate/raw/master/part2/template2d.py
-.. _第三篇文章: https://mozillazg.com/2016/03/let-us-build-a-template-engine-part3.html
-.. _上篇文章: https://mozillazg.com/2016/03/let-us-build-a-template-engine-part1.html
+.. _第三篇文章: http://mozillazg.com/2016/03/let-us-build-a-template-engine-part3.html
+.. _上篇文章: http://mozillazg.com/2016/03/let-us-build-a-template-engine-part1.html
