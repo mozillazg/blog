@@ -44,21 +44,25 @@ tags: tcpdump, wireshark
 
 ## 其他 tcpdump 技巧
 
+抓取本机进程发往指定端口的请求:
+
+    sudo tcpdump dst port 8000
+
 过滤 http 请求和响应:
 
-    sudo tcpdump -i eth0 host 3sd.me and port 80 -v
+    sudo tcpdump host 3sd.me and port 80 -v
 
 过滤 GET 请求:
 
-    sudo tcpdump -i eth0 host 3sd.me and port 80 and 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
+    sudo tcpdump host 3sd.me and port 80 and 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
 
 过滤 POST 请求：
 
-    sudo tcpdump -i eth0 host 3sd.me and port 80 and 'tcp dst port 80 and (tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354)'
+    sudo tcpdump host 3sd.me and port 80 and 'tcp dst port 80 and (tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354)'
 
 使用 `-A` 参数使返回值人类可读
 
-    $ sudo tcpdump -i eth0 -A host 3sd.me and port 80 and 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
+    $ sudo tcpdump -A host 3sd.me and port 80 and 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
     tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
     listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
     18:41:59.219052 IP xxx.xxx.xxx.xxxx > 3sd.me.http: Flags [P.], seq 2875869606:2875869979, ack 2796606839, win 64240, length 373
@@ -72,6 +76,9 @@ tags: tcpdump, wireshark
     Referer: http://3sd.me/
 
 
+更多过滤规则请参考 https://wiki.wireshark.org/CaptureFilters
+
+
 ## 参考资料
 
 * <https://wiki.wireshark.org/CaptureFilters>
@@ -79,5 +86,4 @@ tags: tcpdump, wireshark
 * <https://www.wireshark.org/tools/string-cf.html>
 * <https://sites.google.com/site/jimmyxu101/testing/use-tcpdump-to-monitor-http-traffic>
 * <http://stackoverflow.com/questions/4777042/can-i-use-tcpdump-to-get-http-requests-response-header-and-response-body>
-* <https://www.wireshark.org/tools/string-cf.html
-http://askubuntu.com/questions/252179/how-to-inspect-outgoing-http-requests-of-a-single-application>
+* <http://askubuntu.com/questions/252179/how-to-inspect-outgoing-http-requests-of-a-single-application>>

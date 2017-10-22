@@ -155,3 +155,8 @@ NOT_ON_HOME_CATEGORIES = [
 ]
 SHOW_DATE_MODIFIED = True
 HIDE_SIDEBAR = True
+
+ARTICLE_BUTTOM = '''
+<p>有任何意见欢迎在下方留言或者加我微信交流</p>
+<img src="/static/wechat.png" height="200px" width="200px"/>
+'''
