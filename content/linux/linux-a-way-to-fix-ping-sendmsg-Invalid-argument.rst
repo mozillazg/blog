@@ -1,5 +1,5 @@
-解决 HAProxy 节点网络异常（sendmsg: Invalid argument, Connection timed out ）的办法
-=============================================================================================
+一种解决 HAProxy 节点网络异常（sendmsg: Invalid argument, Connection timed out ）的办法
+==================================================================================================
 
 :slug: linux-a-way-to-fix-haproxy-network-connection-timeout-ping-sendmsg-Invalid-argument-socket-errno-110-connection-timed-out
 :date: 2017-10-21
